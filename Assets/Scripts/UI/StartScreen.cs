@@ -7,6 +7,6 @@ public class StartScreen : MonoBehaviour
     private SceneController _sceneController;
     public void StartGame()
     {
-        _sceneController.LoadScene("MainMenu");
+        _sceneController.LoadScene(1);
     }
 }
