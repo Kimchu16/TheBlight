@@ -412,11 +412,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -11.424066, y: 5.624027}
+    - - {x: -11.189209, y: 5.4022174}
       - {x: -11.332451, y: -0.41632065}
-      - {x: -11.331846, y: -8.379727}
-      - {x: 14.686533, y: -8.470394}
-      - {x: 14.743309, y: 5.5490994}
+      - {x: -11.162228, y: -8.444966}
+      - {x: 14.621295, y: -8.431252}
+      - {x: 14.651976, y: 5.4447184}
       - {x: 1.3137251, y: 5.567714}
   m_UseDelaunayMesh: 0
 --- !u!1 &519420028
@@ -1693,6 +1693,10 @@ PrefabInstance:
     - target: {fileID: 6599661851009985084, guid: ccc15b26032fab44190c3a53043e08a7, type: 3}
       propertyPath: m_Name
       value: CmMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677948574348534587, guid: ccc15b26032fab44190c3a53043e08a7, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
