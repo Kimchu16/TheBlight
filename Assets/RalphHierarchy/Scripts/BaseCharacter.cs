@@ -20,7 +20,6 @@ public class BaseCharacter : MonoBehaviour
 
         movement = new Vector2(moveX, moveY).normalized;
 
-        // Update lastMoveDirection only if moving
         if (movement.magnitude > 0.01f)
         {
             lastMoveDirection = movement;
@@ -38,8 +37,7 @@ public class BaseCharacter : MonoBehaviour
     }
 
     // Send movement data to animator for blending
-
-        protected virtual void Animate(Vector2 direction)
+    protected virtual void Animate(Vector2 direction)
     {
         float speed = direction.magnitude;
         animator.SetBool("IsMoving", speed > 0.01f);
@@ -47,16 +45,26 @@ public class BaseCharacter : MonoBehaviour
 
         if (speed > 0.01f)
         {
-            // Only update MoveX/MoveY when actually moving
-            animator.SetFloat("MoveX", direction.x);
-            animator.SetFloat("MoveY", direction.y);
+            float moveX = Mathf.Round(direction.x);
+            float moveY = Mathf.Round(direction.y);
 
-            lastMoveDirection = direction;
+            // Prioritize main axis for 4-direction movement
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            {
+                moveY = 0;
+            }
+            else
+            {
+                moveX = 0;
+            }
+
+            animator.SetFloat("MoveX", moveX);
+            animator.SetFloat("MoveY", moveY);
+
+            lastMoveDirection = new Vector2(moveX, moveY);
         }
 
-        animator.SetFloat("IdleX", Mathf.Round(lastMoveDirection.x));
-        animator.SetFloat("IdleY", Mathf.Round(lastMoveDirection.y));
-
+        animator.SetFloat("IdleX", lastMoveDirection.x);
+        animator.SetFloat("IdleY", lastMoveDirection.y);
     }
-
 }
