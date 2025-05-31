@@ -1,37 +1,25 @@
 fileFormatVersion: 2
-guid: a150adbcc6221b44ab455b183fa80b2c
+guid: c413d5d888658ec42811ddbef02d50cc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1169501824887271185
-    second: Move_10x1_0
+      213: 5807353947552565585
+    second: Run-Sheet_0
   - first:
-      213: -3432404787862517144
-    second: Move_10x1_1
+      213: -3540906705339577628
+    second: Run-Sheet_1
   - first:
-      213: 3320568628214112455
-    second: Move_10x1_2
+      213: -6677707856435898171
+    second: Run-Sheet_2
   - first:
-      213: 8327438104992861019
-    second: Move_10x1_3
+      213: 4002533974423468926
+    second: Run-Sheet_3
   - first:
-      213: 5363462019402045443
-    second: Move_10x1_4
+      213: 2964676863673857177
+    second: Run-Sheet_4
   - first:
-      213: -7668984762816195053
-    second: Move_10x1_5
-  - first:
-      213: -1126559900801023475
-    second: Move_10x1_6
-  - first:
-      213: 279051378299593658
-    second: Move_10x1_7
-  - first:
-      213: 5845642647421743128
-    second: Move_10x1_8
-  - first:
-      213: 450135394051407914
-    second: Move_10x1_9
+      213: -4675099393403972317
+    second: Run-Sheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Move_10x1_0
+      name: Run-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
-        height: 26
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe05c6b594815cfe0800000000000000
-      internalID: -1169501824887271185
+      spriteID: 15945d885add79050800000000000000
+      internalID: 5807353947552565585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_10x1_1
+      name: Run-Sheet_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 64
         y: 0
-        width: 38
-        height: 26
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86aca16f706ad50d0800000000000000
-      internalID: -3432404787862517144
+      spriteID: 4ea8f6dac1c2cdec0800000000000000
+      internalID: -3540906705339577628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_10x1_2
+      name: Run-Sheet_2
       rect:
         serializedVersion: 2
-        x: 76
+        x: 128
         y: 0
-        width: 38
-        height: 26
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c022010397051e20800000000000000
-      internalID: 3320568628214112455
+      spriteID: 5c89d47a5140453a0800000000000000
+      internalID: -6677707856435898171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_10x1_3
+      name: Run-Sheet_3
       rect:
         serializedVersion: 2
-        x: 114
+        x: 192
         y: 0
-        width: 38
-        height: 26
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5bc629f5d0019370800000000000000
-      internalID: 8327438104992861019
+      spriteID: e7b71f2817bdb8730800000000000000
+      internalID: 4002533974423468926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_10x1_4
+      name: Run-Sheet_4
       rect:
         serializedVersion: 2
-        x: 152
+        x: 256
         y: 0
-        width: 38
-        height: 26
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30812c03a48de6a40800000000000000
-      internalID: 5363462019402045443
+      spriteID: 994791566e5a42920800000000000000
+      internalID: 2964676863673857177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Move_10x1_5
+      name: Run-Sheet_5
       rect:
         serializedVersion: 2
-        x: 190
+        x: 320
         y: 0
-        width: 38
-        height: 26
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,96 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 31615708dfa429590800000000000000
-      internalID: -7668984762816195053
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_10x1_6
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 0
-        width: 38
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d024e8e2db7ad50f0800000000000000
-      internalID: -1126559900801023475
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_10x1_7
-      rect:
-        serializedVersion: 2
-        x: 266
-        y: 0
-        width: 38
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ab361a500c36fd300800000000000000
-      internalID: 279051378299593658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_10x1_8
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 0
-        width: 38
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 810727b2405ef1150800000000000000
-      internalID: 5845642647421743128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Move_10x1_9
-      rect:
-        serializedVersion: 2
-        x: 342
-        y: 0
-        width: 38
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a20c34781c33f3600800000000000000
-      internalID: 450135394051407914
+      spriteID: 32513861fd5be1fb0800000000000000
+      internalID: -4675099393403972317
       vertices: []
       indices: 
       edges: []
@@ -350,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a25a2e59e634f904596b1110475751b1
+    spriteID: 9224fa66bda9980428fc61e5ae4c25f1
     internalID: 0
     vertices: []
     indices: 
@@ -360,16 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Move_10x1_0: -1169501824887271185
-      Move_10x1_1: -3432404787862517144
-      Move_10x1_2: 3320568628214112455
-      Move_10x1_3: 8327438104992861019
-      Move_10x1_4: 5363462019402045443
-      Move_10x1_5: -7668984762816195053
-      Move_10x1_6: -1126559900801023475
-      Move_10x1_7: 279051378299593658
-      Move_10x1_8: 5845642647421743128
-      Move_10x1_9: 450135394051407914
+      Run-Sheet_0: 5807353947552565585
+      Run-Sheet_1: -3540906705339577628
+      Run-Sheet_2: -6677707856435898171
+      Run-Sheet_3: 4002533974423468926
+      Run-Sheet_4: 2964676863673857177
+      Run-Sheet_5: -4675099393403972317
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
