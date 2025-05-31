@@ -60,14 +60,14 @@ TagManager:
   - name: Player
     uniqueID: 1022468705
     locked: 0
+  - name: Enemy
+    uniqueID: 741092623
+    locked: 0
   - name: WalkBehind
     uniqueID: 3969362535
     locked: 0
   - name: Decor
     uniqueID: 1621763573
-    locked: 0
-  - name: New Layer 7
-    uniqueID: 741092623
     locked: 0
   m_RenderingLayers:
   - Default
