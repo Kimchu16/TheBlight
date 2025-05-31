@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3647462466610647764}
   - component: {fileID: 2326206211698719323}
+  - component: {fileID: 4785123341411670857}
   m_Layer: 5
   m_Name: ArrowSelector
   m_TagString: Untagged
@@ -65,6 +66,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4785123341411670857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818744197694914484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7c05f9a5f0aa7499670d0f342a0763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionText: {fileID: 0}
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
 --- !u!1 &5465752474357483575
 GameObject:
   m_ObjectHideFlags: 0
