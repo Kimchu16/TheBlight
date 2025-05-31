@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6150065756567987893}
   - component: {fileID: 6471166765409964980}
   - component: {fileID: 3473826663851223183}
+  - component: {fileID: -7022410943504263064}
   m_Layer: 7
   m_Name: GoblinEnemy
   m_TagString: Enemy
@@ -110,3 +111,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7022410943504263064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031424333996194159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b00cf0dd829c84ea75bd5424695273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  moveSpeed: 5
+  player: {fileID: 0}
