@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: 09e7ef99398b3184fbf706adf07ddbe4
+guid: b98fc9c34f65068488e97ad8272e973d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2101175276847748840
-    second: run_up_0
+      213: -8243957346354837252
+    second: Goblin_Regular_01_ATK_Full_10x1_0
   - first:
-      213: 3396987343971830283
-    second: run_up_1
+      213: -4579909519899908520
+    second: Goblin_Regular_01_ATK_Full_10x1_1
   - first:
-      213: 4026534355312065940
-    second: run_up_2
+      213: 3567548000154810148
+    second: Goblin_Regular_01_ATK_Full_10x1_2
   - first:
-      213: 3746123119762467834
-    second: run_up_3
+      213: -2428478605423765139
+    second: Goblin_Regular_01_ATK_Full_10x1_3
   - first:
-      213: -7395723654248013618
-    second: run_up_4
+      213: 6845152737662045665
+    second: Goblin_Regular_01_ATK_Full_10x1_4
   - first:
-      213: 6925657076329794216
-    second: run_up_5
+      213: -5664595726897239584
+    second: Goblin_Regular_01_ATK_Full_10x1_5
   - first:
-      213: -485735562940750571
-    second: run_up_6
+      213: -4700262523079581213
+    second: Goblin_Regular_01_ATK_Full_10x1_6
   - first:
-      213: 2286054313573989648
-    second: run_up_7
+      213: -4508954427203974800
+    second: Goblin_Regular_01_ATK_Full_10x1_7
+  - first:
+      213: -6269784949703951950
+    second: Goblin_Regular_01_ATK_Full_10x1_8
+  - first:
+      213: 4429778577790652680
+    second: Goblin_Regular_01_ATK_Full_10x1_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -117,30 +123,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run_up_0
+      name: Goblin_Regular_01_ATK_Full_10x1_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 20
-        width: 15
-        height: 23
+        x: 0
+        y: 0
+        width: 38
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81928acd73027d2e0800000000000000
-      internalID: -2101175276847748840
+      spriteID: cf84c0bc874979d80800000000000000
+      internalID: -8243957346354837252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_up_1
+      name: Goblin_Regular_01_ATK_Full_10x1_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 19
-        width: 15
-        height: 23
+        x: 38
+        y: 0
+        width: 38
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b0a40f7cdf5842f20800000000000000
-      internalID: 3396987343971830283
+      spriteID: 856afea9e84e070c0800000000000000
+      internalID: -4579909519899908520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_up_2
+      name: Goblin_Regular_01_ATK_Full_10x1_2
       rect:
         serializedVersion: 2
-        x: 112
-        y: 19
-        width: 15
-        height: 22
+        x: 76
+        y: 0
+        width: 38
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 49d3844a9af11e730800000000000000
-      internalID: 4026534355312065940
+      spriteID: 427f164210a728130800000000000000
+      internalID: 3567548000154810148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_up_3
+      name: Goblin_Regular_01_ATK_Full_10x1_3
       rect:
         serializedVersion: 2
-        x: 160
-        y: 20
-        width: 15
-        height: 23
+        x: 114
+        y: 0
+        width: 38
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: afbe15e2127ecf330800000000000000
-      internalID: 3746123119762467834
+      spriteID: d699413339f4c4ed0800000000000000
+      internalID: -2428478605423765139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_up_4
+      name: Goblin_Regular_01_ATK_Full_10x1_4
       rect:
         serializedVersion: 2
-        x: 208
-        y: 20
-        width: 15
-        height: 23
+        x: 152
+        y: 0
+        width: 38
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec0e79b458c1d5990800000000000000
-      internalID: -7395723654248013618
+      spriteID: 1ed83a1d52edefe50800000000000000
+      internalID: 6845152737662045665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_up_5
+      name: Goblin_Regular_01_ATK_Full_10x1_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 19
-        width: 15
-        height: 23
+        x: 190
+        y: 0
+        width: 38
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,20 +252,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8aacececa60ec1060800000000000000
-      internalID: 6925657076329794216
+      spriteID: 0e9281ed2305361b0800000000000000
+      internalID: -5664595726897239584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_up_6
+      name: Goblin_Regular_01_ATK_Full_10x1_6
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e1a2c8632055ceb0800000000000000
+      internalID: -4700262523079581213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_Regular_01_ATK_Full_10x1_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 079051286d9fc61c0800000000000000
+      internalID: -4508954427203974800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_Regular_01_ATK_Full_10x1_8
       rect:
         serializedVersion: 2
         x: 304
-        y: 19
-        width: 15
-        height: 22
+        y: 0
+        width: 38
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 515642c34125249f0800000000000000
-      internalID: -485735562940750571
+      spriteID: 2b93ec69ecf3df8a0800000000000000
+      internalID: -6269784949703951950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_up_7
+      name: Goblin_Regular_01_ATK_Full_10x1_9
       rect:
         serializedVersion: 2
-        x: 352
-        y: 20
-        width: 15
-        height: 23
+        x: 342
+        y: 0
+        width: 38
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,8 +340,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01db3d14942b9bf10800000000000000
-      internalID: 2286054313573989648
+      spriteID: 801d8d2852cb97d30800000000000000
+      internalID: 4429778577790652680
       vertices: []
       indices: 
       edges: []
@@ -313,7 +350,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a711ec4e03663564c862c0c21c729aa5
     internalID: 0
     vertices: []
     indices: 
@@ -323,12 +360,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Walk_Side-Sheet_0: -101647248584342700
-      Walk_Side-Sheet_1: -6023207487850845445
-      Walk_Side-Sheet_2: 1337438486448447632
-      Walk_Side-Sheet_3: 441789765684697511
-      Walk_Side-Sheet_4: 4921535614873519707
-      Walk_Side-Sheet_5: -3875253593263742687
+      Goblin_Regular_01_ATK_Full_10x1_0: -8243957346354837252
+      Goblin_Regular_01_ATK_Full_10x1_1: -4579909519899908520
+      Goblin_Regular_01_ATK_Full_10x1_2: 3567548000154810148
+      Goblin_Regular_01_ATK_Full_10x1_3: -2428478605423765139
+      Goblin_Regular_01_ATK_Full_10x1_4: 6845152737662045665
+      Goblin_Regular_01_ATK_Full_10x1_5: -5664595726897239584
+      Goblin_Regular_01_ATK_Full_10x1_6: -4700262523079581213
+      Goblin_Regular_01_ATK_Full_10x1_7: -4508954427203974800
+      Goblin_Regular_01_ATK_Full_10x1_8: -6269784949703951950
+      Goblin_Regular_01_ATK_Full_10x1_9: 4429778577790652680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

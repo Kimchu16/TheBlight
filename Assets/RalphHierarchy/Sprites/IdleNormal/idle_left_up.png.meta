@@ -323,14 +323,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      idle_left_up_0: -5451566651437993918
-      idle_left_up_1: -4380692695058691969
-      idle_left_up_2: -1366645441477352214
-      idle_left_up_3: -5261581899018071787
-      idle_left_up_4: 6955984235351923701
-      idle_left_up_5: 4996933249707978301
-      idle_left_up_6: -8621808345545442281
-      idle_left_up_7: 7637616236436814226
+      Walk_Up-Sheet_0: 3185446667623891690
+      Walk_Up-Sheet_1: 820859723541564231
+      Walk_Up-Sheet_2: -6495369881430036456
+      Walk_Up-Sheet_3: 5205998806352398727
+      Walk_Up-Sheet_4: 2385129444154374
+      Walk_Up-Sheet_5: -5786572667617356748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
