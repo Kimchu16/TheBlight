@@ -1,22 +1,37 @@
 fileFormatVersion: 2
-guid: 159917dde18f5f7499ca2ff44b1a3e66
+guid: 6d527dab6c94e694dbafbd1d22f4d8fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2056272993643239682
-    second: ATK_5x1_0
+      213: 5857223659876662830
+    second: ATK_Full_10x1_0
   - first:
-      213: -2426862974997673716
-    second: ATK_5x1_1
+      213: 1355750891944913766
+    second: ATK_Full_10x1_1
   - first:
-      213: 3527880165961851957
-    second: ATK_5x1_2
+      213: 7689273034714323139
+    second: ATK_Full_10x1_2
   - first:
-      213: -7322651367926696424
-    second: ATK_5x1_3
+      213: -259245604570420156
+    second: ATK_Full_10x1_3
   - first:
-      213: -3687380326643823821
-    second: ATK_5x1_4
+      213: -3727448102436844653
+    second: ATK_Full_10x1_4
+  - first:
+      213: 3035351685678984456
+    second: ATK_Full_10x1_5
+  - first:
+      213: 9134995012843077915
+    second: ATK_Full_10x1_6
+  - first:
+      213: -1987539004500275128
+    second: ATK_Full_10x1_7
+  - first:
+      213: -4633585546672357610
+    second: ATK_Full_10x1_8
+  - first:
+      213: 8049536443344262882
+    second: ATK_Full_10x1_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ATK_5x1_0
+      name: ATK_Full_10x1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2099553a469598c10800000000000000
-      internalID: 2056272993643239682
+      spriteID: e2e36f0c2e9094150800000000000000
+      internalID: 5857223659876662830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATK_5x1_1
+      name: ATK_Full_10x1_1
       rect:
         serializedVersion: 2
         x: 38
@@ -149,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0947b87bfc025ed0800000000000000
-      internalID: -2426862974997673716
+      spriteID: 66bab4ec04890d210800000000000000
+      internalID: 1355750891944913766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATK_5x1_2
+      name: ATK_Full_10x1_2
       rect:
         serializedVersion: 2
         x: 76
@@ -171,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5346d46c15c85f030800000000000000
-      internalID: 3527880165961851957
+      spriteID: 3c81327e519c5ba60800000000000000
+      internalID: 7689273034714323139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATK_5x1_3
+      name: ATK_Full_10x1_3
       rect:
         serializedVersion: 2
         x: 114
@@ -193,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81673b0c067b06a90800000000000000
-      internalID: -7322651367926696424
+      spriteID: 44caff50f79f66cf0800000000000000
+      internalID: -259245604570420156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ATK_5x1_4
+      name: ATK_Full_10x1_4
       rect:
         serializedVersion: 2
         x: 152
@@ -215,8 +230,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33b81a6212bc3dcc0800000000000000
-      internalID: -3687380326643823821
+      spriteID: 39b4c8f13b1754cc0800000000000000
+      internalID: -3727448102436844653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATK_Full_10x1_5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80d6741b64cbf1a20800000000000000
+      internalID: 3035351685678984456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATK_Full_10x1_6
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b110a7d909506ce70800000000000000
+      internalID: 9134995012843077915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATK_Full_10x1_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 840178b4ec7da64e0800000000000000
+      internalID: -1987539004500275128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATK_Full_10x1_8
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 0
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61fb53ebe7232bfb0800000000000000
+      internalID: -4633585546672357610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATK_Full_10x1_9
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 0
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e698183fb2b5bf60800000000000000
+      internalID: 8049536443344262882
       vertices: []
       indices: 
       edges: []
@@ -225,7 +350,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a661c41e6072c924f8703c497a13189a
+    spriteID: 22287da67b036cf44ae25908c8d0e7a9
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +360,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ATK_5x1_0: 2056272993643239682
-      ATK_5x1_1: -2426862974997673716
-      ATK_5x1_2: 3527880165961851957
-      ATK_5x1_3: -7322651367926696424
-      ATK_5x1_4: -3687380326643823821
+      ATK_Full_10x1_0: 5857223659876662830
+      ATK_Full_10x1_1: 1355750891944913766
+      ATK_Full_10x1_2: 7689273034714323139
+      ATK_Full_10x1_3: -259245604570420156
+      ATK_Full_10x1_4: -3727448102436844653
+      ATK_Full_10x1_5: 3035351685678984456
+      ATK_Full_10x1_6: 9134995012843077915
+      ATK_Full_10x1_7: -1987539004500275128
+      ATK_Full_10x1_8: -4633585546672357610
+      ATK_Full_10x1_9: 8049536443344262882
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
