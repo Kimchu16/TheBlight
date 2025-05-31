@@ -34,3 +34,5 @@ public class SettingsMenuController : MonoBehaviour
         otherSettingsPanel.SetActive(true);
     }
 }
+
+

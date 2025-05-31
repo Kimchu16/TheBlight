@@ -11,13 +11,28 @@ public class Selector : MonoBehaviour
     private Resolution[] resolutions;
     private int currentResolutionIndex = 0;
 
-    void Start()
+    void Awake()
     {
         resolutions = Screen.resolutions;
+    }
+
+    void Start()
+    {
         UpdateResolutionText();
 
         leftButton.onClick.AddListener(PreviousResolution);
         rightButton.onClick.AddListener(NextResolution);
+    }
+
+    public void SetResolution(int index)
+    {
+        currentResolutionIndex = Mathf.Clamp(index, 0, resolutions.Length - 1);
+        UpdateResolutionText();
+    }
+
+    public int GetCurrentResolutionIndex()
+    {
+        return currentResolutionIndex;
     }
 
     void PreviousResolution()
@@ -36,5 +51,9 @@ public class Selector : MonoBehaviour
     {
         var res = resolutions[currentResolutionIndex];
         resolutionText.text = res.width + "x" + res.height;
+    }
+    public Resolution GetSelectedResolution()
+    {
+        return resolutions[currentResolutionIndex];
     }
 }

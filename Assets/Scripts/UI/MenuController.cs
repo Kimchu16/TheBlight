@@ -6,9 +6,11 @@ public class MenuController : MonoBehaviour
     [Header("References")]
     public GameStateSO gameState;
     public SceneController sceneController;     
-    public Button continueButton;             
+    public Button continueButton;
+    public Button newGameButton;
 
-    void Start(){
+    void Start()
+    {
         //Debug.Log("Loaded Scene Index before load: " + gameState.sceneProgress.lastScene);
         gameState.sceneProgress.Load(); // Load save file if any exists
         //Debug.Log("Loaded Scene Index after load: " + gameState.sceneProgress.lastScene);
@@ -18,6 +20,10 @@ public class MenuController : MonoBehaviour
         if (gameState.sceneProgress.lastScene < 3) // Saved scene is title or menu, aka no saved stage
         {
             continueButton.gameObject.SetActive(false);
+        }
+        else if (gameState.sceneProgress.lastScene > 3)
+        {
+            newGameButton.gameObject.SetActive(false);
         }
     }
 
