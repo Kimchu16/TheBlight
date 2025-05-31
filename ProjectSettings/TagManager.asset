@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - Coin
+  - Character
+  - UI
+  - Consumables
+  - Projectiles
+  - Weapons
   layers:
   - Default
   - TransparentFX
@@ -11,14 +18,14 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Enemy
+  - Ground
+  - Weapon
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Consumables
+  - Projectiles
+  - Coin
   - 
   - 
   - 
@@ -54,7 +61,7 @@ TagManager:
     uniqueID: 1022468705
     locked: 0
   - name: Enemy
-    uniqueID: 472289511
+    uniqueID: 741092623
     locked: 0
   - name: WalkBehind
     uniqueID: 3969362535
