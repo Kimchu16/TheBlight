@@ -4,6 +4,7 @@ public class EnemyController : EnemyBase
 {
     public Transform player;
     protected Animator animator;
+    private bool isDying = false;
 
     protected virtual void Update()
     {
@@ -27,7 +28,16 @@ public class EnemyController : EnemyBase
         player = player ?? GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
-       public override void TakeDamage(float damage) {
+    public override void TakeDamage(float damage)
+    {
         base.TakeDamage(damage);
     }
+
+    protected override void Die()
+    {
+        if (isDying) return;
+        isDying = true;
+        animator.SetTrigger("isDying");
+    }
+
 }

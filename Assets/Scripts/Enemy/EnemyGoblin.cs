@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyGoblin : EnemyController
 {
-protected override void Start()
+    protected override void Start()
     {
         base.Start(); // Sets animator and finds player
     }
@@ -25,4 +25,12 @@ protected override void Start()
             animator.SetFloat("Speed", 0f);
         }
     }
+
+    protected override void Die()
+    {
+        base.Die();
+        Destroy(gameObject, 20f);
+    }
+
+
 }
