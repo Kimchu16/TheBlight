@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - Coin
+  - Character
+  - UI
+  - Consumables
+  - Projectiles
+  - Weapons
   layers:
   - Default
   - TransparentFX
@@ -11,14 +18,14 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Enemy
+  - Ground
+  - Weapon
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Consumables
+  - Projectiles
+  - Coin
   - 
   - 
   - 
@@ -58,6 +65,9 @@ TagManager:
     locked: 0
   - name: Decor
     uniqueID: 1621763573
+    locked: 0
+  - name: New Layer 7
+    uniqueID: 741092623
     locked: 0
   m_RenderingLayers:
   - Default
