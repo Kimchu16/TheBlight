@@ -29,3 +29,4 @@ public class ButtonVisualHandler : MonoBehaviour, ISelectHandler, IDeselectHandl
         backgroundImage.sprite = selectedSprite;
     }
 }
+
