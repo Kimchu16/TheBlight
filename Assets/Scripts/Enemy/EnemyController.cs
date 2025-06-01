@@ -3,10 +3,6 @@ using System.Collections;
 
 public class EnemyController : EnemyBase
 {
-    public Transform player;
-    protected Animator animator;
-    protected bool isDying = false;
-    private Vector3 originalScale;
     protected virtual void Update()
     {
 
@@ -38,35 +34,13 @@ public class EnemyController : EnemyBase
             // Within attack range, don't move (idle or attack)
             Move(Vector3.zero); // Optional: you can stop movement cleanly
         }
-    }
+    }  
 
-    IEnumerator FindPlayerAfterDelay()
+
+    public override void Die()
     {
-        yield return new WaitForSeconds(0.5f); // wait 0.5 second, not just 1 frame
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        animator = GetComponentInChildren<Animator>();
-        originalScale = transform.localScale; // To keep original size
-
-        StartCoroutine(FindPlayerAfterDelay());
-    }
-
-
-
-    public override void TakeDamage(float damage)
-    {
-        base.TakeDamage(damage);
-    }
-
-    protected override void Die()
-    {
-        if (isDying) return;
-        isDying = true;
         animator.SetTrigger("isDying");
+        Destroy(gameObject, 0.12f);
     }
 
 

@@ -2,18 +2,10 @@ using UnityEngine;
 
 public class EnemyGoblin : EnemyController
 {
-    public float attackCooldown = 1f;  // Attack every 1 second
-    private float lastAttackTime;
-    private bool playerInRange = false; // <-- New
     private Transform playerTransform;
     private int attackCount = 0;
     public float stopDistance = 1.2f;
-    [SerializeField] private GoblinAttackHitbox AttackHitBox;
-
-    protected override void Start()
-    {
-        base.Start(); // Sets animator and finds player
-    }
+   
 
     protected override void Update()
     {
@@ -42,34 +34,9 @@ public class EnemyGoblin : EnemyController
         }
     }
 
-    private void Attack()
-    {
-        if (isDying || !playerInRange) return;
-
-        animator.SetTrigger("GoblinAttack");
-
-        if (AttackHitBox != null)
-        {
-            AttackHitBox.DamagePlayer(10f); // <-- Deal 10 damage!
-        }
-
-        Debug.Log("Goblin swings! Attack #" + (++attackCount));
-    }
-
-    protected override void Die()
-    {
-        if (isDying) return;
-        isDying = true;
-        if (coinPrefab != null)
-        {
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
-        }
-        animator.SetTrigger("GoblinDeath");
-        Destroy(gameObject, 0.12f);
-    }
-
     public void KillGoblin()
     {
+        animator.SetTrigger("GoblinDeath");
         Die(); // internally call the protected one
     }
 

@@ -7,14 +7,14 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth = 20f;
     private float currentHealth;
 
-    private EnemyGoblin enemyGoblin;
+    private EnemyBase enemyBase;
 
     private void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthBar();
 
-        enemyGoblin = GetComponent<EnemyGoblin>();
+        enemyBase = GetComponent<EnemyBase>();
     }
 
     public virtual void TakeDamage(float damage)
@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            enemyGoblin.KillGoblin();
+            enemyBase.Die(); // Or a public Kill method
         }
         UpdateHealthBar();        // Move this below so health bar updates even at 0
     }
