@@ -5,6 +5,7 @@ public class EnemyBase : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public float moveSpeed = 5f;
+    public GameObject coinPrefab;
 
     public virtual void TakeDamage(float damage)
     {

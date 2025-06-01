@@ -113,8 +113,10 @@ GameObject:
   - component: {fileID: 7760500699883957098}
   - component: {fileID: 124509062623789142}
   - component: {fileID: 5548426828724879747}
+  - component: {fileID: 4822441681320666573}
   - component: {fileID: 2256110632605512613}
   - component: {fileID: 964981111935921603}
+  - component: {fileID: 1565441156012958917}
   m_Layer: 7
   m_Name: GoblinEnemy
   m_TagString: Enemy
@@ -130,7 +132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468391442047033460}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
@@ -180,7 +182,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 741092623
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -6045141606933174660, guid: 1720ca3aaf1b0314392b3b0f95930b17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -215,6 +217,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &4822441681320666573
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468391442047033460}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.03, y: -0.1}
+  m_Radius: 0.14
 --- !u!114 &2256110632605512613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +268,10 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   moveSpeed: 3
+  coinPrefab: {fileID: 141098646025053599, guid: ea29bbf1734247646934e41a419ac35a, type: 3}
   player: {fileID: 2604966994394813988, guid: 3d977c84fb07c94458147a64663d94f5, type: 3}
+  attackCooldown: 1
+  stopDistance: 1.2
 --- !u!114 &964981111935921603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +286,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthFillImage: {fileID: 734801665303275470}
   maxHealth: 100
+--- !u!50 &1565441156012958917
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468391442047033460}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &725469960307270280
 GameObject:
   m_ObjectHideFlags: 0

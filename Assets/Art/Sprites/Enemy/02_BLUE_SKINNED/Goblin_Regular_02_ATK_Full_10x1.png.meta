@@ -123,6 +123,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -359,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Goblin_Regular_02_ATK_Full_10x1_0: -6120667950996150926
+      Goblin_Regular_02_ATK_Full_10x1_1: 4802523016106955290
+      Goblin_Regular_02_ATK_Full_10x1_2: 8225339648134614797
+      Goblin_Regular_02_ATK_Full_10x1_3: 7512410096348456158
+      Goblin_Regular_02_ATK_Full_10x1_4: 8075221347913104473
+      Goblin_Regular_02_ATK_Full_10x1_5: 91146268037773303
+      Goblin_Regular_02_ATK_Full_10x1_6: 7594734949886967266
+      Goblin_Regular_02_ATK_Full_10x1_7: 7168344236592629008
+      Goblin_Regular_02_ATK_Full_10x1_8: -3461264715008258491
+      Goblin_Regular_02_ATK_Full_10x1_9: -2246142873529696369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
