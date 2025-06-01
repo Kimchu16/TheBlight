@@ -111,6 +111,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -259,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Orc_Archer_02_Move_6x1_0: -7725509722642188665
+      Orc_Archer_02_Move_6x1_1: -5752021042479157510
+      Orc_Archer_02_Move_6x1_2: 7509169329107884164
+      Orc_Archer_02_Move_6x1_3: -2491288153266955113
+      Orc_Archer_02_Move_6x1_4: -8926841165910563049
+      Orc_Archer_02_Move_6x1_5: 7654855298793483825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

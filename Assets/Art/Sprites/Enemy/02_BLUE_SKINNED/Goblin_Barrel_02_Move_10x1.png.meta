@@ -123,6 +123,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -359,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Goblin_Barrel_02_Move_10x1_0: -5992343591530496753
+      Goblin_Barrel_02_Move_10x1_1: 3242424101937140710
+      Goblin_Barrel_02_Move_10x1_2: -5031076904488862852
+      Goblin_Barrel_02_Move_10x1_3: 7716616387837885863
+      Goblin_Barrel_02_Move_10x1_4: -6717116122795457657
+      Goblin_Barrel_02_Move_10x1_5: -8490380184715074168
+      Goblin_Barrel_02_Move_10x1_6: -8813876545707450522
+      Goblin_Barrel_02_Move_10x1_7: 8410557518795034564
+      Goblin_Barrel_02_Move_10x1_8: -7357036759034340094
+      Goblin_Barrel_02_Move_10x1_9: -6098467590331880692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

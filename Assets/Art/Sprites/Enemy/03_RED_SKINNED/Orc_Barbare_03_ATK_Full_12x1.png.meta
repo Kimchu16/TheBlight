@@ -129,6 +129,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -409,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Orc_Barbare_03_ATK_Full_12x1_0: 8687992111689595817
+      Orc_Barbare_03_ATK_Full_12x1_1: -5337033450383180720
+      Orc_Barbare_03_ATK_Full_12x1_10: -2469231219957664469
+      Orc_Barbare_03_ATK_Full_12x1_11: 4220007049651926501
+      Orc_Barbare_03_ATK_Full_12x1_2: -2726059279500608601
+      Orc_Barbare_03_ATK_Full_12x1_3: 4133384355816935178
+      Orc_Barbare_03_ATK_Full_12x1_4: -1829091803854368865
+      Orc_Barbare_03_ATK_Full_12x1_5: -8960126913847381516
+      Orc_Barbare_03_ATK_Full_12x1_6: -2840032476948310983
+      Orc_Barbare_03_ATK_Full_12x1_7: 7595453323577947212
+      Orc_Barbare_03_ATK_Full_12x1_8: 4708628131094015050
+      Orc_Barbare_03_ATK_Full_12x1_9: 9095345516417814692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,6 +147,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -559,7 +572,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Orc_Archer_01_ATK_Full_18x1_0: 1142810526620417398
+      Orc_Archer_01_ATK_Full_18x1_1: 4917811286378286607
+      Orc_Archer_01_ATK_Full_18x1_10: 7236668046910100574
+      Orc_Archer_01_ATK_Full_18x1_11: 1435701043067455479
+      Orc_Archer_01_ATK_Full_18x1_12: -6322903087469017947
+      Orc_Archer_01_ATK_Full_18x1_13: 1915865147878939566
+      Orc_Archer_01_ATK_Full_18x1_14: -1710475023547505174
+      Orc_Archer_01_ATK_Full_18x1_15: -1761298498640996851
+      Orc_Archer_01_ATK_Full_18x1_16: -3451005290142369268
+      Orc_Archer_01_ATK_Full_18x1_17: 946926884826678222
+      Orc_Archer_01_ATK_Full_18x1_2: -4994723577109539189
+      Orc_Archer_01_ATK_Full_18x1_3: 8622751865190148187
+      Orc_Archer_01_ATK_Full_18x1_4: 2042319535732473748
+      Orc_Archer_01_ATK_Full_18x1_5: -6771275026530641776
+      Orc_Archer_01_ATK_Full_18x1_6: 7969820352222232025
+      Orc_Archer_01_ATK_Full_18x1_7: 9007288660708169467
+      Orc_Archer_01_ATK_Full_18x1_8: 6095969335139454361
+      Orc_Archer_01_ATK_Full_18x1_9: -3974693412796718422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
