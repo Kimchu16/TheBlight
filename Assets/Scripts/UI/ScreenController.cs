@@ -24,11 +24,10 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadSceneCoroutine(sceneName));
     }
 
-    public int NextScene()
+    public void NextScene()
     {
-        int nextScene = SceneManager.GetActiveScene().buildIndex + 1; 
+        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         LoadScene(nextScene);
-        return nextScene;
     }
 
     private IEnumerator LoadSceneCoroutine(int sceneName)
