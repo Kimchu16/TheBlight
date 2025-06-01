@@ -12,11 +12,16 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected float attackCooldown = 1f;
     [SerializeField] protected float attackDamage = 10f;
     [SerializeField] protected GoblinAttackHitbox AttackHitBox;
+    protected virtual string AttackTriggerName => "GoblinAttack";
+    protected virtual string DeathTriggerName => "GoblinDeath";
     protected float lastAttackTime;
     public bool playerInRange = false;
 
     protected Transform player;
     protected Vector3 originalScale;
+
+    protected Transform playerTransform;
+    protected int attackCount = 0;
 
     protected void Start()
     {
@@ -45,7 +50,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (isDying || !playerInRange) return;
 
-        animator.SetTrigger("GoblinAttack");
+        animator.SetTrigger(AttackTriggerName);
 
         if (AttackHitBox != null)
         {
@@ -61,11 +66,36 @@ public class EnemyBase : MonoBehaviour
         {
             Instantiate(coinPrefab, transform.position, Quaternion.identity);
         }
-        Destroy(gameObject, 0.12f);
+        Destroy(gameObject, 2f);
     }
 
     public virtual void Move(Vector3 direction)
     {
         transform.Translate(direction * moveSpeed * Time.deltaTime);
+    }
+
+    protected void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Hit enemy!");
+            playerInRange = true;
+            playerTransform = other.transform;
+
+            attackCount = 0; // <-- Reset attack counter when player enters range
+            Debug.Log("Player entered range! Starting attack sequence.");
+        }
+    }
+
+    protected void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            playerTransform = null;
+
+            Debug.Log("Player left range. Total attacks made: " + attackCount);
+            animator.SetFloat("Speed", 0f);
+        }
     }
 }

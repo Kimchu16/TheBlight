@@ -1,11 +1,11 @@
 using UnityEngine;
-using System.Collections; 
+using System.Collections;
 
 public class EnemyController : EnemyBase
 {
+
     protected virtual void Update()
     {
-
         if (player == null)
         {
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -34,13 +34,14 @@ public class EnemyController : EnemyBase
             // Within attack range, don't move (idle or attack)
             Move(Vector3.zero); // Optional: you can stop movement cleanly
         }
-    }  
-
+    }
 
     public override void Die()
     {
         animator.SetTrigger("isDying");
-        Destroy(gameObject, 0.12f);
+        animator.SetTrigger(DeathTriggerName);
+        Destroy(gameObject, 1f);
+        
     }
 
 

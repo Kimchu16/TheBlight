@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class EnemyGoblin : EnemyController
 {
-    private Transform playerTransform;
-    private int attackCount = 0;
-    public float stopDistance = 1.2f;
-   
 
     protected override void Update()
     {
@@ -36,34 +32,8 @@ public class EnemyGoblin : EnemyController
 
     public void KillGoblin()
     {
-        animator.SetTrigger("GoblinDeath");
+        animator.SetTrigger("isDying");
         Die(); // internally call the protected one
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Hit enemy!");
-            playerInRange = true;
-            playerTransform = other.transform;
-
-            attackCount = 0; // <-- Reset attack counter when player enters range
-            Debug.Log("Player entered range! Starting attack sequence.");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-            playerTransform = null;
-
-            Debug.Log("Player left range. Total attacks made: " + attackCount);
-            animator.SetFloat("Speed", 0f);
-        }
-    }
-
 
 }
