@@ -19,11 +19,11 @@ public class BaseCharacter : MonoBehaviour
     // Stamina
     public float maxStamina = 10f;
     public float currentStamina;
-    public float staminaDrainRate = 1f;
+    public float staminaDrainRate = 0.5f;
     public float staminaRegenRate = 1.5f;
     public Image StaminaFill;
 
-    private bool isResting = false;
+    private bool isRestingInPeace = false;
     private bool isRunning = false;
 
     protected virtual void Start()
@@ -41,8 +41,7 @@ public class BaseCharacter : MonoBehaviour
     {
         HandleInput();
         HandleStamina();
-
-        if (isResting)
+        if (isRestingInPeace)
         {
             Animate(); // Optional: could add rest animation here
             return;
@@ -77,7 +76,7 @@ public class BaseCharacter : MonoBehaviour
             if (currentStamina <= 0f)
             {
                 currentStamina = 0f;
-                isResting = true;
+                isRestingInPeace = true;
             }
         }
         else
@@ -91,7 +90,7 @@ public class BaseCharacter : MonoBehaviour
                 if (currentStamina >= maxStamina)
                 {
                     currentStamina = maxStamina;
-                    isResting = false;
+                    isRestingInPeace = false;
                 }
             }
         }

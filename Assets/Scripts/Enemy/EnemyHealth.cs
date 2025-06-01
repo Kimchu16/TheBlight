@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     public Image healthFillImage;
-    public float maxHealth = 100f;
+    public float maxHealth = 20f;
     private float currentHealth;
 
     private EnemyGoblin enemyGoblin;
@@ -33,12 +33,4 @@ public class EnemyHealth : MonoBehaviour
         healthFillImage.fillAmount = currentHealth / maxHealth;
     }
 
-    // For testing purpose, reduce health every second
-    private void Update()
-    {
-        if (Time.frameCount % 60 == 0)  // Roughly every second
-        {
-            TakeDamage(10f);
-        }
-    }
 }
