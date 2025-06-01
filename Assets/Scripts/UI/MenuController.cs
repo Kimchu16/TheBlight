@@ -38,6 +38,12 @@ public class MenuController : MonoBehaviour
         sceneController.LoadScene(gameState.sceneProgress.lastScene);  // Resume from last scene saved
     }
 
+    public void MainMenu()
+    {
+        gameState.SaveAll();
+        sceneController.LoadScene(1);
+    }
+
     public void QuitGame(){
         Application.Quit();
     }
