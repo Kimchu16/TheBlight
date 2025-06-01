@@ -8,7 +8,7 @@ public class PlayerCharacter : BaseCharacter
     {
         if (!isAttacking)
         {
-            base.Update(); // Handle movement and animation
+            base.Update();
         }
 
         if (Input.GetKeyDown(KeyCode.E) && !isAttacking)
@@ -25,8 +25,7 @@ public class PlayerCharacter : BaseCharacter
         animator.SetTrigger("Attack");
     }
 
-    // Called via animation event at the end of the attack animation
-    public void EndAttack()
+    public void EndAttack() // Called via animation event
     {
         isAttacking = false;
     }

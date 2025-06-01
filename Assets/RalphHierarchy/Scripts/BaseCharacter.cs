@@ -3,27 +3,51 @@ using UnityEngine.UI;
 
 public class BaseCharacter : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float walkSpeed = 5f;
+    public float runSpeed = 7.5f;
+    protected float currentMoveSpeed;
 
     protected Animator animator;
     protected Vector2 movement;
     protected Vector2 lastMoveDirection = Vector2.down;
 
-    //health
+    // Health
     public float maxHealth = 100f;
     public float currentHealth;
     public Image healthBarFill;
+
+    // Stamina
+    public float maxStamina = 10f;
+    public float currentStamina;
+    public float staminaDrainRate = 1f;
+    public float staminaRegenRate = 1.5f;
+    public Image StaminaFill;
+
+    private bool isResting = false;
+    private bool isRunning = false;
 
     protected virtual void Start()
     {
         animator = GetComponentInChildren<Animator>();
         currentHealth = maxHealth;
+        currentStamina = maxStamina;
+        currentMoveSpeed = walkSpeed;
+
         UpdateHealthBar();
+        UpdateStaminaBar();
     }
 
     protected virtual void Update()
     {
         HandleInput();
+        HandleStamina();
+
+        if (isResting)
+        {
+            Animate(); // Optional: could add rest animation here
+            return;
+        }
+
         Move();
         Animate();
     }
@@ -40,9 +64,44 @@ public class BaseCharacter : MonoBehaviour
         }
     }
 
+    void HandleStamina()
+    {
+        bool wantsToRun = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        isRunning = wantsToRun && movement.sqrMagnitude > 0.01f && currentStamina > 0f;
+
+        if (isRunning)
+        {
+            currentMoveSpeed = runSpeed;
+            currentStamina -= staminaDrainRate * Time.deltaTime;
+
+            if (currentStamina <= 0f)
+            {
+                currentStamina = 0f;
+                isResting = true;
+            }
+        }
+        else
+        {
+            currentMoveSpeed = walkSpeed;
+
+            if (currentStamina < maxStamina)
+            {
+                currentStamina += staminaRegenRate * Time.deltaTime;
+
+                if (currentStamina >= maxStamina)
+                {
+                    currentStamina = maxStamina;
+                    isResting = false;
+                }
+            }
+        }
+
+        UpdateStaminaBar();
+    }
+
     void Move()
     {
-        transform.Translate(movement * moveSpeed * Time.deltaTime);
+        transform.Translate(movement * currentMoveSpeed * Time.deltaTime);
     }
 
     void Animate()
@@ -53,7 +112,6 @@ public class BaseCharacter : MonoBehaviour
 
         Vector2 animDir = lastMoveDirection;
 
-        // Snap to 4-direction movement
         if (isMoving)
         {
             animDir = Mathf.Abs(movement.x) > Mathf.Abs(movement.y)
@@ -69,8 +127,6 @@ public class BaseCharacter : MonoBehaviour
         animator.SetFloat("IdleY", lastMoveDirection.y);
     }
 
-    //health 
-    // Updates health bar fill amount (0-1)
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
@@ -82,6 +138,7 @@ public class BaseCharacter : MonoBehaviour
             Die();
         }
     }
+
     void UpdateHealthBar()
     {
         if (healthBarFill != null)
@@ -90,9 +147,17 @@ public class BaseCharacter : MonoBehaviour
         }
     }
 
+    void UpdateStaminaBar()
+    {
+        if (StaminaFill != null)
+        {
+            StaminaFill.fillAmount = currentStamina / maxStamina;
+        }
+    }
+
     protected virtual void Die()
     {
         Debug.Log($"{gameObject.name} died.");
-        // TODO: Add death animation, disable player controls, etc.
+        // TODO: Disable controls, play death animation, etc.
     }
 }
