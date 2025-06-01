@@ -5,7 +5,7 @@ public class EnemyController : EnemyBase
 {
     public Transform player;
     protected Animator animator;
-    private bool isDying = false;
+    protected bool isDying = false;
     private Vector3 originalScale;
     protected virtual void Update()
     {
@@ -18,13 +18,25 @@ public class EnemyController : EnemyBase
             else
                 return; // no player still
         }
-        Vector2 direction = (player.position - transform.position).normalized;
+        Vector3 targetPosition = player.position;
+        Vector2 toPlayer = targetPosition - transform.position;
 
-        Move(new Vector3(direction.x, direction.y, 0));
+        float distance = toPlayer.magnitude; // <-- Distance between goblin and player
 
-        if (direction.x != 0)
+        if (distance > 0.5f) // <-- Only move if far away
         {
-            transform.localScale = new Vector3(originalScale.x * Mathf.Sign(direction.x), originalScale.y, originalScale.z);
+            Vector2 direction = toPlayer.normalized;
+            Move(new Vector3(direction.x, direction.y, 0));
+
+            if (direction.x != 0)
+            {
+                transform.localScale = new Vector3(originalScale.x * Mathf.Sign(direction.x), originalScale.y, originalScale.z);
+            }
+        }
+        else
+        {
+            // Within attack range, don't move (idle or attack)
+            Move(Vector3.zero); // Optional: you can stop movement cleanly
         }
     }
 
@@ -56,5 +68,6 @@ public class EnemyController : EnemyBase
         isDying = true;
         animator.SetTrigger("isDying");
     }
+
 
 }
