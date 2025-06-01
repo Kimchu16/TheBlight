@@ -8,6 +8,7 @@ public class EnemyGoblin : EnemyController
     private Transform playerTransform;
     private int attackCount = 0;
     public float stopDistance = 1.2f;
+    [SerializeField] private GoblinAttackHitbox AttackHitBox;
 
     protected override void Start()
     {
@@ -47,9 +48,12 @@ public class EnemyGoblin : EnemyController
 
         animator.SetTrigger("GoblinAttack");
 
-        Debug.Log("Goblin swings! Attack #" + (++attackCount));
+        if (AttackHitBox != null)
+        {
+            AttackHitBox.DamagePlayer(10f); // <-- Deal 10 damage!
+        }
 
-        // Later, here you can call Player.TakeDamage(10);
+        Debug.Log("Goblin swings! Attack #" + (++attackCount));
     }
 
     protected override void Die()
@@ -73,6 +77,7 @@ public class EnemyGoblin : EnemyController
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Hit enemy!");
             playerInRange = true;
             playerTransform = other.transform;
 
