@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -149,10 +149,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_0
       rect:
         serializedVersion: 2
-        x: 13
+        x: 0
         y: 0
-        width: 28
-        height: 29
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_1
       rect:
         serializedVersion: 2
-        x: 70
+        x: 57
         y: 0
-        width: 26
-        height: 28
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_2
       rect:
         serializedVersion: 2
-        x: 127
+        x: 114
         y: 0
-        width: 26
-        height: 26
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_3
       rect:
         serializedVersion: 2
-        x: 184
+        x: 171
         y: 0
-        width: 26
-        height: 24
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +237,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_4
       rect:
         serializedVersion: 2
-        x: 232
+        x: 228
         y: 0
-        width: 49
-        height: 54
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,10 +259,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_5
       rect:
         serializedVersion: 2
-        x: 288
+        x: 285
         y: 0
-        width: 47
-        height: 49
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_6
       rect:
         serializedVersion: 2
-        x: 346
+        x: 342
         y: 0
-        width: 46
-        height: 38
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,10 +303,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_7
       rect:
         serializedVersion: 2
-        x: 406
+        x: 399
         y: 0
-        width: 40
-        height: 37
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,10 +325,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_8
       rect:
         serializedVersion: 2
-        x: 471
-        y: 3
-        width: 31
-        height: 24
+        x: 456
+        y: 0
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,10 +347,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_9
       rect:
         serializedVersion: 2
-        x: 528
-        y: 4
-        width: 29
-        height: 24
+        x: 513
+        y: 0
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,10 +369,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_10
       rect:
         serializedVersion: 2
-        x: 585
-        y: 3
-        width: 29
-        height: 26
+        x: 570
+        y: 0
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,10 +391,10 @@ TextureImporter:
       name: Orc_Barbare_01_ATK_Full_12x1_11
       rect:
         serializedVersion: 2
-        x: 642
+        x: 627
         y: 0
-        width: 29
-        height: 27
+        width: 57
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,7 +413,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 52784896a2002a34086a3c94ed74d86a
     internalID: 0
     vertices: []
     indices: 
