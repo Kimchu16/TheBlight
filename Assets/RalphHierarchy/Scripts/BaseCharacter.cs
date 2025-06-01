@@ -3,6 +3,7 @@ using UnityEngine;
 public class BaseCharacter : MonoBehaviour
 {
     public float moveSpeed = 5f;
+
     protected Animator animator;
     protected Vector2 movement;
     protected Vector2 lastMoveDirection = Vector2.down;
@@ -14,56 +15,48 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Update()
     {
-        // Get input axis (Horizontal = A/D/LeftRight, Vertical = W/S/UpDown)
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        HandleInput();
+        Move();
+        Animate();
+    }
 
-        movement = new Vector2(moveX, moveY).normalized;
+    void HandleInput()
+    {
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+        movement = new Vector2(x, y).normalized;
 
-        if (movement.magnitude > 0.01f)
+        if (movement.sqrMagnitude > 0.01f)
         {
             lastMoveDirection = movement;
         }
-
-        Move(movement);
-        Animate(movement);
     }
 
-    // Move player based on input
-    protected virtual void Move(Vector2 direction)
+    void Move()
     {
-        Vector3 moveDir = new Vector3(direction.x, direction.y, 0);
-        transform.Translate(moveDir * moveSpeed * Time.deltaTime);
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 
-    // Send movement data to animator for blending
-    protected virtual void Animate(Vector2 direction)
+    void Animate()
     {
-        float speed = direction.magnitude;
-        animator.SetBool("IsMoving", speed > 0.01f);
-        animator.SetFloat("Speed", speed);
+        bool isMoving = movement.sqrMagnitude > 0.01f;
+        animator.SetBool("IsMoving", isMoving);
+        animator.SetFloat("Speed", movement.magnitude);
 
-        if (speed > 0.01f)
+        Vector2 animDir = lastMoveDirection;
+
+        // Snap to 4-direction movement
+        if (isMoving)
         {
-            float moveX = Mathf.Round(direction.x);
-            float moveY = Mathf.Round(direction.y);
+            animDir = Mathf.Abs(movement.x) > Mathf.Abs(movement.y)
+                ? new Vector2(Mathf.Sign(movement.x), 0)
+                : new Vector2(0, Mathf.Sign(movement.y));
 
-            // Prioritize main axis for 4-direction movement
-            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-            {
-                moveY = 0;
-            }
-            else
-            {
-                moveX = 0;
-            }
-
-            animator.SetFloat("MoveX", moveX);
-            animator.SetFloat("MoveY", moveY);
-
-            lastMoveDirection = new Vector2(moveX, moveY);
+            lastMoveDirection = animDir;
         }
 
+        animator.SetFloat("MoveX", animDir.x);
+        animator.SetFloat("MoveY", animDir.y);
         animator.SetFloat("IdleX", lastMoveDirection.x);
         animator.SetFloat("IdleY", lastMoveDirection.y);
     }
