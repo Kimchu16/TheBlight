@@ -25,6 +25,7 @@ public class BossGoblin : EnemyController
         {
             animator.SetBool("isPlayerThere", false);
         }
+
     }
 
     public override void TakeDamage(float damage)
@@ -42,7 +43,19 @@ public class BossGoblin : EnemyController
 
     public override void Move(Vector3 direction)
     {
-        //AudioManager.Instance.PlaySFX(SFXType.GoblinBossRun);
+        if (isDying)
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinBossRun);
+            return;
+        }
+        if (isChasing)
+        {
+            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinBossRun);
+        }
+        else
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinBossRun);
+        }
         base.Move(direction);
     }
 

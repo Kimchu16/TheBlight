@@ -40,6 +40,18 @@ public class EnemyGoblin : EnemyController
 
     public override void Move(Vector3 direction)
     {
+        if (isDying)
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEnemyRun);
+        }
+        if (isChasing)
+        {
+            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinEnemyRun);
+        }
+        else
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEnemyRun);
+        }
         base.Move(direction);
     }
 
