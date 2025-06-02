@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject victoryPanel;
 
     [Header("Managers")]
     public EnemyManagerV2 enemyManager;
@@ -48,12 +49,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over!");
+        Time.timeScale = 0f;
         // Show Game Over UI, stop game time, etc.
     }
 
     public void Victory()
     {
         Debug.Log("You Win!");
-        // Show Victory UI, next level button, etc.
+        Time.timeScale = 0f;
+        victoryPanel.SetActive(true); 
     }
 }
