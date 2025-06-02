@@ -28,6 +28,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private List<SFXClip> sfxClipsList;
 
     private Dictionary<SFXType, AudioClip> sfxClipsDict;
+    private Dictionary<SFXType, AudioSource> continuousSFXSources = new Dictionary<SFXType, AudioSource>();
 
     private void Awake()
     {
@@ -85,6 +86,39 @@ public class AudioManager : MonoBehaviour
         else
         {
             Debug.LogWarning($"SFX {type} not found!");
+        }
+    }
+
+    public void PlayContinuousSFX(SFXType type)
+    {
+        if (sfxClipsDict.TryGetValue(type, out AudioClip clip))
+        {
+            if (!continuousSFXSources.ContainsKey(type))
+            {
+                AudioSource newSource = gameObject.AddComponent<AudioSource>();
+                newSource.loop = true;
+                newSource.clip = clip;
+                newSource.Play();
+                continuousSFXSources[type] = newSource;
+            }
+            else if (!continuousSFXSources[type].isPlaying)
+            {
+                continuousSFXSources[type].Play();
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Continuous SFX {type} not found!");
+        }
+    }
+    
+    public void StopContinuousSFX(SFXType type)
+    {
+        if (continuousSFXSources.TryGetValue(type, out AudioSource source))
+        {
+            source.Stop();
+            Destroy(source); // clean up to prevent AudioSource spam
+            continuousSFXSources.Remove(type);
         }
     }
 
