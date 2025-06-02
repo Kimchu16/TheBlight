@@ -9,7 +9,10 @@ namespace Audio
         GoblinEliteDeath,
         GoblinEliteAttack,
         GoblinEnemyDeath,
-        GoblinEnemyAttack
+        GoblinEnemyAttack,
+        PlayerWalk,
+        PlayerRun,
+        PlayerAttack
         // Add more as needed
     }    
 }

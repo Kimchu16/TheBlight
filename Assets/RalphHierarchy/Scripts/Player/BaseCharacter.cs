@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Audio;
 
 public class BaseCharacter : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class BaseCharacter : MonoBehaviour
     private bool isRestingInPeace = false;
     private bool isRunning = false;
 
+
     [SerializeField] private string deathTriggerName = "PlayerDie"; // Animator Trigger Name
     private bool isDead = false; // Prevent double death
 
@@ -61,6 +63,15 @@ public class BaseCharacter : MonoBehaviour
         {
             Animate(); // Optional: could add rest animation here
             return;
+        }
+        // Footstep loop audio handling
+        if (IsMoving())
+        {
+            AudioManager.Instance.PlayContinuousSFX(SFXType.PlayerWalk);
+        }
+        else if (!IsMoving())
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.PlayerWalk);
         }
 
         Move();
@@ -264,4 +275,10 @@ public class BaseCharacter : MonoBehaviour
         Destroy(gameObject, deathAnimationLength);
         GameManager.Instance.GameOver();
     }
+
+    protected virtual bool IsMoving()
+    {
+        return movement.sqrMagnitude > 0.01f;
+    }
+    
 }
