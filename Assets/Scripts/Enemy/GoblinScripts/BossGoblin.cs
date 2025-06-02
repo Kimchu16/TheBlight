@@ -1,39 +1,15 @@
 using UnityEngine;
+using Audio;
 
-public class BossGoblin : EnemyBase
+
+public class BossGoblin : EnemyController
 {
-    protected override string AttackTriggerName => "GoblinBossAttack"; 
+    protected override string AttackTriggerName => "GoblinBossAttack";
     protected override string DeathTriggerName => "GoblinBossDeath";
-    protected void Update()
+
+    protected override void Update()
     {
-        if (player == null)
-        {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-                player = playerObj.transform;
-            else
-                return;
-        }
-
-        Vector3 targetPosition = player.position;
-        Vector2 toPlayer = targetPosition - transform.position;
-
-        float distance = toPlayer.magnitude;
-
-        if (distance > 0.5f)
-        {
-            Vector2 direction = toPlayer.normalized;
-            Move(new Vector3(direction.x, direction.y, 0));
-
-            if (direction.x != 0)
-            {
-                transform.localScale = new Vector3(originalScale.x * Mathf.Sign(direction.x), originalScale.y, originalScale.z);
-            }
-        }
-        else
-        {
-            Move(Vector3.zero);
-        }
+        base.Update();
 
         if (playerInRange)
         {
@@ -44,16 +20,10 @@ public class BossGoblin : EnemyBase
                 Attack();
                 lastAttackTime = Time.time;
             }
-
-            if (playerTransform != null)
-            {
-                animator.SetFloat("Speed", 0f);
-            }
         }
         else
         {
             animator.SetBool("isPlayerThere", false);
-            animator.SetFloat("Speed", 0f);
         }
     }
 
@@ -62,9 +32,23 @@ public class BossGoblin : EnemyBase
         base.TakeDamage(damage * 0.7f); // 30% damage reduction (Boss is tanky)
     }
 
-    public void KillBoss()
+    public override void Die()
     {
-        animator.SetTrigger("isDying");
-        Die();
+        AudioManager.Instance.PlaySFX(SFXType.GoblinBossDeath);
+        animator.SetTrigger(DeathTriggerName);
+        base.Die();
     }
+
+    public override void Move(Vector3 direction)
+    {
+        //AudioManager.Instance.PlaySFX(SFXType.GoblinBossRun);
+        base.Move(direction);
+    }
+
+    public override void Attack()
+    {
+        AudioManager.Instance.PlaySFX(SFXType.GoblinBossAttack);
+        base.Attack();
+    }
+
 }

@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFillImage: {fileID: 4868409310975696645}
-  maxHealth: 100
+  maxHealth: 10
   isDead: 0
 --- !u!50 &1331740314298872195
 Rigidbody2D:

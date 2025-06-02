@@ -1,59 +1,28 @@
 using UnityEngine;
+using Audio;
 
-public class EliteGoblin : EnemyBase
+public class EliteGoblin : EnemyController
 {
-    protected override string AttackTriggerName => "EliteGoblinAttack"; 
-    protected override string DeathTriggerName => "EliteGoblinDeath"; 
-    protected void Update()
+    protected override string AttackTriggerName => "GoblinEliteAttack";
+    protected override string DeathTriggerName => "GoblinEliteDeath";
+
+    protected override void Update()
     {
-        if (player == null)
-        {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-                player = playerObj.transform;
-            else
-                return;
-        }
-
-        Vector3 targetPosition = player.position;
-        Vector2 toPlayer = targetPosition - transform.position;
-
-        float distance = toPlayer.magnitude;
-
-        if (distance > 0.5f)
-        {
-            Vector2 direction = toPlayer.normalized;
-            Move(new Vector3(direction.x, direction.y, 0));
-
-            if (direction.x != 0)
-            {
-                transform.localScale = new Vector3(originalScale.x * Mathf.Sign(direction.x), originalScale.y, originalScale.z);
-            }
-        }
-        else
-        {
-            Move(Vector3.zero);
-        }
+        base.Update();
 
         if (playerInRange)
         {
             animator.SetBool("isPlayerThere", true);
 
-            if (Time.time >= lastAttackTime + (attackCooldown * 0.8f)) // 20% faster attack cooldown
+            if (Time.time >= lastAttackTime + attackCooldown) // 20% faster
             {
                 Attack();
                 lastAttackTime = Time.time;
-            }
-
-            if (playerTransform != null)
-            {
-                animator.SetFloat("Speed", 0f);
             }
         }
         else
         {
             animator.SetBool("isPlayerThere", false);
-            animator.SetFloat("Speed", 0f);
         }
     }
 
@@ -62,10 +31,24 @@ public class EliteGoblin : EnemyBase
         base.TakeDamage(damage * 0.8f); // 20% damage reduction
     }
 
-    public void KillEliteGoblin()
+    public override void Die()
     {
-        animator.SetTrigger("isDying");
-        Die();
+        AudioManager.Instance.PlaySFX(SFXType.GoblinEliteDeath);
+        animator.SetTrigger(DeathTriggerName);
+        base.Die();
+    }
+
+    public override void Attack()
+    {
+        AudioManager.Instance.PlaySFX(SFXType.GoblinEliteAttack);
+        base.Attack();
+    }
+
+        public override void Move(Vector3 direction)
+    {
+        //AudioManager.Instance.PlaySFX(SFXType.GoblinBossRun);
+        base.Move(direction);
     }
 }
+
 
