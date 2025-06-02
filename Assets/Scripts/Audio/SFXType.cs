@@ -5,7 +5,11 @@ namespace Audio
         MenuClick,
         GoblinBossRun,
         GoblinBossAttack,
-        GoblinBossDeath
+        GoblinBossDeath,
+        GoblinEliteDeath,
+        GoblinEliteAttack,
+        GoblinEnemyDeath,
+        GoblinEnemyAttack
         // Add more as needed
     }    
 }
