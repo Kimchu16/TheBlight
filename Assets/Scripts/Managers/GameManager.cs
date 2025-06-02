@@ -5,11 +5,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("Player")]
-    public GameObject playerPrefab;
-    private GameObject playerInstance;
-    public Transform playerSpawnPoint;
-
     [Header("Enemies")]
     public List<GameObject> enemyPrefabs;
     public Transform[] enemySpawnPoints;
@@ -32,20 +27,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnPlayer();
         SpawnEnemies();
-    }
-
-    private void SpawnPlayer()
-    {
-        if (playerPrefab != null && playerSpawnPoint != null)
-        {
-            playerInstance = Instantiate(playerPrefab, playerSpawnPoint.position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogError("Player Prefab or Spawn Point not assigned!");
-        }
     }
 
     private void SpawnEnemies()
@@ -58,8 +40,8 @@ public class GameManager : MonoBehaviour
 
         foreach (Transform spawnPoint in enemySpawnPoints)
         {
-            int randomIndex = Random.Range(0, enemyPrefabs.Count);
-            GameObject enemy = Instantiate(enemyPrefabs[randomIndex], spawnPoint.position, Quaternion.identity);
+            //int randomIndex = Random.Range(0, enemyPrefabs.Count);
+            GameObject enemy = Instantiate(enemyPrefabs[0], spawnPoint.position, Quaternion.identity);
             spawnedEnemies.Add(enemy);
         }
     }

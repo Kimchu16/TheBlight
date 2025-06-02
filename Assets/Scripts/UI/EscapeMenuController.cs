@@ -1,11 +1,12 @@
 using UnityEngine;
+using Audio;
 
 public class EscapeMenuController : MonoBehaviour
 {
     [SerializeField]
     private GameObject escapeMenu;  // Reference to the Menu panel
     public SceneController sceneController;
-    [SerializeField]private MenuButtonSFX menuButtonSFX;
+
     private bool isPaused = false;
 
     void Update()
@@ -28,10 +29,8 @@ public class EscapeMenuController : MonoBehaviour
         escapeMenu.SetActive(true);
         Time.timeScale = 0f; // Pause the game
         isPaused = true;
-
-        if (menuButtonSFX != null){
-            menuButtonSFX.PlaySound(); 
-        }
+        AudioManager.Instance.PlaySFX(SFXType.MenuClick);
+        
     }
 
     public void ResumeGame()
@@ -39,10 +38,8 @@ public class EscapeMenuController : MonoBehaviour
         escapeMenu.SetActive(false);
         Time.timeScale = 1f; // Resume the game
         isPaused = false;
+        AudioManager.Instance.PlaySFX(SFXType.MenuClick);
 
-        if (menuButtonSFX != null){
-            menuButtonSFX.PlaySound(); 
-        }
     }
 
     public void QuitToMainMenu()
