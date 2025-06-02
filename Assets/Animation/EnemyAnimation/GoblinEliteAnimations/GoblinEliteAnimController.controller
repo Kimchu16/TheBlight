@@ -81,7 +81,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GoblinAnimController
+  m_Name: GoblinEliteAnimController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Speed
@@ -194,7 +194,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GoblinEliteRun
+  m_Name: GoblinBossRun
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -210,7 +210,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2cd4237b11159b743932e471a59df63b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0a0e7d2fe7bd6064a891fee5efaffd7d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -273,7 +273,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GoblinEliteIdle
+  m_Name: GoblinBossIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -288,7 +288,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d48efce58ff086740b8cfd9ebf939b25, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2a2492e13d17b524ab48e880afda7b52, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -326,7 +326,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GoblinEliteDeath
+  m_Name: GoblinBossDeath
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -339,7 +339,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ae9d3b44ad28bbf45b91a4b65c92aef5, type: 2}
+  m_Motion: {fileID: 7400000, guid: b63282fdd28151e4dbd5cf7040a4c5b8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -377,7 +377,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GoblinEliteAttack
+  m_Name: GoblinBossAttack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -392,7 +392,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 02977822ebedec84f817f47aa63a1079, type: 2}
+  m_Motion: {fileID: 7400000, guid: fdcf1a18244120d4aa2beda3af41a6e4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

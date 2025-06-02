@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class GoblinAttackHitbox : EnemyAttackHitbox
+public class BossGoblinAttackHitbox : EnemyAttackHitbox
 {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            player = other.GetComponent<PlayerCharacter>(); // cache the player
+            player = other.GetComponent<PlayerCharacter>();
         }
     }
 
@@ -22,12 +22,12 @@ public class GoblinAttackHitbox : EnemyAttackHitbox
         }
     }
 
-    // Call this when goblin is swinging
+    // Call this when boss swings
     public new void DamagePlayer(float damageAmount)
     {
         if (player != null)
         {
-            player.TakeDamage(damageAmount);
+            player.TakeDamage(damageAmount * 1.5f); // Boss does 50% more damage
         }
     }
 }

@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class GoblinAttackHitbox : EnemyAttackHitbox
+public abstract class EnemyAttackHitbox : MonoBehaviour
 {
+    protected PlayerCharacter player;
+
+    protected virtual float DamageMultiplier => 1f; // default 1x
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            player = other.GetComponent<PlayerCharacter>(); // cache the player
+            player = other.GetComponent<PlayerCharacter>();
         }
     }
 
@@ -22,13 +25,11 @@ public class GoblinAttackHitbox : EnemyAttackHitbox
         }
     }
 
-    // Call this when goblin is swinging
-    public new void DamagePlayer(float damageAmount)
+    public void DamagePlayer(float damageAmount)
     {
         if (player != null)
         {
-            player.TakeDamage(damageAmount);
+            player.TakeDamage(damageAmount * DamageMultiplier);
         }
     }
 }
-

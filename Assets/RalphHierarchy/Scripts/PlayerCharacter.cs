@@ -4,6 +4,7 @@ public class PlayerCharacter : BaseCharacter
 {
     private bool isAttacking = false;
     [SerializeField] private PlayerAttackHitbox AttackHitBox;
+    [SerializeField] private float attackDuration = 0.2f;
 
     protected override void Start()
     {
@@ -13,10 +14,8 @@ public class PlayerCharacter : BaseCharacter
 
     protected override void Update()
     {
-        if (!isAttacking)
-        {
-            base.Update();
-        }
+       
+        base.Update();
 
         if (Input.GetKeyDown(KeyCode.E) && !isAttacking)
         {
@@ -35,6 +34,7 @@ public class PlayerCharacter : BaseCharacter
         {
             AttackHitBox.EnableAttack(); // Allow damage during attack
         }
+        Invoke(nameof(EndAttack), attackDuration);
     }
 
     public void EndAttack() // Called via animation event

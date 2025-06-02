@@ -8,15 +8,20 @@ public class EnemyBase : MonoBehaviour
     protected float currentHealth;
     public float moveSpeed = 5f;
     public GameObject coinPrefab;
-    protected bool isDying = false;
+    public bool isDying = false;
     [SerializeField] protected float attackCooldown = 1f;
     [SerializeField] protected float attackDamage = 10f;
-    [SerializeField] protected GoblinAttackHitbox AttackHitBox;
+    [SerializeField] protected EnemyAttackHitbox AttackHitBox;
+    protected virtual string AttackTriggerName => "GoblinAttack";
+    protected virtual string DeathTriggerName => "GoblinDeath";
     protected float lastAttackTime;
     public bool playerInRange = false;
 
     protected Transform player;
     protected Vector3 originalScale;
+
+    protected Transform playerTransform;
+    protected int attackCount = 0;
 
     protected void Start()
     {
@@ -26,6 +31,8 @@ public class EnemyBase : MonoBehaviour
 
         StartCoroutine(FindPlayerAfterDelay());
     }
+
+    
     IEnumerator FindPlayerAfterDelay()
     {
         yield return new WaitForSeconds(0.5f); // wait 0.5 second, not just 1 frame
@@ -45,7 +52,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (isDying || !playerInRange) return;
 
-        animator.SetTrigger("GoblinAttack");
+        animator.SetTrigger(AttackTriggerName);
 
         if (AttackHitBox != null)
         {
@@ -57,15 +64,56 @@ public class EnemyBase : MonoBehaviour
     {
         if (isDying) return;
         isDying = true;
-        if (coinPrefab != null)
+
+        animator.SetTrigger(DeathTriggerName);
+
+        Transform healthBar = transform.Find("HealthBar");
+        if (healthBar != null)
         {
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            healthBar.gameObject.SetActive(false);
         }
-        Destroy(gameObject, 0.12f);
+
+        if (AttackHitBox != null)
+        {
+            AttackHitBox.gameObject.SetActive(false);
+        }
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        Destroy(gameObject, 0.4f); // 👈 Clean and efficient
     }
 
     public virtual void Move(Vector3 direction)
     {
         transform.Translate(direction * moveSpeed * Time.deltaTime);
+    }
+
+    protected void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Hit enemy!");
+            playerInRange = true;
+            playerTransform = other.transform;
+
+            attackCount = 0; // <-- Reset attack counter when player enters range
+            Debug.Log("Player entered range! Starting attack sequence.");
+        }
+    }
+
+    protected void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            playerTransform = null;
+
+            Debug.Log("Player left range. Total attacks made: " + attackCount);
+            animator.SetFloat("Speed", 0f);
+        }
     }
 }
