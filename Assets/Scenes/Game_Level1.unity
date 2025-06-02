@@ -19577,17 +19577,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1388507365 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4498394755546815115, guid: 5c26304f79b5b8d439acd75410f0cd73, type: 3}
-  m_PrefabInstance: {fileID: 1986272246}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7782d5075ac6141998efefd1915f9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1417568594
 GameObject:
   m_ObjectHideFlags: 0
@@ -23049,10 +23038,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 738343944515778641, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2662977924018187897, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1009.8655
@@ -23093,18 +23078,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7493227819768908126, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 4347266648795316249, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 1879835256}
+    - target: {fileID: 4347266648795316249, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
+      propertyPath: victoryPanel
+      value: 
+      objectReference: {fileID: 1910562535}
+    - target: {fileID: 4347266648795316249, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 792372463}
     - target: {fileID: 7493227819768908126, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
       propertyPath: escapeMenu
       value: 
       objectReference: {fileID: 1986272248}
-    - target: {fileID: 7493227819768908126, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
-      propertyPath: menuButtonSFX
-      value: 
-      objectReference: {fileID: 1388507365}
     - target: {fileID: 7493227819768908126, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
       propertyPath: sceneController
       value: 
@@ -23112,39 +23101,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 738343944515778641, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1808220901}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
---- !u!1 &1808220900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 738343944515778641, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
-  m_PrefabInstance: {fileID: 1808220899}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1808220901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808220900}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c077ae322757294ea1d225c82e42396, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  victoryPanel: {fileID: 1910562535}
-  gameOverPanel: {fileID: 792372463}
-  enemyManager: {fileID: 1879835256}
-  startingEnemies: 20
-  startingSpawnInterval: 3
 --- !u!114 &1808220902 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7493227819768908126, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
   m_PrefabInstance: {fileID: 1808220899}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808220900}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55747262d76b82a489e1110513969539, type: 3}
