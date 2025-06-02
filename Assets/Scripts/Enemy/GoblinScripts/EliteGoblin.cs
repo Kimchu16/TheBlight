@@ -44,11 +44,23 @@ public class EliteGoblin : EnemyController
         base.Attack();
     }
 
-        public override void Move(Vector3 direction)
+    public override void Move(Vector3 direction)
     {
-        //AudioManager.Instance.PlaySFX(SFXType.GoblinBossRun);
+        if (isDying)
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEliteRun);
+        }
+        if (isChasing)
+        {
+            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinEliteRun);
+        }
+        else
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEliteRun);
+        }
         base.Move(direction);
     }
+    
 }
 
 

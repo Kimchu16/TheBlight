@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -23,6 +24,8 @@ public class EnemyBase : MonoBehaviour
     protected Transform playerTransform;
     protected int attackCount = 0;
 
+    protected bool isChasing = false;
+
     protected void Start()
     {
         currentHealth = maxHealth;
@@ -32,7 +35,7 @@ public class EnemyBase : MonoBehaviour
         StartCoroutine(FindPlayerAfterDelay());
     }
 
-    
+
     IEnumerator FindPlayerAfterDelay()
     {
         yield return new WaitForSeconds(0.5f); // wait 0.5 second, not just 1 frame
@@ -92,7 +95,15 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void Move(Vector3 direction)
     {
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
+        if (direction.sqrMagnitude > 0.01f)
+        {
+            isChasing = true;
+            transform.Translate(direction * moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            isChasing = false;
+        }
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
@@ -119,4 +130,9 @@ public class EnemyBase : MonoBehaviour
             animator.SetFloat("Speed", 0f);
         }
     }
+
+    protected bool IsChasing()
+{
+    return isChasing;
+}
 }
