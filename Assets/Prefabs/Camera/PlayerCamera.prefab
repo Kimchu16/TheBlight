@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6677948574348534587}
   - component: {fileID: 6100404301670978967}
   - component: {fileID: 2413113777593999901}
+  - component: {fileID: 6036019401501369992}
   m_Layer: 0
-  m_Name: CM
+  m_Name: PlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,3 +129,15 @@ MonoBehaviour:
     MaxWindowSize: 0
     Padding: 0
   m_LegacyMaxWindowSize: -2
+--- !u!114 &6036019401501369992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599661851009985084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606d10da6e8cd9b42a633ec6da6b9c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
