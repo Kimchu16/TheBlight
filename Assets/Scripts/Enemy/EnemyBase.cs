@@ -48,7 +48,7 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         if (isDying || !playerInRange) return;
 
@@ -69,23 +69,19 @@ public class EnemyBase : MonoBehaviour
 
         Transform healthBar = transform.Find("HealthBar");
         if (healthBar != null)
-        {
             healthBar.gameObject.SetActive(false);
-        }
 
         if (AttackHitBox != null)
-        {
             AttackHitBox.gameObject.SetActive(false);
-        }
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
-        {
             col.enabled = false;
-        }
 
-        Destroy(gameObject, 0.4f); // 👈 Clean and efficient
+        // Remove Destroy here; wait for animation in derived class
+        // Destroy(gameObject, 0.4f);
     }
+
 
     public virtual void Move(Vector3 direction)
     {

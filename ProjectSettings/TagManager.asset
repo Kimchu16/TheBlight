@@ -57,6 +57,9 @@ TagManager:
   - name: Collsion
     uniqueID: 3451324943
     locked: 0
+  - name: Consumables
+    uniqueID: 2056791911
+    locked: 0
   - name: Coin
     uniqueID: 2850473687
     locked: 0

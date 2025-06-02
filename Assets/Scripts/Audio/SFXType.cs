@@ -1,9 +1,15 @@
 namespace Audio
 {
-   public enum SFXType{
+    public enum SFXType
+    {
         MenuClick,
-        PlayerAttack,
-        EnemyDeath,
+        GoblinBossRun,
+        GoblinBossAttack,
+        GoblinBossDeath,
+        GoblinEliteDeath,
+        GoblinEliteAttack,
+        GoblinEnemyDeath,
+        GoblinEnemyAttack
         // Add more as needed
     }    
 }
