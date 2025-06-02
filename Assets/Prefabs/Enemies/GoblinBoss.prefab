@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693191360ab0f14458d76351a65748cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 2
   coinPrefab: {fileID: 141098646025053599, guid: ea29bbf1734247646934e41a419ac35a, type: 3}
   isDying: 0
   attackCooldown: 1

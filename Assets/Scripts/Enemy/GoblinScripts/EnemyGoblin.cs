@@ -1,4 +1,5 @@
 using UnityEngine;
+using Audio;
 
 public class EnemyGoblin : EnemyController
 {
@@ -17,23 +18,30 @@ public class EnemyGoblin : EnemyController
                 lastAttackTime = Time.time;
             }
 
-            // Keep facing player while attacking
-            if (playerTransform != null)
-            {
-                animator.SetFloat("Speed", 0f); // maybe 0 for pure attack
-            }
         }
         else
         {
-            animator.SetBool("isPlayerThere", false);
-            animator.SetFloat("Speed", 0f); // Not attacking/moving
+            animator.SetBool("isPlayerThere", false); // Not attacking/moving
         }
     }
 
-    public void KillGoblin()
+    public override void Die()
     {
+        AudioManager.Instance.PlaySFX(Audio.SFXType.GoblinEnemyDeath);
         animator.SetTrigger("isDying");
-        Die(); // internally call the protected one
+        base.Die();
     }
+
+    public override void Attack()
+    {
+        AudioManager.Instance.PlaySFX(Audio.SFXType.GoblinEnemyAttack);
+        base.Attack();
+    }
+
+    public override void Move(Vector3 direction)
+    {
+        base.Move(direction);
+    }
+
 
 }

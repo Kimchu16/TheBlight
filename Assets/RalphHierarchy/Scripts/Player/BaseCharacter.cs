@@ -23,24 +23,39 @@ public class BaseCharacter : MonoBehaviour
     public float staminaRegenRate = 1.5f;
     public Image StaminaFill;
 
+    public float maxHunger = 100f;
+    public float currentHunger;
+    public Image hungerBarFill;
+
+    [SerializeField] private float hungerDamagePerDrain = 2f;
+    [SerializeField] private float hungerDrainAmount = 5f;
+    [SerializeField] private float hungerDrainInterval = 10f;
+    private float healthDrainTimer = 0f;
+
     private bool isRestingInPeace = false;
     private bool isRunning = false;
+
+    [SerializeField] private string deathTriggerName = "PlayerDie"; // Animator Trigger Name
+    private bool isDead = false; // Prevent double death
 
     protected virtual void Start()
     {
         animator = GetComponentInChildren<Animator>();
         currentHealth = maxHealth;
         currentStamina = maxStamina;
+        currentHunger = maxHunger;
         currentMoveSpeed = walkSpeed;
 
         UpdateHealthBar();
         UpdateStaminaBar();
+        UpdateHungerBar();
     }
 
     protected virtual void Update()
     {
         HandleInput();
         HandleStamina();
+        HandleHungerDrain();
         if (isRestingInPeace)
         {
             Animate(); // Optional: could add rest animation here
@@ -96,6 +111,45 @@ public class BaseCharacter : MonoBehaviour
         }
 
         UpdateStaminaBar();
+    }
+
+    void HandleHungerDrain()
+    {
+        healthDrainTimer += Time.deltaTime;
+        if (healthDrainTimer >= hungerDrainInterval)
+        {
+            healthDrainTimer = 0f;
+            
+            // Reduce hunger over time
+            currentHunger -= hungerDrainAmount;
+            currentHunger = Mathf.Clamp(currentHunger, 0f, maxHunger);
+            UpdateHungerBar();
+
+            // If hunger reaches 0, start damaging health slowly
+            if (currentHunger <= 0f)
+            {
+                TakeDamage(hungerDamagePerDrain);
+            }
+        }
+    }
+
+    public void RestoreHealth(float amount)
+    {
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        UpdateHealthBar();
+    }
+
+    public void RestoreHunger(float amount)
+    {
+        currentHunger = Mathf.Min(currentHunger + amount, maxHunger);
+        UpdateHungerBar();
+    }
+    void UpdateHungerBar()
+    {
+        if (hungerBarFill != null)
+        {
+            hungerBarFill.fillAmount = currentHunger / maxHunger;
+        }
     }
 
     void Move()
@@ -156,7 +210,26 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (isDead)
+        {
+            return;
+        }
+
+        isDead = true;
+
         Debug.Log($"{gameObject.name} died.");
-        // TODO: Disable controls, play death animation, etc.
+        
+
+        animator.SetTrigger(deathTriggerName); // Play death animation
+
+        // Disable further inputs/movement
+        this.enabled = false; // Disables Update() from this point
+
+        // Optional: Disable colliders, attack scripts, etc.
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider != null) collider.enabled = false;
+
+        float deathAnimationLength = 1.7f; // <- adjust based on your animation
+        Destroy(gameObject, deathAnimationLength);
     }
 }
