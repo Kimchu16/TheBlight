@@ -37,6 +37,7 @@ public class BossGoblin : EnemyController
         AudioManager.Instance.PlaySFX(SFXType.GoblinBossDeath);
         animator.SetTrigger(DeathTriggerName);
         base.Die();
+        GameManager.Instance.Victory();
     }
 
     public override void Move(Vector3 direction)
