@@ -38,10 +38,41 @@ public class EnemyController : EnemyBase
 
     public override void Die()
     {
-        animator.SetTrigger("isDying");
-        animator.SetTrigger(DeathTriggerName);
-        Destroy(gameObject, 1f);
-        
+        if (isDying) return; // prevent double-die
+        isDying = true;
+        Transform healthBar = transform.Find("HealthBar"); // or whatever the name of healthbar GameObject is
+        if (healthBar != null)
+        {
+        healthBar.gameObject.SetActive(false);
+        }
+
+        animator.SetTrigger(DeathTriggerName); // Only trigger Death Animation!
+
+        // Start a coroutine to wait for the animation to finish
+        StartCoroutine(WaitForDeathAnimation());
+    }
+
+    private IEnumerator WaitForDeathAnimation()
+    {
+        // Small delay to ensure Animator has transitioned
+        yield return new WaitForSeconds(0.1f);
+
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        // Wait until we're playing the death animation
+        while (!stateInfo.IsName(DeathTriggerName))
+        {
+            yield return null;
+            stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        }
+
+        float waitTime = stateInfo.length;
+        Debug.Log($"Death animation length: {waitTime}");
+
+        // Wait for death animation to finish
+        yield return new WaitForSeconds(waitTime);
+
+        Destroy(gameObject);
     }
 
 

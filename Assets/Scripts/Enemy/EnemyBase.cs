@@ -66,7 +66,7 @@ public class EnemyBase : MonoBehaviour
         {
             Instantiate(coinPrefab, transform.position, Quaternion.identity);
         }
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 0.4f);
     }
 
     public virtual void Move(Vector3 direction)
