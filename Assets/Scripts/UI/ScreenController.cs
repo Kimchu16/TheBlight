@@ -30,6 +30,13 @@ public class SceneController : MonoBehaviour
         LoadScene(nextScene);
     }
 
+    public void RestartScene()
+    {
+        Time.timeScale = 1f;
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        LoadScene(currentScene);
+    }
+
     private IEnumerator LoadSceneCoroutine(int sceneName)
     {
         yield return _sceneFade.FadeOutCoroutine(_sceneFadeDuration);
