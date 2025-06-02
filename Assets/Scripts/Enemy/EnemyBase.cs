@@ -78,8 +78,15 @@ public class EnemyBase : MonoBehaviour
         if (col != null)
             col.enabled = false;
 
-        // Remove Destroy here; wait for animation in derived class
-        // Destroy(gameObject, 0.4f);
+        if (coinPrefab != null)
+        {
+            Debug.Log("Spawning coin at " + transform.position);
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("coinPrefab is NULL on " + gameObject.name);
+        }
     }
 
 

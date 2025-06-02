@@ -56,6 +56,7 @@ public class BaseCharacter : MonoBehaviour
         HandleInput();
         HandleStamina();
         HandleHungerDrain();
+        HandleItemUse();
         if (isRestingInPeace)
         {
             Animate(); // Optional: could add rest animation here
@@ -119,7 +120,7 @@ public class BaseCharacter : MonoBehaviour
         if (healthDrainTimer >= hungerDrainInterval)
         {
             healthDrainTimer = 0f;
-            
+
             // Reduce hunger over time
             currentHunger -= hungerDrainAmount;
             currentHunger = Mathf.Clamp(currentHunger, 0f, maxHunger);
@@ -129,6 +130,36 @@ public class BaseCharacter : MonoBehaviour
             if (currentHunger <= 0f)
             {
                 TakeDamage(hungerDamagePerDrain);
+            }
+        }
+    }
+    void HandleItemUse()
+    {
+        // Press 1 -> Eat Bread
+        if (Input.GetKeyDown(KeyCode.Alpha1)) // 1 key
+        {
+            if (InventoryManager.Instance.UseBread())
+            {
+                RestoreHunger(20f); // Heal hunger by 20
+                Debug.Log("Ate bread!");
+            }
+            else
+            {
+                Debug.Log("No bread to eat!");
+            }
+        }
+
+        // Press 2 -> Drink Beer
+        if (Input.GetKeyDown(KeyCode.Alpha2)) // 2 key
+        {
+            if (InventoryManager.Instance.UseBeer())
+            {
+                RestoreHealth(15f); // Heal health by 15
+                Debug.Log("Drank beer!");
+            }
+            else
+            {
+                Debug.Log("No beer to drink!");
             }
         }
     }
