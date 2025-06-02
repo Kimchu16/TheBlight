@@ -1,15 +1,11 @@
 using UnityEngine;
-using System.Collections; 
+using System.Collections;
 
 public class EnemyController : EnemyBase
 {
-    public Transform player;
-    protected Animator animator;
-    protected bool isDying = false;
-    private Vector3 originalScale;
+
     protected virtual void Update()
     {
-
         if (player == null)
         {
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -40,33 +36,43 @@ public class EnemyController : EnemyBase
         }
     }
 
-    IEnumerator FindPlayerAfterDelay()
+    public override void Die()
     {
-        yield return new WaitForSeconds(0.5f); // wait 0.5 second, not just 1 frame
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        animator = GetComponentInChildren<Animator>();
-        originalScale = transform.localScale; // To keep original size
-
-        StartCoroutine(FindPlayerAfterDelay());
-    }
-
-
-
-    public override void TakeDamage(float damage)
-    {
-        base.TakeDamage(damage);
-    }
-
-    protected override void Die()
-    {
-        if (isDying) return;
+        if (isDying) return; // prevent double-die
         isDying = true;
-        animator.SetTrigger("isDying");
+        Transform healthBar = transform.Find("HealthBar"); // or whatever the name of healthbar GameObject is
+        if (healthBar != null)
+        {
+        healthBar.gameObject.SetActive(false);
+        }
+
+        animator.SetTrigger(DeathTriggerName); // Only trigger Death Animation!
+
+        // Start a coroutine to wait for the animation to finish
+        StartCoroutine(WaitForDeathAnimation());
+    }
+
+    private IEnumerator WaitForDeathAnimation()
+    {
+        // Small delay to ensure Animator has transitioned
+        yield return new WaitForSeconds(0.1f);
+
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        // Wait until we're playing the death animation
+        while (!stateInfo.IsName(DeathTriggerName))
+        {
+            yield return null;
+            stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        }
+
+        float waitTime = stateInfo.length;
+        Debug.Log($"Death animation length: {waitTime}");
+
+        // Wait for death animation to finish
+        yield return new WaitForSeconds(waitTime);
+
+        Destroy(gameObject);
     }
 
 

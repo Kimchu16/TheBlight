@@ -75,5 +75,8 @@ TagManager:
   - name: Decor
     uniqueID: 1621763573
     locked: 0
+  - name: FogOfWar
+    uniqueID: 2178795907
+    locked: 0
   m_RenderingLayers:
   - Default

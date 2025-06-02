@@ -4,17 +4,18 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     public Image healthFillImage;
-    public float maxHealth = 100f;
+    public float maxHealth = 20f;
     private float currentHealth;
 
-    private EnemyGoblin enemyGoblin;
+    private EnemyBase enemyBase;
+    public bool isDead = false;
 
     private void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthBar();
 
-        enemyGoblin = GetComponent<EnemyGoblin>();
+        enemyBase = GetComponent<EnemyBase>();
     }
 
     public virtual void TakeDamage(float damage)
@@ -22,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            enemyGoblin.KillGoblin();
+            enemyBase.Die(); // Or a public Kill method
         }
         UpdateHealthBar();        // Move this below so health bar updates even at 0
     }
@@ -33,12 +34,4 @@ public class EnemyHealth : MonoBehaviour
         healthFillImage.fillAmount = currentHealth / maxHealth;
     }
 
-    // For testing purpose, reduce health every second
-    private void Update()
-    {
-        if (Time.frameCount % 60 == 0)  // Roughly every second
-        {
-            TakeDamage(10f);
-        }
-    }
 }
