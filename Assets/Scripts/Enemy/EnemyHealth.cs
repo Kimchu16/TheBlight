@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth;
 
     private EnemyBase enemyBase;
+    public bool isDead = false;
 
     private void Start()
     {

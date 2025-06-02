@@ -8,10 +8,10 @@ public class EnemyBase : MonoBehaviour
     protected float currentHealth;
     public float moveSpeed = 5f;
     public GameObject coinPrefab;
-    protected bool isDying = false;
+    public bool isDying = false;
     [SerializeField] protected float attackCooldown = 1f;
     [SerializeField] protected float attackDamage = 10f;
-    [SerializeField] protected GoblinAttackHitbox AttackHitBox;
+    [SerializeField] protected EnemyAttackHitbox AttackHitBox;
     protected virtual string AttackTriggerName => "GoblinAttack";
     protected virtual string DeathTriggerName => "GoblinDeath";
     protected float lastAttackTime;
@@ -31,6 +31,8 @@ public class EnemyBase : MonoBehaviour
 
         StartCoroutine(FindPlayerAfterDelay());
     }
+
+    
     IEnumerator FindPlayerAfterDelay()
     {
         yield return new WaitForSeconds(0.5f); // wait 0.5 second, not just 1 frame
@@ -62,11 +64,27 @@ public class EnemyBase : MonoBehaviour
     {
         if (isDying) return;
         isDying = true;
-        if (coinPrefab != null)
+
+        animator.SetTrigger(DeathTriggerName);
+
+        Transform healthBar = transform.Find("HealthBar");
+        if (healthBar != null)
         {
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            healthBar.gameObject.SetActive(false);
         }
-        Destroy(gameObject, 0.4f);
+
+        if (AttackHitBox != null)
+        {
+            AttackHitBox.gameObject.SetActive(false);
+        }
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        Destroy(gameObject, 0.4f); // 👈 Clean and efficient
     }
 
     public virtual void Move(Vector3 direction)

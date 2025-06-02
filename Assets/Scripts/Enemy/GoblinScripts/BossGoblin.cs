@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class EliteGoblin : EnemyBase
+public class BossGoblin : EnemyBase
 {
-    protected override string AttackTriggerName => "EliteGoblinAttack"; 
-    protected override string DeathTriggerName => "EliteGoblinDeath"; 
+    protected override string AttackTriggerName => "GoblinBossAttack"; 
+    protected override string DeathTriggerName => "GoblinBossDeath";
     protected void Update()
     {
         if (player == null)
@@ -39,7 +39,7 @@ public class EliteGoblin : EnemyBase
         {
             animator.SetBool("isPlayerThere", true);
 
-            if (Time.time >= lastAttackTime + (attackCooldown * 0.8f)) // 20% faster attack cooldown
+            if (Time.time >= lastAttackTime + attackCooldown)
             {
                 Attack();
                 lastAttackTime = Time.time;
@@ -59,13 +59,12 @@ public class EliteGoblin : EnemyBase
 
     public override void TakeDamage(float damage)
     {
-        base.TakeDamage(damage * 0.8f); // 20% damage reduction
+        base.TakeDamage(damage * 0.7f); // 30% damage reduction (Boss is tanky)
     }
 
-    public void KillEliteGoblin()
+    public void KillBoss()
     {
         animator.SetTrigger("isDying");
         Die();
     }
 }
-
