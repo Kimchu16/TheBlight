@@ -1,4 +1,5 @@
 using UnityEngine;
+using Audio;
 
 public class PlayerCharacter : BaseCharacter
 {
@@ -14,14 +15,15 @@ public class PlayerCharacter : BaseCharacter
 
     protected override void Update()
     {
-       
+
         base.Update();
 
         if (Input.GetKeyDown(KeyCode.E) && !isAttacking)
         {
+            Invoke(nameof(PlayAttackSound), 0.5f);
             Attack();
         }
-        
+
     }
 
     private void Attack()
@@ -44,5 +46,10 @@ public class PlayerCharacter : BaseCharacter
         {
             AttackHitBox.DisableAttack(); // Stop damage after attack
         }
+    }
+
+    private void PlayAttackSound()
+    {
+        AudioManager.Instance.PlaySFX(SFXType.PlayerAttack);
     }
 }
