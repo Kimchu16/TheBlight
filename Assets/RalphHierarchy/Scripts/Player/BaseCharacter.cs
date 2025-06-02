@@ -281,4 +281,27 @@ public class BaseCharacter : MonoBehaviour
         return movement.sqrMagnitude > 0.01f;
     }
     
+    public void IncreaseMaxHealth(float amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount; // Optional: also heal when max increases
+        UpdateHealthBar();
+        Debug.Log($"Max Health increased by {amount}. New Max Health: {maxHealth}");
+    }
+
+    public void IncreaseMaxStamina(float amount)
+    {
+        maxStamina += amount;
+        currentStamina += amount; // Optional: also recharge
+        UpdateStaminaBar();
+        Debug.Log($"Max Stamina (Energy) increased by {amount}. New Max Stamina: {maxStamina}");
+    }
+
+    public void IncreaseMaxHunger(float amount)
+    {
+        maxHunger += amount;
+        currentHunger += amount; // Optional: refill
+        UpdateHungerBar();
+        Debug.Log($"Max Hunger increased by {amount}. New Max Hunger: {maxHunger}");
+    }
 }

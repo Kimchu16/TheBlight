@@ -308,6 +308,7 @@ MonoBehaviour:
   coinText: {fileID: 3227822708999211454}
   beerText: {fileID: 6277276112029857516}
   breadText: {fileID: 7477115708663403721}
+  shopCoinText: {fileID: 0}
 --- !u!1 &5846043785085456207
 GameObject:
   m_ObjectHideFlags: 0
