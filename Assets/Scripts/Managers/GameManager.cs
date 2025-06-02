@@ -1,88 +1,59 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static GameManager Instance;
 
-    [Header("Enemies")]
-    public List<GameObject> enemyPrefabs;
-    public Transform[] enemySpawnPoints;
-    private List<GameObject> spawnedEnemies = new List<GameObject>();
+    [Header("Managers")]
+    public EnemyManagerV2 enemyManager;
 
-    [Header("Game Settings")]
-    public GameStateSO gameState;
+    [Header("Level Settings")]
+    public int startingEnemies = 20;
+    public float startingSpawnInterval = 3f;
+    private int currentLevel = 1;
 
-    private bool isGameOver = false;
-
-    private void Awake()
+    void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-            return;
-        }
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    private void Start()
+    void Start()
     {
-        SpawnEnemies();
+        StartLevel(currentLevel);
     }
 
-    private void SpawnEnemies()
+    public void StartLevel(int level)
     {
-        if (enemyPrefabs.Count == 0 || enemySpawnPoints.Length == 0)
-        {
-            Debug.LogError("Enemy Prefabs or Spawn Points not assigned!");
-            return;
-        }
+        Debug.Log($"Starting Level {level}");
 
-        foreach (Transform spawnPoint in enemySpawnPoints)
-        {
-            //int randomIndex = Random.Range(0, enemyPrefabs.Count);
-            GameObject enemy = Instantiate(enemyPrefabs[0], spawnPoint.position, Quaternion.identity);
-            spawnedEnemies.Add(enemy);
-        }
+        // Set enemy manager parameters based on level
+        int enemiesToSpawn = startingEnemies + (level * 5); // Increase enemies each level
+        float spawnInterval = Mathf.Max(1f, startingSpawnInterval - (level * 0.2f)); // Decrease spawn time each level (harder)
+
+        enemyManager.SetMaxEnemies(enemiesToSpawn);
+        enemyManager.SetSpawnInterval(spawnInterval);
+        enemyManager.ResetSpawner();
     }
 
-    public void OnPlayerDeath()
+    public void NextLevel()
     {
-        if (isGameOver) return;
-        isGameOver = true;
-        Debug.Log("Player died! Game Over!");
-        GameOver(false); // Lose
+        currentLevel++;
+        StartLevel(currentLevel);
     }
 
-    public void OnAllEnemiesDefeated()
+    // Example win/lose condition
+    public void GameOver()
     {
-        if (isGameOver) return;
-        isGameOver = true;
-        Debug.Log("All enemies defeated! You win!");
-        GameOver(true); // Win
+        Debug.Log("Game Over!");
+        // Show Game Over UI, stop game time, etc.
     }
 
-    private void GameOver(bool won)
+    public void Victory()
     {
-        if (won)
-        {
-            // Save Progress to Next Scene
-            gameState.sceneProgress.lastScene += 1;
-            gameState.SaveAll();
-        }
-
-        // TODO: Fade to Game Over or Win Screen
-       
-    }
-
-    public void CheckEnemiesRemaining()
-    {
-        // Remove dead enemies
-        spawnedEnemies.RemoveAll(enemy => enemy == null);
-
-        if (spawnedEnemies.Count == 0)
-        {
-            OnAllEnemiesDefeated();
-        }
+        Debug.Log("You Win!");
+        // Show Victory UI, next level button, etc.
     }
 }
