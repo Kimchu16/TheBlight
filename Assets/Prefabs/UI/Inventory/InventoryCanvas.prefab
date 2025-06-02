@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 820510431499587061}
   - component: {fileID: 8873733277522102122}
   - component: {fileID: 1007585105414286271}
+  - component: {fileID: 2365718546963680180}
   m_Layer: 5
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -289,6 +290,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2365718546963680180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4058732482689122410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac63b24dce9f9d4b8bef574887e2b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinCount: 0
+  beerCount: 0
+  breadCount: 0
+  coinText: {fileID: 3227822708999211454}
+  beerText: {fileID: 6277276112029857516}
+  breadText: {fileID: 7477115708663403721}
 --- !u!1 &5846043785085456207
 GameObject:
   m_ObjectHideFlags: 0
