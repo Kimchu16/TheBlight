@@ -1510,6 +1510,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1251137741}
     m_Modifications:
+    - target: {fileID: 63297699134983244, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: sceneController
+      value: 
+      objectReference: {fileID: 406953037}
+    - target: {fileID: 291566874488375501, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 291566874488375501, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 291566874488375501, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 291566874488375501, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 729901101376974795, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 406953037}
+    - target: {fileID: 729901101376974795, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2298325429487116794, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1598,6 +1626,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5316899887640723379, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376027608144160783, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376027608144160783, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376027608144160783, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376027608144160783, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -210
+      objectReference: {fileID: 0}
     - target: {fileID: 5456549677538828652, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
       propertyPath: m_text
       value: You died...
@@ -1609,6 +1657,22 @@ PrefabInstance:
     - target: {fileID: 7064814775792945067, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
       propertyPath: m_text
       value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277716296016572537, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277716296016572537, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277716296016572537, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277716296016572537, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 8388969359631997853, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
       propertyPath: m_Name
@@ -1622,6 +1686,11 @@ PrefabInstance:
 --- !u!224 &792372462 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2298325429487116794, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
+  m_PrefabInstance: {fileID: 792372461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &792372463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5316899887640723379, guid: 9dadd59b9b3a18741bc68285854d715b, type: 3}
   m_PrefabInstance: {fileID: 792372461}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1010702964
@@ -23066,6 +23135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   victoryPanel: {fileID: 1910562535}
+  gameOverPanel: {fileID: 792372463}
   enemyManager: {fileID: 1879835256}
   startingEnemies: 20
   startingSpawnInterval: 3

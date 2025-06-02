@@ -32,6 +32,7 @@ public class SceneController : MonoBehaviour
 
     public void RestartScene()
     {
+        Time.timeScale = 1f;
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         LoadScene(currentScene);
     }
