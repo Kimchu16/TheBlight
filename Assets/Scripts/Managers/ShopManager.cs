@@ -22,7 +22,7 @@ public class ShopManager : MonoBehaviour
     private int rerollCost = 0;
     private bool isRolling = false;
 
-    [SerializeField] private AnimationCurve spinCurve; 
+    [SerializeField] private AnimationCurve spinCurve;
 
     private void Start()
     {
@@ -49,7 +49,7 @@ public class ShopManager : MonoBehaviour
 
             rerollCount++;
 
-            if (rerollCount % 3 == 0) // Every 2 rolls
+            if (rerollCount % 2 == 0) // Every 2 rolls
             {
                 rerollCost += 1; // Increase reroll cost by 1
             }
@@ -112,13 +112,13 @@ public class ShopManager : MonoBehaviour
                 }
                 break;
             case 2: // Health
-                player.IncreaseMaxHealth(5);
+                player.IncreaseMaxHealth(10);
                 break;
             case 3: // Energy
-                player.IncreaseMaxStamina(5);
+                player.IncreaseMaxStamina(10);
                 break;
             case 4: // Hunger
-                player.IncreaseMaxHunger(5);
+                player.IncreaseMaxHunger(10);
                 break;
         }
     }
@@ -126,5 +126,14 @@ public class ShopManager : MonoBehaviour
     private void UpdateShopUI()
     {
         rerollCostText.text = rerollCost.ToString();
+    }
+    
+    void Update()
+    {
+        // Check for P key press
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ToggleShop();
+        }
     }
 }
