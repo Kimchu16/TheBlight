@@ -527,7 +527,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1022468705
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 9128384846270689552, guid: bfcadf84f3e6aab4995b88560e3e0340, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -657,7 +657,15 @@ MonoBehaviour:
   staminaDrainRate: 1
   staminaRegenRate: 1.5
   StaminaFill: {fileID: 3794986835599671937}
+  maxHunger: 100
+  currentHunger: 0
+  hungerBarFill: {fileID: 9103877020497006639}
+  hungerDamagePerDrain: 2
+  hungerDrainAmount: 5
+  hungerDrainInterval: 10
+  deathTriggerName: PlayerDie
   AttackHitBox: {fileID: 727997995224754331}
+  attackDuration: 0.2
 --- !u!1 &6786874342201866749
 GameObject:
   m_ObjectHideFlags: 0

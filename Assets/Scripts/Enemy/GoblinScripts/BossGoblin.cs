@@ -35,9 +35,14 @@ public class BossGoblin : EnemyController
 
     public override void Die()
     {
-        AudioManager.Instance.PlaySFX(SFXType.GoblinBossDeath);
+        if (isDying) return;
+        AudioManager.Instance.PlaySFX(Audio.SFXType.GoblinEnemyDeath);
         animator.SetTrigger(DeathTriggerName);
         base.Die();
+    }
+
+    protected override void OnDeathComplete()
+    {
         GameManager.Instance.Victory();
     }
 

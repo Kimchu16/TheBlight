@@ -72,7 +72,9 @@ public class EnemyBase : MonoBehaviour
 
         Transform healthBar = transform.Find("HealthBar");
         if (healthBar != null)
-            healthBar.gameObject.SetActive(false);
+        {
+            Destroy(healthBar.gameObject); // Destroy it completely instead of just SetActive(false)
+        }
 
         if (AttackHitBox != null)
             AttackHitBox.gameObject.SetActive(false);
@@ -80,18 +82,8 @@ public class EnemyBase : MonoBehaviour
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
             col.enabled = false;
-
-        if (coinPrefab != null)
-        {
-            Debug.Log("Spawning coin at " + transform.position);
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogError("coinPrefab is NULL on " + gameObject.name);
-        }
     }
-
+    protected virtual void OnDeathComplete() { }
 
     public virtual void Move(Vector3 direction)
     {
@@ -132,7 +124,7 @@ public class EnemyBase : MonoBehaviour
     }
 
     protected bool IsChasing()
-{
-    return isChasing;
-}
+    {
+        return isChasing;
+    }
 }

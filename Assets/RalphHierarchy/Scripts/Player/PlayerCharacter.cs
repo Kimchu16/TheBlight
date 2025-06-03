@@ -5,7 +5,7 @@ public class PlayerCharacter : BaseCharacter
 {
     private bool isAttacking = false;
     [SerializeField] private PlayerAttackHitbox AttackHitBox;
-    [SerializeField] private float attackDuration = 0.2f;
+    [SerializeField] private float attackDuration = 0.1f;
 
     protected override void Start()
     {
@@ -20,7 +20,7 @@ public class PlayerCharacter : BaseCharacter
 
         if (Input.GetKeyDown(KeyCode.E) && !isAttacking)
         {
-            Invoke(nameof(PlayAttackSound), 0.5f);
+            Invoke(nameof(PlayAttackSound), 0.4f);
             Attack();
         }
 

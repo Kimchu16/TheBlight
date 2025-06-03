@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     public TMP_Text coinText;
     public TMP_Text beerText;
     public TMP_Text breadText;
+    public TMP_Text shopCoinText;
 
     private void Awake()
     {
@@ -86,5 +87,6 @@ public class InventoryManager : MonoBehaviour
         coinText.text = coinCount.ToString();
         beerText.text = beerCount.ToString();
         breadText.text = breadCount.ToString();
+        shopCoinText.text = coinCount.ToString();
     }
 }

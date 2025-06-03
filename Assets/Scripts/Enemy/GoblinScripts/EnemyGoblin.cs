@@ -27,6 +27,10 @@ public class EnemyGoblin : EnemyController
 
     public override void Die()
     {
+        if (coinPrefab != null)
+        {
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        }
         AudioManager.Instance.PlaySFX(Audio.SFXType.GoblinEnemyDeath);
         animator.SetTrigger("isDying");
         base.Die();
@@ -43,6 +47,7 @@ public class EnemyGoblin : EnemyController
         if (isDying)
         {
             AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEnemyRun);
+            return;
         }
         if (isChasing)
         {

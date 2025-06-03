@@ -5,10 +5,15 @@ public class EscapeMenuController : MonoBehaviour
 {
     [SerializeField]
     private GameObject escapeMenu;  // Reference to the Menu panel
-    public SceneController sceneController;
+    private SceneController _sceneController;
 
     private bool isPaused = false;
 
+     private void Awake()
+    {
+        _sceneController = SceneController.Instance;
+    }
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -46,6 +51,6 @@ public class EscapeMenuController : MonoBehaviour
     {
         Time.timeScale = 1f; // Resume time before switching scenes
         // Load your main menu scene here
-        sceneController.LoadScene(1);
+        _sceneController.LoadScene(2);
     }
 }
