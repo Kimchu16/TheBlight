@@ -22440,39 +22440,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1879835255 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4494970374677186381, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
-  m_PrefabInstance: {fileID: 2022904408}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1879835256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879835255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c213246cb74ed4099397a358d3bf37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyDataList:
-  - prefab: {fileID: 3955192668813080460, guid: 94333b154c38344419eca6be0d756f80, type: 3}
-    type: 0
-    spawnProbability: 0.7
-  - prefab: {fileID: 5771521210636414849, guid: 4259bcc3eef3b6f4dabd4c4a14f97963, type: 3}
-    type: 1
-    spawnProbability: 0.3
-  bossPrefab: {fileID: 8956966582512730024, guid: ab06035cb7f1f4646ab1657f03ed5a7d, type: 3}
-  spawnPoints:
-  - {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
-  spawnInterval: 3
-  maxEnemies: 20
-  bossThreshold: 15
-  bossSpawnDelay: 3
-  pauseSpawningDuringBossEntrance: 0
-  allowSpawning: 1
 --- !u!1001 &2022904408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22536,10 +22503,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4494970374677186381, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1879835256}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
 --- !u!1001 &7965305624383936408
 PrefabInstance:
