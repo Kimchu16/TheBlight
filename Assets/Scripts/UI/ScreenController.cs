@@ -54,22 +54,8 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator LoadSceneCoroutine(int sceneName)
     {
-       // 1. Fade Out
         yield return _sceneFade.FadeOutCoroutine(_sceneFadeDuration);
-
-        // 2. Wait one frame to ensure the fade panel is on top
-        yield return null;
-
-        // 3. Start async scene load
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-
-        // 4. Wait until async loading is done
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        // 5. Fade In
+        SceneManager.LoadSceneAsync(sceneName);
         yield return _sceneFade.FadeInCoroutine(_sceneFadeDuration);
     }
 }
