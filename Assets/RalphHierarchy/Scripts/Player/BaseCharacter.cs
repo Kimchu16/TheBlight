@@ -231,6 +231,7 @@ public class BaseCharacter : MonoBehaviour
         if (currentHealth <= 0f)
         {
             Die();
+            GameManager.Instance.GameOver();
         }
     }
 
