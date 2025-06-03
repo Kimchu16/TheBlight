@@ -559,19 +559,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 7987305974766050628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10f3da805ce804f4394a980f2c24080b, type: 3}
+  m_Script: {fileID: 11500000, guid: f16c11cad6b5def41a864b3c583ee360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1559176329925153361}
   textComponent: {fileID: 5969393943770103051}
-  fullText: "Ireland, 1847.\nThe blight blackened the fields and withered the last
-    of the harvest.\nThey have taken to withering humans.\nTurning people into mindless
-    creatures, hungry for blood. \nFortunately, there are ships bound for America.
-    \nTravel west and there you'll find passage. \nI pray, dear reader, you find
-    safety. \n\nAs for I will die with this letter."
-  typingSpeed: 0.06
+  fullText: "Ireland, 1847.\nThe Blight has ravaged crops, and has withered all the
+    harvest. \nWorser so, the minds of every citizen.\nThose who have eaten the corrupt
+    crop has begun eating others.\nFortunately, there are still ships down west set
+    forth for America. \nTo whomever finds this letter, I pray for your safety. \n\nAs
+    for I, I will die with this country. "
+  typingSpeed: 0.05
   continueHint: {fileID: 7429109203299709590}
-  fadeDuration: 2
+  fadeDuration: 1
 --- !u!1 &8144030318932144015
 GameObject:
   m_ObjectHideFlags: 0
