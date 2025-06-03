@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ButtonVisualHandler : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerDownHandler, IPointerUpHandler
+public class ButtonHandler : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerDownHandler, IPointerUpHandler
 {
     public Image backgroundImage;
     public Sprite defaultSprite;
     public Sprite pressedSprite;
     public Sprite selectedSprite;
 
+    // Button Sprite swap------------------------------------------------
     public void OnSelect(BaseEventData eventData)
     {
         backgroundImage.sprite = selectedSprite;

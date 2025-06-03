@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
     public GameObject victoryPanel;
     public GameObject gameOverPanel;
 
@@ -16,16 +16,30 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
+        if (Instance == null && Instance != this)
+        {
             Instance = this;
+            DontDestroyOnLoad(this.gameObject);  
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     void Start()
     {
         StartLevel(currentLevel);
     }
+
+    public void RegisterUI(SceneUIManager uiManager)
+    {
+        this.victoryPanel = uiManager.victoryPanel;
+        this.gameOverPanel = uiManager.gameOverPanel;
+
+        Debug.Log("UI registered to GameManager");
+    }
+
 
     public void StartLevel(int level)
     {
