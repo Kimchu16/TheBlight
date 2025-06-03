@@ -273,7 +273,7 @@ public class BaseCharacter : MonoBehaviour
 
         float deathAnimationLength = 1.7f; // <- adjust based on your animation
         Destroy(gameObject, deathAnimationLength);
-        //GameManager.Instance.GameOver();
+        GameManager.Instance.GameOver();
     }
 
     protected virtual bool IsMoving()
