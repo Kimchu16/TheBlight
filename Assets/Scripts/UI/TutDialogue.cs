@@ -13,6 +13,7 @@ public class TutDialogue : MonoBehaviour
     public string[] dialogueLines;
     public float typingSpeed = 0.05f;
     private int index;
+    public int CurrentIndex => index;
 
     void Start()
     {
