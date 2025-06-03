@@ -308,10 +308,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1503652191391640631, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1898347034839207098, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 3955192668813080460, guid: 94333b154c38344419eca6be0d756f80, type: 3}
+      objectReference: {fileID: 5771521210636414849, guid: 4259bcc3eef3b6f4dabd4c4a14f97963, type: 3}
     - target: {fileID: 1898347034839207098, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
@@ -757,6 +761,10 @@ PrefabInstance:
     - target: {fileID: 4050766447899906529, guid: b811af5ca2a2dac4688f78d16f383048, type: 3}
       propertyPath: m_Name
       value: TesterSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050766447899906529, guid: b811af5ca2a2dac4688f78d16f383048, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
