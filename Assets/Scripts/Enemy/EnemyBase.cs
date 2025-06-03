@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     protected Animator animator;
-    protected float maxHealth = 100f;
+    public virtual float MaxHealth => 100f;
+    public virtual float MoveSpeed => 5f;
+    public virtual float attackCooldown => 1f;
+    public virtual float AttackDamage => 10f;
     protected float currentHealth;
-    public float moveSpeed = 5f;
     public GameObject coinPrefab;
     public bool isDying = false;
-    [SerializeField] protected float attackCooldown = 1f;
-    [SerializeField] protected float attackDamage = 10f;
     [SerializeField] protected EnemyAttackHitbox AttackHitBox;
     protected virtual string AttackTriggerName => "GoblinAttack";
     protected virtual string DeathTriggerName => "GoblinDeath";
@@ -28,7 +28,7 @@ public class EnemyBase : MonoBehaviour
 
     protected void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = MaxHealth;
         animator = GetComponentInChildren<Animator>();
         originalScale = transform.localScale; // To keep original size
 
@@ -38,7 +38,7 @@ public class EnemyBase : MonoBehaviour
 
     IEnumerator FindPlayerAfterDelay()
     {
-        yield return new WaitForSeconds(0.5f); // wait 0.5 second, not just 1 frame
+        yield return new WaitForSeconds(0.5f); // wait 0.5 second
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
@@ -59,7 +59,7 @@ public class EnemyBase : MonoBehaviour
 
         if (AttackHitBox != null)
         {
-            AttackHitBox.DamagePlayer(attackDamage); // <-- Deal 10 damage!
+            AttackHitBox.DamagePlayer(AttackDamage); // <-- Deal 10 damage!
         }
     }
 
@@ -67,14 +67,14 @@ public class EnemyBase : MonoBehaviour
     {
         if (isDying) return;
         isDying = true;
-
-        animator.SetTrigger(DeathTriggerName);
-
+        
         Transform healthBar = transform.Find("HealthBar");
         if (healthBar != null)
         {
             Destroy(healthBar.gameObject); // Destroy it completely instead of just SetActive(false)
         }
+
+        animator.SetTrigger(DeathTriggerName);
 
         if (AttackHitBox != null)
             AttackHitBox.gameObject.SetActive(false);
@@ -90,7 +90,7 @@ public class EnemyBase : MonoBehaviour
         if (direction.sqrMagnitude > 0.01f)
         {
             isChasing = true;
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
+            transform.Translate(direction * MoveSpeed * Time.deltaTime);
         }
         else
         {
