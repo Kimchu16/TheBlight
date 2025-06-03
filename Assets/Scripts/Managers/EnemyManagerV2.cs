@@ -36,10 +36,11 @@ public class EnemyManagerV2 : MonoBehaviour
     private int totalSpawned = 0;
     private bool bossSpawned = false;
     private bool isPausedForBoss = false;
+    public bool allowSpawning = true; // Karl added this 
 
     void Update()
     {
-        if (isPausedForBoss) return;  // Don't spawn while waiting for boss entrance
+        if (isPausedForBoss || !allowSpawning) return;  // Don't spawn while waiting for boss entrance (Karl added something here too)
 
         timer += Time.deltaTime;
 
@@ -59,7 +60,7 @@ public class EnemyManagerV2 : MonoBehaviour
         }
     }
 
-    void SpawnEnemy()
+    public void SpawnEnemy() // karl changed to public
     {
         if (spawnPoints.Length == 0 || enemyDataList.Count == 0) return;
 
