@@ -23,21 +23,18 @@ public class MenuController : MonoBehaviour
             return;
         }
 
-        //Debug.Log("Loaded Scene Index before load: " + gameState.sceneProgress.lastScene);
-        gameState.sceneProgress.Load(); // Load save file if any exists
-        //Debug.Log("Loaded Scene Index after load: " + gameState.sceneProgress.lastScene);
-
-
-        // Disable Continue button if no saved scene exists
-        if (gameState.sceneProgress.lastScene < 3) // Saved scene is title or menu, aka no saved stage
+        // Only run this logic if the buttons exist
+        if (continueButton != null && newGameButton != null)
         {
-            //Debug.Log("no save");
-            continueButton.gameObject.SetActive(false);
-        }
-        else if (gameState.sceneProgress.lastScene >= 3)
-        {
-            //Debug.Log("save found");
-            newGameButton.gameObject.SetActive(false);
+            // Disable Continue button if no saved scene exists
+            if (gameState.sceneProgress.lastScene < 3) // Saved scene is title or menu, no saved stage
+            {
+                continueButton.gameObject.SetActive(false);
+            }
+            else if (gameState.sceneProgress.lastScene >= 3)
+            {
+                newGameButton.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -52,10 +49,20 @@ public class MenuController : MonoBehaviour
         _sceneController.LoadScene(gameState.sceneProgress.lastScene);  // Resume from last scene saved
     }
 
+    public void RestartGame()
+    {
+        _sceneController.RestartScene();
+    }
+
+    public void NextScene()
+    {
+        _sceneController.NextScene();
+    }
+
     public void MainMenu()
     {
         gameState.SaveAll();
-        _sceneController.LoadScene(1);
+        _sceneController.LoadScene(2);
     }
 
     public void QuitGame(){

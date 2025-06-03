@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,7 +20,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);  
-            SceneManager.sceneLoaded += OnSceneLoaded;  // Subscribe to scene loaded event
         }
         else
         {
@@ -34,23 +32,14 @@ public class GameManager : MonoBehaviour
         StartLevel(currentLevel);
     }
 
-    private void OnDestroy()
+    public void RegisterUI(SceneUIManager uiManager)
     {
-        // Unsubscribe to avoid memory leaks
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        this.victoryPanel = uiManager.victoryPanel;
+        this.gameOverPanel = uiManager.gameOverPanel;
+
+        Debug.Log("UI registered to GameManager");
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log($"Scene Loaded: {scene.name}");
-
-        // Find panels by name
-        victoryPanel = GameObject.Find("VictoryPanel");
-        gameOverPanel = GameObject.Find("GameOverPanel");
-
-        if (victoryPanel == null) Debug.LogWarning("VictoryPanel not found in scene!");
-        if (gameOverPanel == null) Debug.LogWarning("GameOverPanel not found in scene!");
-    }
 
     public void StartLevel(int level)
     {

@@ -33,7 +33,10 @@ public class SceneController : MonoBehaviour
 
     public void LoadScene(int sceneName)
     {
+        Time.timeScale = 1f;
+        Debug.Log("Starting scene load for scene: " + sceneName);
         StartCoroutine(LoadSceneCoroutine(sceneName));
+        //SceneManager.LoadScene(sceneName);
     }
 
     public void NextScene()
@@ -51,11 +54,22 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator LoadSceneCoroutine(int sceneName)
     {
+       // 1. Fade Out
         yield return _sceneFade.FadeOutCoroutine(_sceneFadeDuration);
-        yield return SceneManager.LoadSceneAsync(sceneName);
-    
-        _sceneFade = FindFirstObjectByType<SceneFadeTransition>();
 
+        // 2. Wait one frame to ensure the fade panel is on top
+        yield return null;
+
+        // 3. Start async scene load
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        // 4. Wait until async loading is done
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        // 5. Fade In
         yield return _sceneFade.FadeInCoroutine(_sceneFadeDuration);
     }
 }
