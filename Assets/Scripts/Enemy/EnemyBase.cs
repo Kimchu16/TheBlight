@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -23,6 +24,8 @@ public class EnemyBase : MonoBehaviour
     protected Transform playerTransform;
     protected int attackCount = 0;
 
+    protected bool isChasing = false;
+
     protected void Start()
     {
         currentHealth = maxHealth;
@@ -32,7 +35,7 @@ public class EnemyBase : MonoBehaviour
         StartCoroutine(FindPlayerAfterDelay());
     }
 
-    
+
     IEnumerator FindPlayerAfterDelay()
     {
         yield return new WaitForSeconds(0.5f); // wait 0.5 second, not just 1 frame
@@ -69,7 +72,9 @@ public class EnemyBase : MonoBehaviour
 
         Transform healthBar = transform.Find("HealthBar");
         if (healthBar != null)
-            healthBar.gameObject.SetActive(false);
+        {
+            Destroy(healthBar.gameObject); // Destroy it completely instead of just SetActive(false)
+        }
 
         if (AttackHitBox != null)
             AttackHitBox.gameObject.SetActive(false);
@@ -77,15 +82,20 @@ public class EnemyBase : MonoBehaviour
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
             col.enabled = false;
-
-        // Remove Destroy here; wait for animation in derived class
-        // Destroy(gameObject, 0.4f);
     }
-
+    protected virtual void OnDeathComplete() { }
 
     public virtual void Move(Vector3 direction)
     {
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
+        if (direction.sqrMagnitude > 0.01f)
+        {
+            isChasing = true;
+            transform.Translate(direction * moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            isChasing = false;
+        }
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
@@ -111,5 +121,10 @@ public class EnemyBase : MonoBehaviour
             Debug.Log("Player left range. Total attacks made: " + attackCount);
             animator.SetFloat("Speed", 0f);
         }
+    }
+
+    protected bool IsChasing()
+    {
+        return isChasing;
     }
 }

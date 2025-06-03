@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Audio;
 
 public class BaseCharacter : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class BaseCharacter : MonoBehaviour
     private bool isRestingInPeace = false;
     private bool isRunning = false;
 
+
     [SerializeField] private string deathTriggerName = "PlayerDie"; // Animator Trigger Name
     private bool isDead = false; // Prevent double death
 
@@ -56,10 +58,20 @@ public class BaseCharacter : MonoBehaviour
         HandleInput();
         HandleStamina();
         HandleHungerDrain();
+        HandleItemUse();
         if (isRestingInPeace)
         {
             Animate(); // Optional: could add rest animation here
             return;
+        }
+        // Footstep loop audio handling
+        if (IsMoving())
+        {
+            AudioManager.Instance.PlayContinuousSFX(SFXType.PlayerWalk);
+        }
+        else if (!IsMoving())
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.PlayerWalk);
         }
 
         Move();
@@ -119,7 +131,7 @@ public class BaseCharacter : MonoBehaviour
         if (healthDrainTimer >= hungerDrainInterval)
         {
             healthDrainTimer = 0f;
-            
+
             // Reduce hunger over time
             currentHunger -= hungerDrainAmount;
             currentHunger = Mathf.Clamp(currentHunger, 0f, maxHunger);
@@ -129,6 +141,36 @@ public class BaseCharacter : MonoBehaviour
             if (currentHunger <= 0f)
             {
                 TakeDamage(hungerDamagePerDrain);
+            }
+        }
+    }
+    void HandleItemUse()
+    {
+        // Press 1 -> Eat Bread
+        if (Input.GetKeyDown(KeyCode.Alpha1)) // 1 key
+        {
+            if (InventoryManager.Instance.UseBread())
+            {
+                RestoreHunger(20f); // Heal hunger by 20
+                Debug.Log("Ate bread!");
+            }
+            else
+            {
+                Debug.Log("No bread to eat!");
+            }
+        }
+
+        // Press 2 -> Drink Beer
+        if (Input.GetKeyDown(KeyCode.Alpha2)) // 2 key
+        {
+            if (InventoryManager.Instance.UseBeer())
+            {
+                RestoreHealth(15f); // Heal health by 15
+                Debug.Log("Drank beer!");
+            }
+            else
+            {
+                Debug.Log("No beer to drink!");
             }
         }
     }
@@ -218,7 +260,7 @@ public class BaseCharacter : MonoBehaviour
         isDead = true;
 
         Debug.Log($"{gameObject.name} died.");
-
+        Debug.Log($"Animator: {animator}, Death Trigger: {deathTriggerName}");
 
         animator.SetTrigger(deathTriggerName); // Play death animation
 
@@ -231,6 +273,35 @@ public class BaseCharacter : MonoBehaviour
 
         float deathAnimationLength = 1.7f; // <- adjust based on your animation
         Destroy(gameObject, deathAnimationLength);
-        GameManager.Instance.GameOver();
+        //GameManager.Instance.GameOver();
+    }
+
+    protected virtual bool IsMoving()
+    {
+        return movement.sqrMagnitude > 0.01f;
+    }
+    
+    public void IncreaseMaxHealth(float amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount; // Optional: also heal when max increases
+        UpdateHealthBar();
+        Debug.Log($"Max Health increased by {amount}. New Max Health: {maxHealth}");
+    }
+
+    public void IncreaseMaxStamina(float amount)
+    {
+        maxStamina += amount;
+        currentStamina += amount; // Optional: also recharge
+        UpdateStaminaBar();
+        Debug.Log($"Max Stamina (Energy) increased by {amount}. New Max Stamina: {maxStamina}");
+    }
+
+    public void IncreaseMaxHunger(float amount)
+    {
+        maxHunger += amount;
+        currentHunger += amount; // Optional: refill
+        UpdateHungerBar();
+        Debug.Log($"Max Hunger increased by {amount}. New Max Hunger: {maxHunger}");
     }
 }

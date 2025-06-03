@@ -1,10 +1,11 @@
 using UnityEngine;
+using Audio;
 
 public class PlayerCharacter : BaseCharacter
 {
     private bool isAttacking = false;
     [SerializeField] private PlayerAttackHitbox AttackHitBox;
-    [SerializeField] private float attackDuration = 0.2f;
+    [SerializeField] private float attackDuration = 0.1f;
 
     protected override void Start()
     {
@@ -14,14 +15,15 @@ public class PlayerCharacter : BaseCharacter
 
     protected override void Update()
     {
-       
+
         base.Update();
 
         if (Input.GetKeyDown(KeyCode.E) && !isAttacking)
         {
+            Invoke(nameof(PlayAttackSound), 0.4f);
             Attack();
         }
-        
+
     }
 
     private void Attack()
@@ -44,5 +46,10 @@ public class PlayerCharacter : BaseCharacter
         {
             AttackHitBox.DisableAttack(); // Stop damage after attack
         }
+    }
+
+    private void PlayAttackSound()
+    {
+        AudioManager.Instance.PlaySFX(SFXType.PlayerAttack);
     }
 }

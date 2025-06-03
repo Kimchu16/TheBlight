@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class BreadPickUp : MonoBehaviour
 {
-    public float hungerRestoreAmount = 20f;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        BaseCharacter player = other.GetComponent<BaseCharacter>();
-        if (player != null)
+        if (other.CompareTag("Player"))
         {
-            player.RestoreHunger(hungerRestoreAmount);
-            Destroy(gameObject); // Poof! Bread gone.
+            InventoryManager.Instance.AddBread();  // Increment bread in inventory
+            Destroy(gameObject); // Destroy bread object after pickup
         }
     }
 }

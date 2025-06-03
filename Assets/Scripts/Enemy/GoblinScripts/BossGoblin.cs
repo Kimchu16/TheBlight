@@ -25,6 +25,7 @@ public class BossGoblin : EnemyController
         {
             animator.SetBool("isPlayerThere", false);
         }
+
     }
 
     public override void TakeDamage(float damage)
@@ -34,15 +35,32 @@ public class BossGoblin : EnemyController
 
     public override void Die()
     {
-        AudioManager.Instance.PlaySFX(SFXType.GoblinBossDeath);
+        if (isDying) return;
+        AudioManager.Instance.PlaySFX(Audio.SFXType.GoblinEnemyDeath);
         animator.SetTrigger(DeathTriggerName);
         base.Die();
+    }
+
+    protected override void OnDeathComplete()
+    {
         GameManager.Instance.Victory();
     }
 
     public override void Move(Vector3 direction)
     {
-        //AudioManager.Instance.PlaySFX(SFXType.GoblinBossRun);
+        if (isDying)
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinBossRun);
+            return;
+        }
+        if (isChasing)
+        {
+            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinBossRun);
+        }
+        else
+        {
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinBossRun);
+        }
         base.Move(direction);
     }
 
