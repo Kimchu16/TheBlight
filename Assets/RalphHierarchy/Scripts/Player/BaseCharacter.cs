@@ -4,8 +4,8 @@ using Audio;
 
 public class BaseCharacter : MonoBehaviour
 {
-    public float walkSpeed = 5f;
-    public float runSpeed = 7.5f;
+    public float walkSpeed = 3.5f;
+    public float runSpeed = 5.5f;
     protected float currentMoveSpeed;
 
     protected Animator animator;
@@ -13,24 +13,24 @@ public class BaseCharacter : MonoBehaviour
     protected Vector2 lastMoveDirection = Vector2.down;
 
     // Health
-    public float maxHealth = 100f;
+    public float maxHealth = 70f;
     public float currentHealth;
     public Image healthBarFill;
 
     // Stamina
-    public float maxStamina = 10f;
+    public float maxStamina = 8f;
     public float currentStamina;
-    public float staminaDrainRate = 0.5f;
-    public float staminaRegenRate = 1.5f;
+    public float staminaDrainRate = 0.6f;
+    public float staminaRegenRate = 1f;
     public Image StaminaFill;
 
-    public float maxHunger = 100f;
+    public float maxHunger = 80f;
     public float currentHunger;
     public Image hungerBarFill;
 
-    [SerializeField] private float hungerDamagePerDrain = 2f;
-    [SerializeField] private float hungerDrainAmount = 5f;
-    [SerializeField] private float hungerDrainInterval = 10f;
+    [SerializeField] private float hungerDamagePerDrain = 3f;
+    [SerializeField] private float hungerDrainAmount = 6f;
+    [SerializeField] private float hungerDrainInterval = 8f;
     private float healthDrainTimer = 0f;
 
     private bool isRestingInPeace = false;
@@ -61,7 +61,7 @@ public class BaseCharacter : MonoBehaviour
         HandleItemUse();
         if (isRestingInPeace)
         {
-            Animate(); // Optional: could add rest animation here
+            Animate(); 
             return;
         }
         // Footstep loop audio handling
@@ -268,7 +268,6 @@ public class BaseCharacter : MonoBehaviour
         // Disable further inputs/movement
         this.enabled = false; // Disables Update() from this point
 
-        // Optional: Disable colliders, attack scripts, etc.
         Collider2D collider = GetComponent<Collider2D>();
         if (collider != null) collider.enabled = false;
 

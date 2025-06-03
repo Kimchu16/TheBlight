@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerAttackHitbox : MonoBehaviour
 {
-    public float attackDamage = 20f;
+    public float attackDamage = 10f;
     private bool canDealDamage = false;
 
     private void OnTriggerStay2D(Collider2D other)
@@ -11,7 +11,6 @@ public class PlayerAttackHitbox : MonoBehaviour
 
         GameObject target = other.gameObject;
 
-        // 💥 If target is dead/destroyed or disabled — get out
         if (!target.activeInHierarchy) return;
 
         if (!target.CompareTag("Enemy")) return;
@@ -21,15 +20,20 @@ public class PlayerAttackHitbox : MonoBehaviour
         if (enemyHealth.isDead) return;
 
         enemyHealth.TakeDamage(attackDamage);
+
+        canDealDamage = false;
+        gameObject.SetActive(false);
     }
 
     public void EnableAttack()
     {
         canDealDamage = true;
+        gameObject.SetActive(true);
     }
 
     public void DisableAttack()
     {
         canDealDamage = false;
+        gameObject.SetActive(false);
     }
 }

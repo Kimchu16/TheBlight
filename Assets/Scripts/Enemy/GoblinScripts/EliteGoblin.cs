@@ -5,6 +5,11 @@ public class EliteGoblin : EnemyController
 {
     protected override string AttackTriggerName => "GoblinEliteAttack";
     protected override string DeathTriggerName => "GoblinEliteDeath";
+    public override float MaxHealth => 60f;
+    public override float MoveSpeed => 4f;
+    public override float AttackDamage => 5f;
+
+    private bool wasChasing = false;
 
     protected override void Update()
     {
@@ -28,14 +33,18 @@ public class EliteGoblin : EnemyController
 
     public override void TakeDamage(float damage)
     {
-        base.TakeDamage(damage * 0.8f); // 20% damage reduction
+        base.TakeDamage(damage * 0.95f); // 5% damage reduction
     }
 
     public override void Die()
     {
+        if (coinPrefab != null)
+        {
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        }
+        base.Die();
         AudioManager.Instance.PlaySFX(SFXType.GoblinEliteDeath);
         animator.SetTrigger(DeathTriggerName);
-        base.Die();
     }
 
     public override void Attack()
@@ -49,15 +58,23 @@ public class EliteGoblin : EnemyController
         if (isDying)
         {
             AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEliteRun);
+            wasChasing = false;
+            return;
         }
-        if (isChasing)
+
+        bool isCurrentlyChasing = direction.sqrMagnitude > 0.01f;
+
+        if (isCurrentlyChasing && !wasChasing)
         {
-            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinEliteRun);
+            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinEliteRun); // Start run sound
+            wasChasing = true;
         }
-        else
+        else if (!isCurrentlyChasing && wasChasing)
         {
-            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEliteRun);
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEliteRun); // Stop run sound
+            wasChasing = false;
         }
+
         base.Move(direction);
     }
     

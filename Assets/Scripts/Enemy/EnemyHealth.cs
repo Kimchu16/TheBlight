@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     public Image healthFillImage;
-    public float maxHealth = 20f;
     private float currentHealth;
 
     private EnemyBase enemyBase;
@@ -12,10 +11,16 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;
-        UpdateHealthBar();
-
         enemyBase = GetComponent<EnemyBase>();
+
+        if (enemyBase == null)
+        {
+            Debug.LogError("EnemyBase component not found!");
+            return;
+        }
+
+        currentHealth = enemyBase.MaxHealth;  // Use EnemyBase MaxHealth
+        UpdateHealthBar();
     }
 
     public virtual void TakeDamage(float damage)
@@ -23,15 +28,17 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            enemyBase.Die(); // Or a public Kill method
+            currentHealth = 0;  // Make sure it doesn't go negative
+            enemyBase.Die();    // Kill the enemy
         }
-        UpdateHealthBar();        // Move this below so health bar updates even at 0
+        UpdateHealthBar();
     }
-
 
     private void UpdateHealthBar()
     {
-        healthFillImage.fillAmount = currentHealth / maxHealth;
+        if (healthFillImage != null && enemyBase != null)
+        {
+            healthFillImage.fillAmount = currentHealth / enemyBase.MaxHealth;  // Use EnemyBase MaxHealth
+        }
     }
-
 }

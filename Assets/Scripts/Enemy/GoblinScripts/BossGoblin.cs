@@ -6,6 +6,10 @@ public class BossGoblin : EnemyController
 {
     protected override string AttackTriggerName => "GoblinBossAttack";
     protected override string DeathTriggerName => "GoblinBossDeath";
+    public override float MaxHealth => 200f;
+    public override float MoveSpeed => 1.5f;
+    public override float AttackDamage => 30f;
+    private bool wasChasing = false;
 
     protected override void Update()
     {
@@ -35,6 +39,7 @@ public class BossGoblin : EnemyController
 
     public override void Die()
     {
+        base.Die();
         if (isDying) return;
         AudioManager.Instance.PlaySFX(Audio.SFXType.GoblinEnemyDeath);
         animator.SetTrigger(DeathTriggerName);
@@ -52,16 +57,23 @@ public class BossGoblin : EnemyController
         if (isDying)
         {
             AudioManager.Instance.StopContinuousSFX(SFXType.GoblinBossRun);
+            wasChasing = false;
             return;
         }
-        if (isChasing)
+
+        bool isCurrentlyChasing = direction.sqrMagnitude > 0.01f;
+
+        if (isCurrentlyChasing && !wasChasing)
         {
-            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinBossRun);
+            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinBossRun); // Start run sound
+            wasChasing = true;
         }
-        else
+        else if (!isCurrentlyChasing && wasChasing)
         {
-            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinBossRun);
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinBossRun); // Stop run sound
+            wasChasing = false;
         }
+
         base.Move(direction);
     }
 

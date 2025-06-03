@@ -3,6 +3,10 @@ using Audio;
 
 public class EnemyGoblin : EnemyController
 {
+    public override float MaxHealth => 40f;
+    public override float MoveSpeed => 2.5f;
+    public override float AttackDamage => 7f;
+    private bool wasChasing = false;
 
     protected override void Update()
     {
@@ -31,9 +35,10 @@ public class EnemyGoblin : EnemyController
         {
             Instantiate(coinPrefab, transform.position, Quaternion.identity);
         }
+        base.Die();
         AudioManager.Instance.PlaySFX(Audio.SFXType.GoblinEnemyDeath);
         animator.SetTrigger("isDying");
-        base.Die();
+        
     }
 
     public override void Attack()
@@ -47,16 +52,23 @@ public class EnemyGoblin : EnemyController
         if (isDying)
         {
             AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEnemyRun);
+            wasChasing = false;
             return;
         }
-        if (isChasing)
+
+        bool isCurrentlyChasing = direction.sqrMagnitude > 0.01f;
+
+        if (isCurrentlyChasing && !wasChasing)
         {
-            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinEnemyRun);
+            AudioManager.Instance.PlayContinuousSFX(SFXType.GoblinEnemyRun); // Start run sound
+            wasChasing = true;
         }
-        else
+        else if (!isCurrentlyChasing && wasChasing)
         {
-            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEnemyRun);
+            AudioManager.Instance.StopContinuousSFX(SFXType.GoblinEnemyRun); // Stop run sound
+            wasChasing = false;
         }
+
         base.Move(direction);
     }
 
