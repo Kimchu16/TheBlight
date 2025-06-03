@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public static SceneController Instance { get; private set; }
+
     [SerializeField]
     private float _sceneFadeDuration;
 
@@ -12,6 +14,16 @@ public class SceneController : MonoBehaviour
     private void Awake()
     {
         _sceneFade = GetComponentInChildren<SceneFadeTransition>();
+
+        if (Instance == null && Instance != this)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);  
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator Start()
@@ -41,5 +53,9 @@ public class SceneController : MonoBehaviour
     {
         yield return _sceneFade.FadeOutCoroutine(_sceneFadeDuration);
         yield return SceneManager.LoadSceneAsync(sceneName);
+    
+        _sceneFade = FindFirstObjectByType<SceneFadeTransition>();
+
+        yield return _sceneFade.FadeInCoroutine(_sceneFadeDuration);
     }
 }

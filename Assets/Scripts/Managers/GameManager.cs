@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
     public GameObject victoryPanel;
     public GameObject gameOverPanel;
 
@@ -16,15 +17,39 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
+        if (Instance == null && Instance != this)
+        {
             Instance = this;
+            DontDestroyOnLoad(this.gameObject);  
+            SceneManager.sceneLoaded += OnSceneLoaded;  // Subscribe to scene loaded event
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     void Start()
     {
         StartLevel(currentLevel);
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe to avoid memory leaks
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log($"Scene Loaded: {scene.name}");
+
+        // Find panels by name
+        victoryPanel = GameObject.Find("VictoryPanel");
+        gameOverPanel = GameObject.Find("GameOverPanel");
+
+        if (victoryPanel == null) Debug.LogWarning("VictoryPanel not found in scene!");
+        if (gameOverPanel == null) Debug.LogWarning("GameOverPanel not found in scene!");
     }
 
     public void StartLevel(int level)
