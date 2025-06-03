@@ -15,7 +15,11 @@ PrefabInstance:
     - target: {fileID: 1898347034839207098, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 6012937553764275092, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      objectReference: {fileID: 3955192668813080460, guid: 94333b154c38344419eca6be0d756f80, type: 3}
+    - target: {fileID: 1898347034839207098, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
+      propertyPath: 'spawnPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
     - target: {fileID: 8612194793293825893, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59,5 +63,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1503652191391640631, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 378849960082199575}
   m_SourcePrefab: {fileID: 100100000, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
+--- !u!1 &4494970374677186381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1503652191391640631, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
+  m_PrefabInstance: {fileID: 3080281885464275834}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &378849960082199575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4494970374677186381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c213246cb74ed4099397a358d3bf37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDataList:
+  - prefab: {fileID: 3955192668813080460, guid: 94333b154c38344419eca6be0d756f80, type: 3}
+    type: 0
+    spawnProbability: 0.7
+  - prefab: {fileID: 5771521210636414849, guid: 4259bcc3eef3b6f4dabd4c4a14f97963, type: 3}
+    type: 1
+    spawnProbability: 0.3
+  bossPrefab: {fileID: 8956966582512730024, guid: ab06035cb7f1f4646ab1657f03ed5a7d, type: 3}
+  spawnPoints:
+  - {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+  spawnInterval: 3
+  maxEnemies: 20
+  bossThreshold: 15
+  bossSpawnDelay: 3
+  pauseSpawningDuringBossEntrance: 0
+  allowSpawning: 1
