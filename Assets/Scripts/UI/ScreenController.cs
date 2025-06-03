@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public static SceneController Instance { get; private set; }
+
     [SerializeField]
     private float _sceneFadeDuration;
 
@@ -12,6 +14,16 @@ public class SceneController : MonoBehaviour
     private void Awake()
     {
         _sceneFade = GetComponentInChildren<SceneFadeTransition>();
+
+        if (Instance == null && Instance != this)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);  
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator Start()
@@ -21,7 +33,10 @@ public class SceneController : MonoBehaviour
 
     public void LoadScene(int sceneName)
     {
+        Time.timeScale = 1f;
+        Debug.Log("Starting scene load for scene: " + sceneName);
         StartCoroutine(LoadSceneCoroutine(sceneName));
+        //SceneManager.LoadScene(sceneName);
     }
 
     public void NextScene()
@@ -40,6 +55,7 @@ public class SceneController : MonoBehaviour
     private IEnumerator LoadSceneCoroutine(int sceneName)
     {
         yield return _sceneFade.FadeOutCoroutine(_sceneFadeDuration);
-        yield return SceneManager.LoadSceneAsync(sceneName);
+        SceneManager.LoadSceneAsync(sceneName);
+        yield return _sceneFade.FadeInCoroutine(_sceneFadeDuration);
     }
 }
