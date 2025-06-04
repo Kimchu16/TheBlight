@@ -1,5 +1,6 @@
 using UnityEngine;
 using Audio;
+using UnityEngine.SceneManagement;
 
 
 public class BossGoblin : EnemyController
@@ -49,8 +50,16 @@ public class BossGoblin : EnemyController
 
     protected override void OnDeathComplete()
     {
-        Debug.Log("ondeathcomplete");
-        GameManager.Instance.Victory();
+        //Debug.Log("ondeathcomplete");
+
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        { // If this is the final level
+            SceneController.Instance.LoadScene(1); // Load title screen
+        }
+        else
+        {  
+            GameManager.Instance.Victory();
+        }
     }
 
     public override void Move(Vector3 direction)
@@ -74,7 +83,6 @@ public class BossGoblin : EnemyController
             AudioManager.Instance.StopContinuousSFX(SFXType.GoblinBossRun); // Stop run sound
             wasChasing = false;
         }
-
         base.Move(direction);
     }
 

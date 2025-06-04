@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null && Instance != this)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);  
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex > 3)
+        if (SceneManager.GetActiveScene().buildIndex > 3)
         {
             StartLevel(currentLevel);
         }
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over!");
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
-        
+
     }
 
     public void Victory()
@@ -86,4 +86,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         victoryPanel.SetActive(true);
     }
+    
+    
 }
