@@ -6,7 +6,7 @@ public abstract class EnemyAttackHitbox : MonoBehaviour
 
     protected virtual float DamageMultiplier => 1f; // default 1x
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -14,7 +14,7 @@ public abstract class EnemyAttackHitbox : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public virtual void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -25,7 +25,7 @@ public abstract class EnemyAttackHitbox : MonoBehaviour
         }
     }
 
-    public void DamagePlayer(float damageAmount)
+    public virtual void DamagePlayer(float damageAmount)
     {
         if (player != null)
         {
