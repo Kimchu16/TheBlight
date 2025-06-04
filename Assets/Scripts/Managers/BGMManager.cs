@@ -10,6 +10,9 @@ public class BGMManager : MonoBehaviour
 
         switch (sceneIndex)
         {
+            case 3:
+                AudioManager.Instance.PlayBGM(BGMType.TutBGM);
+                break;
             case 4: //lvl 1
                 AudioManager.Instance.PlayBGM(BGMType.Level1);
                 break;
