@@ -1,11 +1,16 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SceneUIManager : MonoBehaviour
 {
     public GameObject victoryPanel;
     public GameObject gameOverPanel;
     public EnemyManagerV2 enemyManager;
+    private SceneController _sceneController;  
+
+    private void Awake()
+    {
+        _sceneController = SceneController.Instance;
+    }
 
     void Start()
     {
@@ -14,7 +19,7 @@ public class SceneUIManager : MonoBehaviour
         GameManager.Instance.enemyManager = enemyManager;
         Debug.Log($"[SceneUIManager] Assigned enemyManager: {enemyManager}");
        
-        if (SceneManager.GetActiveScene().buildIndex == 4) // If level 1 is being loaded
+        if (_sceneController.GetActiveScene() == 4) // If level 1 is being loaded
         {
             GameManager.Instance.StartLevel(GameManager.Instance.currentLevel);
         }
