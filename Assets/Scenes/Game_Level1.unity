@@ -131,13 +131,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1680284231059997014, guid: bda4d51973b046245aa1bd9dad4fff7f, type: 3}
+      propertyPath: defaultSpawnPoint
+      value: 
+      objectReference: {fileID: 2291214521505991032, guid: 02a4f15bee702d742bf75069c021e59c, type: 3}
     - target: {fileID: 4339307552185167414, guid: bda4d51973b046245aa1bd9dad4fff7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4339307552185167414, guid: bda4d51973b046245aa1bd9dad4fff7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4339307552185167414, guid: bda4d51973b046245aa1bd9dad4fff7f, type: 3}
       propertyPath: m_LocalPosition.z
