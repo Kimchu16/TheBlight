@@ -1,7 +1,5 @@
 using UnityEngine;
 using Audio;
-using UnityEngine.SceneManagement;
-
 
 public class BossGoblin : EnemyController
 {
@@ -11,6 +9,12 @@ public class BossGoblin : EnemyController
     public override float MoveSpeed => 1.5f;
     public override float AttackDamage => 30f;
     private bool wasChasing = false;
+    private SceneController _sceneController;
+
+    void Awake()
+    {
+        _sceneController = SceneController.Instance;
+    }
 
     protected override void Update()
     {
@@ -52,7 +56,7 @@ public class BossGoblin : EnemyController
     {
         //Debug.Log("ondeathcomplete");
 
-        if (SceneManager.GetActiveScene().buildIndex == 6)
+        if (_sceneController.GetActiveScene() == 6)
         { // If this is the final level
             SceneController.Instance.LoadScene(1); // Load title screen
         }
