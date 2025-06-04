@@ -2,40 +2,39 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    public TutDialogue tutDialogue;         // Reference to your dialogue manager
-    public EnemyManagerV2 enemyManager;     // Reference to your EnemyManagerV2
-    public GameObject dialoguePanel;        // The dialogue panel to show/hide
+    [Header("Dialogue Settings")]       // The dialogue panel to show/hide
+    public TutDialogue tutDialogue; // Reference to the tutorial dialogue script
+    public GameObject dialoguePanel; // The panel that contains the dialogue UI
 
-    private int enemiesToSpawn = 5;
-    private int enemiesAlive = 0;
+    [Header("Enemy Settings")]
+    public EnemyManagerV2 enemyManager; // Reference to the enemy manager script
+
+    [Header("Spawn Settings")]
+    public int enemiesToSpawn = 3;
+    public int enemiesAlive = 0;
+    private bool waitingForEnemies = false; // Flag to check if we are waiting for
 
     void Start()
     {
         tutDialogue.continueButton.onClick.AddListener(OnDialogueNext);
         enemyManager.SetMaxEnemies(enemiesToSpawn);
         // enemyManager.SetSpawnInterval(spawnInterval);
-        enemyManager.ResetSpawner();
+        //enemyManager.ResetSpawner();
     }
 
     void OnDialogueNext()
     {
         // If player clicked from element 4 (index 1), spawn enemies
-        if (tutDialogue.CurrentIndex == 4)  // 2 is when they just pressed next on Element 2 (index starts at 0)
-        {
-            dialoguePanel.SetActive(false);  // Hide dialogue
-            StartEnemyWave();
-        }
+        Debug.Log("Dialogue Index: " + tutDialogue.CurrentIndex);
+        
     }
 
-    void StartEnemyWave()
+    public void TriggerEnemyWave()
     {
-        enemyManager.allowSpawning = false; //Make sure auto spawn stays OFF
+        dialoguePanel.SetActive(false);  // Hide dialogue
+        GameManager.Instance.TutorialEnemySpawn();
         enemiesAlive = enemiesToSpawn;
-
-        for (int i = 0; i < enemiesToSpawn; i++)
-        {
-            enemyManager.SpawnEnemy();
-        }
+        waitingForEnemies = true;
     }
 
     // Call this from enemy death script
@@ -50,7 +49,9 @@ public class TutorialManager : MonoBehaviour
             // All enemies are dead, continue tutorial
             Debug.Log("All enemies killed. Continuing tutorial.");
             dialoguePanel.SetActive(true);
-            tutDialogue.NextLine(); // Move to next line (continue tutorial)
+            waitingForEnemies = false; // Reset flag for next wave
+            tutDialogue.ResumeDialogueAfterCombat();
+            // tutDialogue.NextLine(); // Move to next line (continue tutorial)
             // FindFirstObjectByType<TutorialManager>().OnEnemyKilled();
         }
     }

@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
+// using UnityEngine.SceneManagement; //remove
 
 public class TutDialogue : MonoBehaviour
 {
@@ -12,9 +13,15 @@ public class TutDialogue : MonoBehaviour
 
     [TextArea(3, 10)]
     public string[] dialogueLines;
-    public float typingSpeed = 0.05f;
+    public float typingSpeed = 0.01f;
     private int index;
     public int CurrentIndex => index;
+    private SceneController _SceneController;
+
+    void Awake()
+    {
+        _SceneController = SceneController.Instance;
+    }
 
     public void Start()
     {
@@ -36,6 +43,12 @@ public class TutDialogue : MonoBehaviour
             dialogueText.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        if (index == 3)
+        {
+            yield return new WaitForSeconds(1f); // Wait for 1 second before showing the continue button
+            GameManager.Instance.TutorialEnemySpawn(); // Spawn enemies after the dialogue
+        }
     }
 
     public void NextLine()
@@ -45,7 +58,7 @@ public class TutDialogue : MonoBehaviour
             index++;
             if (index == dialogueLines.Length - 1)
             {
-               continueButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ready";
+                continueButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ready";
             }
             StartCoroutine(TypeLine());
         }
@@ -53,8 +66,14 @@ public class TutDialogue : MonoBehaviour
         {
             // End of Dialogue
             Debug.Log("Dialogue finished.");
-            SceneManager.LoadScene(4); // Load next scene or perform any other action
+            _SceneController.LoadScene(4); // Load next scene or perform any other action
         }
+    }
+    
+    public void ResumeDialogueAfterCombat()
+    {
+        dialogueText.text = "";
+        StartCoroutine(TypeLine());
     }
 
 }
