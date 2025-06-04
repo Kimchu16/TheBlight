@@ -12,6 +12,8 @@ public class BossGoblin : EnemyController
     public override float AttackDamage => 30f;
     private bool wasChasing = false;
 
+    [SerializeField] private GameObject endScreenPrefab;
+
     protected override void Update()
     {
         base.Update();
@@ -54,10 +56,17 @@ public class BossGoblin : EnemyController
 
         if (SceneManager.GetActiveScene().buildIndex == 6)
         { // If this is the final level
-            SceneController.Instance.LoadScene(1); // Load title screen
+            endScreenPrefab = Instantiate(endScreenPrefab);
+
+            IntroSequence sequence = endScreenPrefab.GetComponent<IntroSequence>();
+            if (sequence != null)
+            {
+                sequence.shouldLoadScene = true;
+                sequence.sceneToLoad = 1;
+            }
         }
         else
-        {  
+        {
             GameManager.Instance.Victory();
         }
     }
