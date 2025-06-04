@@ -14,7 +14,7 @@ public class SceneUIManager : MonoBehaviour
         GameManager.Instance.enemyManager = enemyManager;
         Debug.Log($"[SceneUIManager] Assigned enemyManager: {enemyManager}");
        
-        if (SceneManager.GetActiveScene().buildIndex == 3) // If level 1 is being loaded
+        if (SceneManager.GetActiveScene().buildIndex == 4) // If level 1 is being loaded
         {
             GameManager.Instance.StartLevel(GameManager.Instance.currentLevel);
         }
