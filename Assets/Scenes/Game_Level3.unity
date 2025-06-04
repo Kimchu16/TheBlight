@@ -50842,6 +50842,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+--- !u!1001 &1931229789
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6012937553764275092, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_Name
+      value: TesterSpawnPoint Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -15.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c6deab6626e009542998699a4dec99da, type: 3}
+--- !u!4 &1931229790 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6731992733966156459, guid: c6deab6626e009542998699a4dec99da, type: 3}
+  m_PrefabInstance: {fileID: 1931229789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2040301763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50938,6 +51000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FogOfWar Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6724457049466791717, guid: 534d418d0e412b845960b9da01cbb8d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50959,6 +51025,10 @@ PrefabInstance:
       propertyPath: bossThreshold
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 378849960082199575, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
+      propertyPath: 'spawnPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1931229790}
     - target: {fileID: 3523807893808408512, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -51038,3 +51108,4 @@ SceneRoots:
   - {fileID: 179847816}
   - {fileID: 131559213}
   - {fileID: 1923553100}
+  - {fileID: 1931229789}
