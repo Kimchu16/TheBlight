@@ -15,6 +15,7 @@ public class Bootstrap : MonoBehaviour
         // Load your TitleScreen after managers are ready
         if (_sceneController.GetActiveScene() == 0)
         {
+            Debug.Log("Loading Title Screen from Bootstrap");
             _sceneController.LoadScene(1); // Load Title Screen
         }
         

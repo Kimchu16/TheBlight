@@ -22365,6 +22365,17 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1431290000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2916636316386989351, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+  m_PrefabInstance: {fileID: 1857234468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1483006668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22762,6 +22773,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1635715239
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.3188782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4280243
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.0126123
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094474337847503142, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834853395307043044, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: shopPanel
+      value: 
+      objectReference: {fileID: 1857234470}
+    - target: {fileID: 4834853395307043044, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: itemDisplay
+      value: 
+      objectReference: {fileID: 1431290000}
+    - target: {fileID: 4834853395307043044, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: rerollCostText
+      value: 
+      objectReference: {fileID: 1857234473}
+    - target: {fileID: 5104519794777126087, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: m_Name
+      value: ShopManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
 --- !u!1 &1694232867
 GameObject:
   m_ObjectHideFlags: 0
@@ -23037,19 +23117,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 1857234470}
-  rerollCostText: {fileID: 0}
-  itemDisplay: {fileID: 0}
-  breadSprite: {fileID: 0}
-  beerSprite: {fileID: 0}
-  healthSprite: {fileID: 0}
-  energySprite: {fileID: 0}
-  hungerSprite: {fileID: 0}
+  rerollCostText: {fileID: 1857234473}
+  itemDisplay: {fileID: 1431290000}
+  breadSprite: {fileID: -8048224626093743244, guid: b4ca9da862520ce469ec3fcecc47e283, type: 3}
+  beerSprite: {fileID: 8285215595028396028, guid: b4ca9da862520ce469ec3fcecc47e283, type: 3}
+  healthSprite: {fileID: -7208010392565453266, guid: 174343d9bbdabfd4f99eaabefe0c3eeb, type: 3}
+  energySprite: {fileID: 6879650723106267145, guid: 57c271e3ece34cd448be4ddd185ba927, type: 3}
+  hungerSprite: {fileID: 8682202080863282821, guid: 2649ea4acb787db4dbd9e260436e1297, type: 3}
   spinCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0027777671
+      value: 1.0015724
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0055556
+      value: 0.011006296
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1857234472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 900215130788570596, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+  m_PrefabInstance: {fileID: 1857234468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1857234473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2023413922245501581, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+  m_PrefabInstance: {fileID: 1857234468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2022904408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23307,8 +23427,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bfdaa0fa225943e4daa24703f81a53de, type: 2}
+  m_sharedMaterial: {fileID: 5929014843938347834, guid: bfdaa0fa225943e4daa24703f81a53de, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23520,8 +23640,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bfdaa0fa225943e4daa24703f81a53de, type: 2}
+  m_sharedMaterial: {fileID: 5929014843938347834, guid: bfdaa0fa225943e4daa24703f81a53de, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23657,8 +23777,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bfdaa0fa225943e4daa24703f81a53de, type: 2}
+  m_sharedMaterial: {fileID: 5929014843938347834, guid: bfdaa0fa225943e4daa24703f81a53de, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23879,10 +23999,10 @@ MonoBehaviour:
   coinCount: 9999
   beerCount: 0
   breadCount: 0
-  coinText: {fileID: 0}
-  beerText: {fileID: 0}
-  breadText: {fileID: 0}
-  shopCoinText: {fileID: 0}
+  coinText: {fileID: 3227822708471198847}
+  beerText: {fileID: 6277276112609250093}
+  breadText: {fileID: 7477115708689295624}
+  shopCoinText: {fileID: 1857234472}
 --- !u!1 &8489857754411301818
 GameObject:
   m_ObjectHideFlags: 0
@@ -23981,3 +24101,4 @@ SceneRoots:
   - {fileID: 1547245336}
   - {fileID: 171168460}
   - {fileID: 1483006668}
+  - {fileID: 1635715239}
