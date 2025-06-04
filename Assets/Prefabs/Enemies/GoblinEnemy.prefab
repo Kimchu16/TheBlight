@@ -156,7 +156,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 741092623
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -6045141606933174660, guid: 1720ca3aaf1b0314392b3b0f95930b17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -203,11 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b00cf0dd829c84ea75bd5424695273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
   coinPrefab: {fileID: 141098646025053599, guid: ea29bbf1734247646934e41a419ac35a, type: 3}
   isDying: 0
-  attackCooldown: 1
-  attackDamage: 10
   AttackHitBox: {fileID: 1668209612724575926}
   playerInRange: 0
 --- !u!114 &69638119575786633
@@ -223,7 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFillImage: {fileID: 4868409310975696645}
-  maxHealth: 10
   isDead: 0
 --- !u!50 &1331740314298872195
 Rigidbody2D:
@@ -233,7 +229,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3955192668813080460}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -251,7 +247,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3830677343991334607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -282,7 +278,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

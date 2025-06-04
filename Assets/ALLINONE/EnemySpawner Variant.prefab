@@ -13,6 +13,10 @@ PrefabInstance:
       value: EnemySpawner Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1898347034839207098, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898347034839207098, guid: 52aae7b599e5cf5409f7c43d9695ecaf, type: 3}
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 3955192668813080460, guid: 94333b154c38344419eca6be0d756f80, type: 3}

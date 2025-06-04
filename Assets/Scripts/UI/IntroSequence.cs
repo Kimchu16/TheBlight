@@ -12,8 +12,8 @@ public class IntroSequence : MonoBehaviour
     public TextMeshProUGUI continueHint;
     public float fadeDuration = 1f;
 
-    private bool typingDone = false;
-    private bool waitingForInput = false;
+    //private bool typingDone = false; // karl commented
+    //private bool waitingForInput = false; //karl commeneted
 
     //load end scene
     public bool shouldLoadScene = false;
@@ -37,8 +37,8 @@ public class IntroSequence : MonoBehaviour
         // Show "Press any key"
         yield return new WaitForSeconds(1f);
         continueHint.alpha = 1;
-        typingDone = true;
-        waitingForInput = true;
+        //typingDone = true; // karl commented
+        //waitingForInput = true; // karl commented
 
         // Wait for input
         yield return new WaitUntil(() => Input.anyKeyDown);
