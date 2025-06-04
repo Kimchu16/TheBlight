@@ -13,7 +13,7 @@ public class BaseCharacter : MonoBehaviour
     protected Vector2 lastMoveDirection = Vector2.down;
 
     // Health
-    public float maxHealth = 70f;
+    public float maxHealth = 700f;
     public float currentHealth;
     public Image healthBarFill;
 

@@ -5,7 +5,7 @@ public class EliteGoblin : EnemyController
 {
     protected override string AttackTriggerName => "GoblinEliteAttack";
     protected override string DeathTriggerName => "GoblinEliteDeath";
-    public override float MaxHealth => 60f;
+    public override float MaxHealth => 5f;
     public override float MoveSpeed => 4f;
     public override float AttackDamage => 5f;
 
