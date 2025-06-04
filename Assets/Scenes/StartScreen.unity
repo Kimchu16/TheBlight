@@ -331,12 +331,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 267189132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 607ea05414acb4a45880c6a3e48b0d93, type: 3}
+  m_Script: {fileID: 11500000, guid: e5843e3f519f403478bbfda62d18dc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  victoryPanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
-  enemyManager: {fileID: 0}
 --- !u!1 &452253419
 GameObject:
   m_ObjectHideFlags: 0

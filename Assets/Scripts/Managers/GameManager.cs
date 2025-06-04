@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (_sceneController.GetActiveScene() > 3)
+        if (_sceneController != null &&_sceneController.GetActiveScene() > 3)
         {
             StartLevel(currentLevel);
         }

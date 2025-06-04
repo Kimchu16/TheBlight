@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using Audio;
 
 public class ShopManager : MonoBehaviour
 {
@@ -21,21 +22,20 @@ public class ShopManager : MonoBehaviour
     private int rerollCount = 0;
     private int rerollCost = 0;
     private bool isRolling = false;
+    private bool isPaused = false;
 
     [SerializeField] private AnimationCurve spinCurve;
 
     private void Start()
     {
-        shopPanel.SetActive(false); // Hide the shop on start
         itemSprites = new Sprite[] { breadSprite, beerSprite, healthSprite, energySprite, hungerSprite };
         UpdateShopUI();
     }
 
-    public void ToggleShop()
-    {
-        shopPanel.SetActive(!shopPanel.activeSelf);
-        UpdateShopUI();
-    }
+    // public void ToggleShop()
+    // {
+    //     UpdateShopUI();
+    // }
 
     public void TryReroll()
     {
@@ -79,7 +79,7 @@ public class ShopManager : MonoBehaviour
             Sprite randomSprite = itemSprites[Random.Range(0, itemSprites.Length)];
             itemDisplay.sprite = randomSprite;
 
-            yield return new WaitForSeconds(interval); // Wait fixed time between spins
+            yield return new WaitForSecondsRealtime(interval); // Wait fixed time between spins
         }
 
         // After spin, pick a final result
@@ -127,13 +127,39 @@ public class ShopManager : MonoBehaviour
     {
         rerollCostText.text = rerollCost.ToString();
     }
-    
+
     void Update()
     {
-        // Check for P key press
-        if (Input.GetKeyDown(KeyCode.P))
+        // Check for E key press
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            ToggleShop();
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+                UpdateShopUI();
+            }
         }
+    }
+    
+    public void PauseGame()
+    {
+        shopPanel.SetActive(true);
+        Time.timeScale = 0f; // Pause the game
+        isPaused = true;
+        AudioManager.Instance.PlaySFX(SFXType.MenuClick);
+        
+    }
+
+    public void ResumeGame()
+    {
+        shopPanel.SetActive(false);
+        Time.timeScale = 1f; // Resume the game
+        isPaused = false;
+        AudioManager.Instance.PlaySFX(SFXType.MenuClick);
+
     }
 }

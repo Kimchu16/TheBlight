@@ -34,7 +34,12 @@ public class SceneController : MonoBehaviour
     public void LoadScene(int sceneName)
     {
         Time.timeScale = 1f;
-        Debug.Log("Starting scene load for scene: " + sceneName);
+        //Debug.Log("Starting scene load for scene: " + sceneName);
+        if (GetActiveScene() == 0)
+        {
+            SceneManager.LoadScene(1);// Load Title Screen if currently at index 0
+            return;
+        }
         StartCoroutine(LoadSceneCoroutine(sceneName));
         //SceneManager.LoadScene(sceneName);
     }
