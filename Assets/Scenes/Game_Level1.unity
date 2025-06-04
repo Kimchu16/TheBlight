@@ -23036,7 +23036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a26b874de3e1e149ad08671405c9725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopPanel: {fileID: 0}
+  shopPanel: {fileID: 1857234470}
   rerollCostText: {fileID: 0}
   itemDisplay: {fileID: 0}
   breadSprite: {fileID: 0}
