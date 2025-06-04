@@ -35,6 +35,7 @@ public class ShopManager : MonoBehaviour
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
         UpdateShopUI();
+        Time.timeScale = shopPanel.activeSelf ? 0f : 1f;
     }
 
     public void TryReroll()
@@ -131,7 +132,7 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         // Check for P key press
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             ToggleShop();
         }
