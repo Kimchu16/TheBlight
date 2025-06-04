@@ -570,7 +570,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5083750827106637096}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -665,7 +665,8 @@ MonoBehaviour:
   hungerDrainInterval: 10
   deathTriggerName: PlayerDie
   AttackHitBox: {fileID: 727997995224754331}
-  attackDuration: 0.2
+  hitboxStartDelay: 0.4
+  hitboxDuration: 0.3
 --- !u!1 &6786874342201866749
 GameObject:
   m_ObjectHideFlags: 0
