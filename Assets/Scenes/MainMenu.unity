@@ -1624,6 +1624,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5637480215316996524, guid: 57ccc6f0a40aef143953bf689631c4fd, type: 3}
+      propertyPath: newGameButton
+      value: 
+      objectReference: {fileID: 1207586485}
+    - target: {fileID: 5637480215316996524, guid: 57ccc6f0a40aef143953bf689631c4fd, type: 3}
+      propertyPath: continueButton
+      value: 
+      objectReference: {fileID: 1397160157}
     - target: {fileID: 6693273091338223522, guid: 57ccc6f0a40aef143953bf689631c4fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

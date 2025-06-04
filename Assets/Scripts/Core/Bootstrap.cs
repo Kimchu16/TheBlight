@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bootstrap : MonoBehaviour
 {
     private SceneController _sceneController;
+    public GameStateSO gameState;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject); // Makes PersistentManagers persistent
@@ -16,5 +17,8 @@ public class Bootstrap : MonoBehaviour
         {
             _sceneController.LoadScene(1); // Load Title Screen
         }
+        
+        gameState.LoadAll(); // Load game state data
+        
     }
 }

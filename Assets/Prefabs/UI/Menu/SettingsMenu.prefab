@@ -278,6 +278,10 @@ MonoBehaviour:
   displaySettingsPanel: {fileID: 6904982740984049857}
   otherSettingsPanel: {fileID: 4093447843005559871}
   audioBtn: {fileID: 338834010780364900}
+  gameState: {fileID: 11400000, guid: 4879e4d01438ec7499d56778abe6a088, type: 2}
+  sceneProgress: {fileID: 11400000, guid: ae1f89715364a0848b7d985610346b1e, type: 2}
+  eraseSceneProgressInInspector: 1
+  erasePlayerSaveInInspector: 0
 --- !u!1 &285751724828481954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3225,6 +3229,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7855825786722914466}
         m_TargetAssemblyTypeName: MenuButtonSFX, Assembly-CSharp
         m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5637480215316996524}
+        m_TargetAssemblyTypeName: SettingsMenuController, Assembly-CSharp
+        m_MethodName: ResetSelectedSavesInspector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

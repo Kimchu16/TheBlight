@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c71ece46d6fb1e4c95215cede314513, type: 3}
   m_Name: SceneProgess
   m_EditorClassIdentifier: 
-  lastScene: 4
+  lastScene: 0
   hasSeenIntroCutscene: 0
