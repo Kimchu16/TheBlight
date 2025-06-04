@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: enemyManager
       value: 
       objectReference: {fileID: 378849960082199575, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
+    - target: {fileID: 4347266648795316249, guid: 39ac71e5e62f25e469b5050b3025a368, type: 3}
+      propertyPath: startingEnemies
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

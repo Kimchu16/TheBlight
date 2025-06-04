@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public EnemyManagerV2 enemyManager;
 
     [Header("Level Settings")]
-    public int startingEnemies = 20;
+    public int startingEnemies = 5;
     public float startingSpawnInterval = 3f;
     private int currentLevel = 1;
 
@@ -47,10 +47,12 @@ public class GameManager : MonoBehaviour
 
         // Set enemy manager parameters based on level
         int enemiesToSpawn = startingEnemies + (level * 5); // Increase enemies each level
+        Debug.Log($"Enemies to spawn: {enemiesToSpawn}");
         float spawnInterval = Mathf.Max(1f, startingSpawnInterval - (level * 0.2f)); // Decrease spawn time each level (harder)
 
         enemyManager.SetMaxEnemies(enemiesToSpawn);
         enemyManager.SetSpawnInterval(spawnInterval);
+        enemyManager.SetBossThreshold(enemiesToSpawn);  // boss spawns after all regular enemies
         enemyManager.ResetSpawner();
     }
 

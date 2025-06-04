@@ -42,6 +42,7 @@ public class SceneController : MonoBehaviour
     public void NextScene()
     {
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        GameManager.Instance.NextLevel(); // Notify GameManager to prepare for next level
         LoadScene(nextScene);
     }
 
