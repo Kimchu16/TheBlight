@@ -50380,6 +50380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4679839500689758888, guid: bdea5abe517248f40a30a2d07d1c75ad, type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 2049744990}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50809,6 +50813,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
+--- !u!114 &2049744990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 378849960082199575, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
+  m_PrefabInstance: {fileID: 2049744989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c213246cb74ed4099397a358d3bf37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

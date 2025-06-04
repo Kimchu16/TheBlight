@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("Level Settings")]
     public int startingEnemies = 5;
     public float startingSpawnInterval = 3f;
-    private int currentLevel = 1;
+    public int currentLevel = 1;
 
     void Awake()
     {
@@ -29,7 +30,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartLevel(currentLevel);
+        if(SceneManager.GetActiveScene().buildIndex > 3)
+        {
+            StartLevel(currentLevel);
+        }
     }
 
     public void RegisterUI(SceneUIManager uiManager)
@@ -50,7 +54,12 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Enemies to spawn: {enemiesToSpawn}");
         float spawnInterval = Mathf.Max(1f, startingSpawnInterval - (level * 0.2f)); // Decrease spawn time each level (harder)
 
-        enemyManager.SetMaxEnemies(enemiesToSpawn);
+        if (enemyManager == null)
+        {
+            Debug.LogError("EnemyManager is not assigned in GameManager!");
+            return;
+        }
+        enemyManager.SetMaxEnemies(enemiesToSpawn + 1); // +1 for the boss
         enemyManager.SetSpawnInterval(spawnInterval);
         enemyManager.SetBossThreshold(enemiesToSpawn);  // boss spawns after all regular enemies
         enemyManager.ResetSpawner();
@@ -59,7 +68,7 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         currentLevel++;
-        StartLevel(currentLevel);
+        Debug.Log($"Advancing to Level {currentLevel}");
     }
 
     // Example win/lose condition
@@ -75,6 +84,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("You Win!");
         Time.timeScale = 0f;
-        victoryPanel.SetActive(true); 
+        victoryPanel.SetActive(true);
     }
 }

@@ -48,6 +48,7 @@ public class EnemyManagerV2 : MonoBehaviour
         {
             if (!bossSpawned && totalSpawned >= bossThreshold)
             {
+                Debug.Log("TotalSpawned: " + totalSpawned + " | Boss Threshold: " + bossThreshold);
                 StartCoroutine(SpawnBossWithDelay());
                 bossSpawned = true;
             }
@@ -152,6 +153,7 @@ public class EnemyManagerV2 : MonoBehaviour
 
     public void SetBossThreshold(int threshold)
 {
-    bossThreshold = threshold + 1;
+    Debug.Log($"Setting boss threshold to: {threshold}");
+    bossThreshold = threshold;
 }
 }
