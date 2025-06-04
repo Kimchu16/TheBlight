@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,16 +11,16 @@ public class GameManager : MonoBehaviour
     public EnemyManagerV2 enemyManager;
 
     [Header("Level Settings")]
-    public int startingEnemies = 20;
+    public int startingEnemies = 5;
     public float startingSpawnInterval = 3f;
-    private int currentLevel = 1;
+    public int currentLevel = 1;
 
     void Awake()
     {
         if (Instance == null && Instance != this)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);  
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -29,7 +30,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartLevel(currentLevel);
+        if (SceneManager.GetActiveScene().buildIndex > 3)
+        {
+            StartLevel(currentLevel);
+        }
     }
 
     public void RegisterUI(SceneUIManager uiManager)
@@ -47,17 +51,24 @@ public class GameManager : MonoBehaviour
 
         // Set enemy manager parameters based on level
         int enemiesToSpawn = startingEnemies + (level * 5); // Increase enemies each level
+        Debug.Log($"Enemies to spawn: {enemiesToSpawn}");
         float spawnInterval = Mathf.Max(1f, startingSpawnInterval - (level * 0.2f)); // Decrease spawn time each level (harder)
 
-        enemyManager.SetMaxEnemies(enemiesToSpawn);
+        if (enemyManager == null)
+        {
+            Debug.LogError("EnemyManager is not assigned in GameManager!");
+            return;
+        }
+        enemyManager.SetMaxEnemies(enemiesToSpawn + 1); // +1 for the boss
         enemyManager.SetSpawnInterval(spawnInterval);
+        enemyManager.SetBossThreshold(enemiesToSpawn);  // boss spawns after all regular enemies
         enemyManager.ResetSpawner();
     }
 
     public void NextLevel()
     {
         currentLevel++;
-        StartLevel(currentLevel);
+        Debug.Log($"Advancing to Level {currentLevel}");
     }
 
     // Example win/lose condition
@@ -66,13 +77,15 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over!");
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
-        
+
     }
 
     public void Victory()
     {
         Debug.Log("You Win!");
         Time.timeScale = 0f;
-        victoryPanel.SetActive(true); 
+        victoryPanel.SetActive(true);
     }
+    
+    
 }

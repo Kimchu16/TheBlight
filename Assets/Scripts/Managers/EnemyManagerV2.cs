@@ -25,7 +25,7 @@ public class EnemyManagerV2 : MonoBehaviour
 
     [Header("Spawn Settings")]
     public float spawnInterval = 3f;
-    public int maxEnemies = 20;
+    public int maxEnemies = 20; // always be +1 above the boss threshold to include the boss
     public int bossThreshold = 15;
 
     [Header("Boss Settings")]
@@ -48,6 +48,7 @@ public class EnemyManagerV2 : MonoBehaviour
         {
             if (!bossSpawned && totalSpawned >= bossThreshold)
             {
+                Debug.Log("TotalSpawned: " + totalSpawned + " | Boss Threshold: " + bossThreshold);
                 StartCoroutine(SpawnBossWithDelay());
                 bossSpawned = true;
             }
@@ -71,6 +72,7 @@ public class EnemyManagerV2 : MonoBehaviour
         Instantiate(selectedEnemy, spawnPos, Quaternion.identity);
 
         totalSpawned++;
+        Debug.Log("Total Spawned: " + totalSpawned + " | Enemy: " + selectedEnemy.name);
     }
 
     IEnumerator SpawnBossWithDelay()
@@ -148,4 +150,10 @@ public class EnemyManagerV2 : MonoBehaviour
     {
         maxEnemies = newMax;
     }
+
+    public void SetBossThreshold(int threshold)
+{
+    Debug.Log($"Setting boss threshold to: {threshold}");
+    bossThreshold = threshold;
+}
 }

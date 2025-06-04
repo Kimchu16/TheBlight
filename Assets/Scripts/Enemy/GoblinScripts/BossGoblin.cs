@@ -1,12 +1,13 @@
 using UnityEngine;
 using Audio;
+using UnityEngine.SceneManagement;
 
 
 public class BossGoblin : EnemyController
 {
     protected override string AttackTriggerName => "GoblinBossAttack";
     protected override string DeathTriggerName => "GoblinBossDeath";
-    public override float MaxHealth => 200f;
+    public override float MaxHealth => 10f;
     public override float MoveSpeed => 1.5f;
     public override float AttackDamage => 30f;
     private bool wasChasing = false;
@@ -40,16 +41,25 @@ public class BossGoblin : EnemyController
     public override void Die()
     {
         base.Die();
-        if (isDying) return;
-        AudioManager.Instance.PlaySFX(Audio.SFXType.GoblinEnemyDeath);
+        Debug.Log("BossGoblin Die called");
+        OnDeathComplete();
+        AudioManager.Instance.PlaySFX(SFXType.GoblinEnemyDeath);
         animator.SetTrigger(DeathTriggerName);
-        base.Die();
-        GameManager.Instance.Victory();
+        if (isDying) return;
     }
 
     protected override void OnDeathComplete()
     {
-        GameManager.Instance.Victory();
+        //Debug.Log("ondeathcomplete");
+
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        { // If this is the final level
+            SceneController.Instance.LoadScene(1); // Load title screen
+        }
+        else
+        {  
+            GameManager.Instance.Victory();
+        }
     }
 
     public override void Move(Vector3 direction)
@@ -73,7 +83,6 @@ public class BossGoblin : EnemyController
             AudioManager.Instance.StopContinuousSFX(SFXType.GoblinBossRun); // Stop run sound
             wasChasing = false;
         }
-
         base.Move(direction);
     }
 
