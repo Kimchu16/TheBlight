@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TutDialogue : MonoBehaviour
 {
@@ -15,16 +16,15 @@ public class TutDialogue : MonoBehaviour
     private int index;
     public int CurrentIndex => index;
 
-    void Start()
+    public void Start()
     {
         continueButton.onClick.AddListener(NextLine);
         StartDialogue();
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
         index = 0;
-        dialogueText.text = "";
         StartCoroutine(TypeLine());
     }
 
@@ -43,12 +43,17 @@ public class TutDialogue : MonoBehaviour
         if (index < dialogueLines.Length - 1)
         {
             index++;
+            if (index == dialogueLines.Length - 1)
+            {
+               continueButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ready";
+            }
             StartCoroutine(TypeLine());
         }
         else
         {
             // End of Dialogue
-            gameObject.SetActive(false);
+            Debug.Log("Dialogue finished.");
+            SceneManager.LoadScene(4); // Load next scene or perform any other action
         }
     }
 
