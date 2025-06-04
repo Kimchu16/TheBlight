@@ -1,13 +1,18 @@
 using UnityEngine;
 using Audio;
+using System.Collections;
 
 public class PlayerCharacter : BaseCharacter
 {
     private bool isAttacking = false;
     [SerializeField] private PlayerAttackHitbox AttackHitBox;
-    [SerializeField] private float attackDuration = 0.1f;
-    [SerializeField] private float attackCooldown = 1f; 
+
+    [Header("Attack Timings")]
+    [SerializeField] private float hitboxStartDelay = 0.4f; // When the attack visually hits
+    [SerializeField] private float hitboxDuration = 0.3f;   // How long damage is active
+
     private bool canAttack = true;
+    private Coroutine currentAttackRoutine;
 
     protected override void Start()
     {
@@ -17,50 +22,41 @@ public class PlayerCharacter : BaseCharacter
 
     protected override void Update()
     {
-
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.E) && !isAttacking && canAttack)
+        if (Input.GetKeyDown(KeyCode.E) && !isAttacking && canAttack && !animator.GetBool("IsAttacking"))
         {
-            Attack();
+            currentAttackRoutine = StartCoroutine(PerformAttack());
         }
-
     }
 
-    private void Attack()
+    private IEnumerator PerformAttack()
     {
-        canAttack = false;
         isAttacking = true;
+        canAttack = false;
 
+        // Set animation params
         animator.SetFloat("AttackX", lastMoveDirection.x);
         animator.SetFloat("AttackY", lastMoveDirection.y);
+        animator.SetBool("IsAttacking", true);
         animator.SetTrigger("Attack");
 
-        PlayAttackSound();
+        // Wait for the wind-up before hit
+        yield return new WaitForSeconds(hitboxStartDelay);
 
-        if (AttackHitBox != null)
-        {
-            AttackHitBox.EnableAttack(); // Allow damage during attack
-        }
-        Invoke(nameof(EndAttack), attackDuration);    
-        Invoke(nameof(ResetAttackCooldown), attackCooldown);
-    }
-    private void ResetAttackCooldown()
-    {
-        canAttack = true;
-    }
-
-    public void EndAttack() // Called via animation event
-    {
-        isAttacking = false;
-        if (AttackHitBox != null)
-        {
-            AttackHitBox.DisableAttack(); // Stop damage after attack
-        }
-    }
-
-    private void PlayAttackSound()
-    {
+        // Play sound and enable hitbox when the attack hits
         AudioManager.Instance.PlaySFX(SFXType.PlayerAttack);
+        AttackHitBox?.EnableAttack();
+
+        // Wait while hitbox is active
+        yield return new WaitForSeconds(hitboxDuration);
+
+        // Disable hitbox
+        AttackHitBox?.DisableAttack();
+
+        // Allow next attack immediately after hitbox ends
+        isAttacking = false;
+        canAttack = true;
+        animator.SetBool("IsAttacking", false);
     }
 }
