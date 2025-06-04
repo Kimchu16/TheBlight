@@ -36,11 +36,10 @@ public class EnemyManagerV2 : MonoBehaviour
     private int totalSpawned = 0;
     private bool bossSpawned = false;
     private bool isPausedForBoss = false;
-    public bool allowSpawning = true; // Karl added this 
 
     void Update()
     {
-        if (isPausedForBoss || !allowSpawning) return;  // Don't spawn while waiting for boss entrance (Karl added something here too)
+        if (isPausedForBoss) return;  // Don't spawn while waiting for boss entrance (Karl added something here too)
 
         timer += Time.deltaTime;
 

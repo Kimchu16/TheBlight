@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.SearchService;
+// using UnityEngine.SceneManagement; //remove
 
 public class TutDialogue : MonoBehaviour
 {
@@ -11,20 +13,25 @@ public class TutDialogue : MonoBehaviour
 
     [TextArea(3, 10)]
     public string[] dialogueLines;
-    public float typingSpeed = 0.05f;
+    public float typingSpeed = 0.01f;
     private int index;
     public int CurrentIndex => index;
+    private SceneController _SceneController;
 
-    void Start()
+    void Awake()
+    {
+        _SceneController = SceneController.Instance;
+    }
+
+    public void Start()
     {
         continueButton.onClick.AddListener(NextLine);
         StartDialogue();
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
         index = 0;
-        dialogueText.text = "";
         StartCoroutine(TypeLine());
     }
 
@@ -36,6 +43,12 @@ public class TutDialogue : MonoBehaviour
             dialogueText.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        if (index == 3)
+        {
+            yield return new WaitForSeconds(1f); // Wait for 1 second before showing the continue button
+            GameManager.Instance.TutorialEnemySpawn(); // Spawn enemies after the dialogue
+        }
     }
 
     public void NextLine()
@@ -43,13 +56,24 @@ public class TutDialogue : MonoBehaviour
         if (index < dialogueLines.Length - 1)
         {
             index++;
+            if (index == dialogueLines.Length - 1)
+            {
+                continueButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ready";
+            }
             StartCoroutine(TypeLine());
         }
         else
         {
             // End of Dialogue
-            gameObject.SetActive(false);
+            Debug.Log("Dialogue finished.");
+            _SceneController.LoadScene(4); // Load next scene or perform any other action
         }
+    }
+    
+    public void ResumeDialogueAfterCombat()
+    {
+        dialogueText.text = "";
+        StartCoroutine(TypeLine());
     }
 
 }

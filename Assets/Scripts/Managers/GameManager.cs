@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int startingEnemies = 5;
     public float startingSpawnInterval = 3f;
     public int currentLevel = 1;
+    public int tutorialEnemies = 3; // Number of enemies to spawn in the tutorial
 
     void Awake()
     {
@@ -34,6 +35,24 @@ public class GameManager : MonoBehaviour
         {
             StartLevel(currentLevel);
         }
+    }
+
+    public void TutorialEnemySpawn()
+    {
+        if (enemyManager == null)
+        {
+            Debug.LogError("EnemyManger is not assigned in GameManager!");
+            return;
+        }
+        enemyManager.ResetSpawner();
+        enemyManager.SetMaxEnemies(tutorialEnemies);
+        enemyManager.SetBossThreshold(tutorialEnemies + 1); // Above max so boss never spawns
+
+        for (int i = 0; i < tutorialEnemies; i++)
+        {
+            enemyManager.SpawnEnemy();
+        }
+        Debug.Log($"Spawning {tutorialEnemies} tutorial enemies.");
     }
 
     public void RegisterUI(SceneUIManager uiManager)

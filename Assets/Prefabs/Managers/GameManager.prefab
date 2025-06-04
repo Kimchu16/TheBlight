@@ -49,3 +49,5 @@ MonoBehaviour:
   enemyManager: {fileID: 0}
   startingEnemies: 20
   startingSpawnInterval: 3
+  currentLevel: 1
+  tutorialEnemies: 3
