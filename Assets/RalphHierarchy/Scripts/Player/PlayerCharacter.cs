@@ -24,7 +24,7 @@ public class PlayerCharacter : BaseCharacter
     {
         base.Update();
 
-        if (Input.GetMouseButtonDown(0) && !isAttacking && canAttack && !animator.GetBool("IsAttacking"))
+        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking && canAttack && !animator.GetBool("IsAttacking"))
         {// left mouse button clicked
             currentAttackRoutine = StartCoroutine(PerformAttack());
         }

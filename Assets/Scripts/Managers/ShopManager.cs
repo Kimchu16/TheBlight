@@ -29,6 +29,7 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         itemSprites = new Sprite[] { breadSprite, beerSprite, healthSprite, energySprite, hungerSprite };
+
         UpdateShopUI();
     }
 

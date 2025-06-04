@@ -5389,6 +5389,10 @@ PrefabInstance:
       propertyPath: shopCoinText
       value: 
       objectReference: {fileID: 389088517}
+    - target: {fileID: 8733003280664755392, guid: bdea5abe517248f40a30a2d07d1c75ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1884586238521606060, guid: b4ca9da862520ce469ec3fcecc47e283, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5425,6 +5429,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5843e3f519f403478bbfda62d18dc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &389088520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6111434918680883507, guid: bdea5abe517248f40a30a2d07d1c75ad, type: 3}
+  m_PrefabInstance: {fileID: 389088516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &389088521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6970807886488372889, guid: bdea5abe517248f40a30a2d07d1c75ad, type: 3}
+  m_PrefabInstance: {fileID: 389088516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &389088522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5015889942106773675, guid: bdea5abe517248f40a30a2d07d1c75ad, type: 3}
+  m_PrefabInstance: {fileID: 389088516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &557231675
 GameObject:
   m_ObjectHideFlags: 0
@@ -44968,6 +44999,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4834853395307043044, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: shopPanel
+      value: 
+      objectReference: {fileID: 389088522}
+    - target: {fileID: 4834853395307043044, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: itemDisplay
+      value: 
+      objectReference: {fileID: 389088520}
+    - target: {fileID: 4834853395307043044, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: coinCountText
+      value: 
+      objectReference: {fileID: 389088517}
+    - target: {fileID: 4834853395307043044, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
+      propertyPath: rerollCostText
+      value: 
+      objectReference: {fileID: 389088521}
     - target: {fileID: 5104519794777126087, guid: 827916c74e6dcfb4d9b6aa9ab0ccabc5, type: 3}
       propertyPath: m_Name
       value: ShopManager
