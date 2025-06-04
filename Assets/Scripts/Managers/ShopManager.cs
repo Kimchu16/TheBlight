@@ -34,16 +34,16 @@ public class ShopManager : MonoBehaviour
     public void ToggleShop()
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
-        // if (shopPanel.activeSelf )
-        // {
-        //     Debug.Log("Shop opened!");
-        //     Time.timeScale = 0f; // Pause the game
-        // }
-        // else
-        // {
-        //     Debug.Log("Shop closed!");
-        //     Time.timeScale = 1f; // Resume the game
-        // }
+        if (shopPanel.activeSelf )
+        {
+            Debug.Log("Shop opened!");
+            Time.timeScale = 0f; // Pause the game
+        }
+        else
+        {
+            Debug.Log("Shop closed!");
+            Time.timeScale = 1f; // Resume the game
+        }
         UpdateShopUI();
     }
 
@@ -89,7 +89,7 @@ public class ShopManager : MonoBehaviour
             Sprite randomSprite = itemSprites[Random.Range(0, itemSprites.Length)];
             itemDisplay.sprite = randomSprite;
 
-            yield return new WaitForSeconds(interval); // Wait fixed time between spins
+            yield return new WaitForSecondsRealtime(interval); // Wait fixed time between spins
         }
 
         // After spin, pick a final result
