@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    private SceneController _sceneController;
     public GameObject victoryPanel;
     public GameObject gameOverPanel;
 
@@ -17,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        _sceneController = SceneController.Instance;
         if (Instance == null && Instance != this)
         {
             Instance = this;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex > 3)
+        if (_sceneController.GetActiveScene() > 3)
         {
             StartLevel(currentLevel);
         }

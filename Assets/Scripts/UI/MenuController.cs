@@ -56,7 +56,10 @@ public class MenuController : MonoBehaviour
 
     public void NextScene()
     {
+        int next = _sceneController.GetActiveScene() + 1;
+        gameState.sceneProgress.lastScene = next; // Update last scene to next
         _sceneController.NextScene();
+        gameState.SaveAll(); // Save progress after moving to next scene
     }
 
     public void MainMenu()

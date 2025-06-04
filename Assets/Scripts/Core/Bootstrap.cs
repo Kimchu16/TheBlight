@@ -1,19 +1,24 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Bootstrap : MonoBehaviour
 {
+    private SceneController _sceneController;
+    public GameStateSO gameState;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject); // Makes PersistentManagers persistent
+        _sceneController = SceneController.Instance;
     }
 
     private void Start()
     {
         // Load your TitleScreen after managers are ready
-        if (SceneManager.GetActiveScene().name == "PersistentManagers")
+        if (_sceneController.GetActiveScene() == 0)
         {
-            SceneManager.LoadScene(1);
+            _sceneController.LoadScene(1); // Load Title Screen
         }
+        
+        gameState.LoadAll(); // Load game state data
+        
     }
 }
