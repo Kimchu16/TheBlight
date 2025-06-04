@@ -30,6 +30,12 @@ public class AudioManager : MonoBehaviour
     private Dictionary<SFXType, AudioClip> sfxClipsDict;
     private Dictionary<SFXType, AudioSource> continuousSFXSources = new Dictionary<SFXType, AudioSource>();
 
+    [Header("BGM Clips")]
+    [SerializeField] private List<BGMClip> bgmClipsList;
+
+    private Dictionary<BGMType, AudioClip> bgmClipsDict;
+
+
     private void Awake()
     {
         // Singleton
@@ -50,6 +56,17 @@ public class AudioManager : MonoBehaviour
                 sfxClipsDict.Add(sfxClip.type, sfxClip.clip);
             }
         }
+
+        //Setup dictionary for bgm
+        bgmClipsDict = new Dictionary<BGMType, AudioClip>();
+        foreach (var bgmClip in bgmClipsList)
+        {
+            if (!bgmClipsDict.ContainsKey(bgmClip.type))
+            {
+                bgmClipsDict.Add(bgmClip.type, bgmClip.clip);
+            }
+        }
+
     }
 
     private void Start()
@@ -122,12 +139,27 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayBGM(AudioClip clip)
+    public void PlayBGM(BGMType type)
     {
-        if (bgmSource.clip == clip) return; // Don't replay same BGM
-        bgmSource.clip = clip;
-        bgmSource.Play();
+        if (bgmClipsDict.TryGetValue(type, out AudioClip clip))
+        {
+            //if (bgmSource.clip == clip) return; // Don't restart same clip
+            bgmSource.clip = clip;
+            bgmSource.loop = true;
+            Debug.Log("Playing BGM: " + clip);
+            bgmSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning($"BGM {type} not found!");
+        }
     }
+
+    public void StopBGM()
+    {
+        bgmSource.Stop();
+    }
+
 
     public void SetMasterVolume(float volume)
     {
@@ -152,5 +184,12 @@ public class AudioManager : MonoBehaviour
 public class SFXClip
 {
     public SFXType type;
+    public AudioClip clip;
+}
+
+[System.Serializable]
+public class BGMClip
+{
+    public BGMType type;
     public AudioClip clip;
 }

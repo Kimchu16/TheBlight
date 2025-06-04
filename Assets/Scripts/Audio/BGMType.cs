@@ -1,9 +1,13 @@
 namespace Audio
 {
-    public enum BGMType{
-        MainMenu,
-        Game,
-        BossFight,
+    public enum BGMType
+    {
+        MainBGM,
+        Level1,
+        Level2,
+        Level3,
+        
+
         // Add more as needed
-}    
+    }    
 }
