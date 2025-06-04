@@ -71,6 +71,7 @@ public class EnemyManagerV2 : MonoBehaviour
         Instantiate(selectedEnemy, spawnPos, Quaternion.identity);
 
         totalSpawned++;
+        Debug.Log("Total Spawned: " + totalSpawned + " | Enemy: " + selectedEnemy.name);
     }
 
     IEnumerator SpawnBossWithDelay()
@@ -148,4 +149,9 @@ public class EnemyManagerV2 : MonoBehaviour
     {
         maxEnemies = newMax;
     }
+
+    public void SetBossThreshold(int threshold)
+{
+    bossThreshold = threshold + 1;
+}
 }

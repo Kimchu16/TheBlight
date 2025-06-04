@@ -22615,11 +22615,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 378849960082199575, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
       propertyPath: maxEnemies
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 378849960082199575, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
       propertyPath: bossThreshold
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3523807893808408512, guid: c2d0f2c0bb9038f4a904cc7453fb924f, type: 3}
       propertyPath: m_Enabled
