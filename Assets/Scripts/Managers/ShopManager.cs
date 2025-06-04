@@ -34,8 +34,17 @@ public class ShopManager : MonoBehaviour
     public void ToggleShop()
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
+        // if (shopPanel.activeSelf )
+        // {
+        //     Debug.Log("Shop opened!");
+        //     Time.timeScale = 0f; // Pause the game
+        // }
+        // else
+        // {
+        //     Debug.Log("Shop closed!");
+        //     Time.timeScale = 1f; // Resume the game
+        // }
         UpdateShopUI();
-        Time.timeScale = shopPanel.activeSelf ? 0f : 1f;
     }
 
     public void TryReroll()
@@ -131,7 +140,7 @@ public class ShopManager : MonoBehaviour
     
     void Update()
     {
-        // Check for P key press
+        // Check for E key press
         if (Input.GetKeyDown(KeyCode.E))
         {
             ToggleShop();

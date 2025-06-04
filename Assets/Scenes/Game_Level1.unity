@@ -23033,6 +23033,34 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 5929014843938347834, guid: bfdaa0fa225943e4daa24703f81a53de, type: 2}
+    - target: {fileID: 5897762921804204958, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897762921804204958, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897762921804204958, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1857234471}
+    - target: {fileID: 5897762921804204958, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897762921804204958, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryReroll
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897762921804204958, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897762921804204958, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8687224004788225631, guid: ce791e96a3e615e45b009bb310fd39fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
