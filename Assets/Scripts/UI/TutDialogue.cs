@@ -18,6 +18,9 @@ public class TutDialogue : MonoBehaviour
     public int CurrentIndex => index;
     private SceneController _SceneController;
 
+    //intro
+    [SerializeField] private GameObject startScreenPrefab;
+
     void Awake()
     {
         _SceneController = SceneController.Instance;
@@ -66,7 +69,17 @@ public class TutDialogue : MonoBehaviour
         {
             // End of Dialogue
             Debug.Log("Dialogue finished.");
-            _SceneController.LoadScene(4); // Load next scene or perform any other action
+
+            startScreenPrefab = Instantiate(startScreenPrefab);
+
+            IntroSequence sequence = startScreenPrefab.GetComponent<IntroSequence>();
+            if (sequence != null)
+            {
+                //_SceneController.LoadScene(4);
+                sequence.shouldLoadScene = true;
+                sequence.sceneToLoad = 4;
+            }
+             // Load next scene or perform any other action
         }
     }
     

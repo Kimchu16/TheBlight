@@ -24,7 +24,7 @@ public class PlayerCharacter : BaseCharacter
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.E) && !isAttacking && canAttack && !animator.GetBool("IsAttacking"))
+        if (Input.GetKeyDown(KeyCode.E) && !isAttacking && canAttack && !animator.GetBool("isAttacking"))
         {
             currentAttackRoutine = StartCoroutine(PerformAttack());
         }
@@ -38,7 +38,6 @@ public class PlayerCharacter : BaseCharacter
         // Set animation params
         animator.SetFloat("AttackX", lastMoveDirection.x);
         animator.SetFloat("AttackY", lastMoveDirection.y);
-        animator.SetBool("isAttacking", true);
         animator.SetTrigger("Attack");
 
         // Wait for the wind-up before hit
@@ -57,6 +56,5 @@ public class PlayerCharacter : BaseCharacter
         // Allow next attack immediately after hitbox ends
         isAttacking = false;
         canAttack = true;
-        animator.SetBool("isAttacking", false);
     }
 }
