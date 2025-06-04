@@ -16,6 +16,8 @@ public class BossGoblin : EnemyController
         _sceneController = SceneController.Instance;
     }
 
+    [SerializeField] private GameObject endScreenPrefab;
+
     protected override void Update()
     {
         base.Update();
@@ -58,10 +60,17 @@ public class BossGoblin : EnemyController
 
         if (_sceneController.GetActiveScene() == 6)
         { // If this is the final level
-            SceneController.Instance.LoadScene(1); // Load title screen
+            endScreenPrefab = Instantiate(endScreenPrefab);
+
+            IntroSequence sequence = endScreenPrefab.GetComponent<IntroSequence>();
+            if (sequence != null)
+            {
+                sequence.shouldLoadScene = true;
+                sequence.sceneToLoad = 1;
+            }
         }
         else
-        {  
+        {
             GameManager.Instance.Victory();
         }
     }

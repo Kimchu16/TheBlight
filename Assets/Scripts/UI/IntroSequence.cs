@@ -15,6 +15,10 @@ public class IntroSequence : MonoBehaviour
     private bool typingDone = false;
     private bool waitingForInput = false;
 
+    //load end scene
+    public bool shouldLoadScene = false;
+    public int sceneToLoad = 1;
+
     void Start()
     {
         canvasGroup.alpha = 0;
@@ -45,6 +49,14 @@ public class IntroSequence : MonoBehaviour
         // Destroy or notify game
         Destroy(gameObject);
         // OR: GameManager.Instance.StartGame();
+        if (shouldLoadScene)
+        {
+            SceneController.Instance.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator TypeText()

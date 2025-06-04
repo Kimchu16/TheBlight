@@ -425,7 +425,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 741092623
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 3598085503087011078, guid: b908f800b8f43bc4bb1547ff1bcc7832, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -472,13 +472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693191360ab0f14458d76351a65748cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
   coinPrefab: {fileID: 141098646025053599, guid: ea29bbf1734247646934e41a419ac35a, type: 3}
   isDying: 0
-  attackCooldown: 1
-  attackDamage: 10
   AttackHitBox: {fileID: 2564798866429944638}
   playerInRange: 0
+  endScreenPrefab: {fileID: 6837558581343731496, guid: 296f67c8c5e57454d85c68c77e639582, type: 3}
 --- !u!114 &6382387107646608738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthFillImage: {fileID: 564012067584536234}
-  maxHealth: 100
   isDead: 0
 --- !u!50 &2260159830880806750
 Rigidbody2D:
