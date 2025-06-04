@@ -25,7 +25,7 @@ public class EnemyManagerV2 : MonoBehaviour
 
     [Header("Spawn Settings")]
     public float spawnInterval = 3f;
-    public int maxEnemies = 20;
+    public int maxEnemies = 20; // always be +1 above the boss threshold to include the boss
     public int bossThreshold = 15;
 
     [Header("Boss Settings")]

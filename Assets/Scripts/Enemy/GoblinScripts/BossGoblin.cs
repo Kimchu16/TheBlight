@@ -6,7 +6,7 @@ public class BossGoblin : EnemyController
 {
     protected override string AttackTriggerName => "GoblinBossAttack";
     protected override string DeathTriggerName => "GoblinBossDeath";
-    public override float MaxHealth => 200f;
+    public override float MaxHealth => 10f;
     public override float MoveSpeed => 1.5f;
     public override float AttackDamage => 30f;
     private bool wasChasing = false;
@@ -40,15 +40,16 @@ public class BossGoblin : EnemyController
     public override void Die()
     {
         base.Die();
-        if (isDying) return;
-        AudioManager.Instance.PlaySFX(Audio.SFXType.GoblinEnemyDeath);
+        Debug.Log("BossGoblin Die called");
+        OnDeathComplete();
+        AudioManager.Instance.PlaySFX(SFXType.GoblinEnemyDeath);
         animator.SetTrigger(DeathTriggerName);
-        base.Die();
-        GameManager.Instance.Victory();
+        if (isDying) return;
     }
 
     protected override void OnDeathComplete()
     {
+        Debug.Log("ondeathcomplete");
         GameManager.Instance.Victory();
     }
 
