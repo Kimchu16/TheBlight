@@ -5,9 +5,9 @@ public class BossGoblin : EnemyController
 {
     protected override string AttackTriggerName => "GoblinBossAttack";
     protected override string DeathTriggerName => "GoblinBossDeath";
-    public override float MaxHealth => 10f;
+    public override float MaxHealth => 90f;
     public override float MoveSpeed => 1.5f;
-    public override float AttackDamage => 30f;
+    public override float AttackDamage => 7f;
     private bool wasChasing = false;
     private SceneController _sceneController;
 

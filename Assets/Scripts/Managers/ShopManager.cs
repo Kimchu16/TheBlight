@@ -106,7 +106,7 @@ public class ShopManager : MonoBehaviour
                 }
                 break;
             case 1: // Beer
-                int beerAmount = Random.Range(1, 3);
+                int beerAmount = Random.Range(1, 5);
                 for (int i = 0; i < beerAmount; i++)
                 {
                     InventoryManager.Instance.AddBeer();

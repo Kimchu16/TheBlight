@@ -12,7 +12,7 @@ public class TutorialManager : MonoBehaviour
     [Header("Spawn Settings")]
     public int enemiesToSpawn = 3;
     public int enemiesAlive = 0;
-    private bool waitingForEnemies = false; // Flag to check if we are waiting for
+    public bool waitingForEnemies = false; // Flag to check if we are waiting for
 
     void Start()
     {

@@ -3,9 +3,9 @@ using Audio;
 
 public class EnemyGoblin : EnemyController
 {
-    public override float MaxHealth => 5f;
-    public override float MoveSpeed => 2.5f;
-    public override float AttackDamage => 7f;
+    public override float MaxHealth => 15f;
+    public override float MoveSpeed => 2f;
+    public override float AttackDamage => 5f;
     private bool wasChasing = false;
 
     protected override void Update()

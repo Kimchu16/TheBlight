@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
-using UnityEditor.SearchService;
 // using UnityEngine.SceneManagement; //remove
 
 public class TutDialogue : MonoBehaviour
